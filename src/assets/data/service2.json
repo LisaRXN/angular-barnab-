@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "image": "assets/img/icon/megaphone-yellow.png",
+    "backGroundColor": "mygrey2",
+    "textColor": "white",
+    "text" : {"text1": "Diffusion de votre annonce sur", "number":"50", "text2":"plateformes de référence"},
+    "description" : [
+    {"text":"Diffusion d'annonces de vente et viager."}, 
+    {"text":"Que ce soit un appartement, une maison, un local commercial, un bureau, un immeuble et bien d’autres.."}      
+  ]
+  },
+  {
+    "id": "2",
+    "image": "assets/img/icon/calendar_60.png",
+    "backGroundColor": "myyellow1",
+    "textColor": "mygrey1",
+    "text" :  
+    {"text1": "Durée", "number":"illimité", "text2":"diffusion de votre annonce jusqu’à la vente"}
+    ,
+    "description" : [
+    {"text":"Mise en pause ou suppression  à tout moment."},
+    {"text":"Modification illimitée de vos annonces."},
+    {"text":"Boost hebdomadaire pour maximiser la visibilité sur les plateformes."}
+  ]
+  },
+  {
+    "id": "3",
+    "image": "assets/img/icon/credit-card.png",
+    "backGroundColor": "myyellow2",
+    "textColor": "mygrey1",
+    "text" : 
+      {"text1": "Dépôt de votre annonce", "number":"0 €", "text2":"sans abonnement, sans engagement !"}
+    ,
+    "description" : [
+    {"text":"Paiement au succès, si la vente se fait via un site partenaire."},    
+    {"text": "Paiement basé sur un partage de commission, selon le type de mandat (simple ou exclusif)."}    ]
+  }
+]

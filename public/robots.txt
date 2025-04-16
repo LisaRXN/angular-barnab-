@@ -1,0 +1,13 @@
+# Autoriser tous les robots (voir http://www.robotstxt.org/robotstxt.html)
+
+# Règles pour tous les robots
+User-agent: *
+Allow: /
+Disallow: /dashboard/           # Décommentez pour bloquer l'accès à /dashboard/
+
+
+# Délai de crawl recommandé (en secondes)
+Crawl-delay: 3
+
+# Emplacement du sitemap
+Sitemap: https://www.diffuze.fr/sitemap.xml

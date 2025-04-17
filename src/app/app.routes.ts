@@ -3,10 +3,7 @@ import { inject } from '@angular/core';
 import { authGuardFunction } from './core/guards/auth.guard';
 import { AuthSelectors } from './dashboard/stores/auth/auth.selectors';
 import { Store } from '@ngxs/store';
-import { AppComponent } from './app.component';
 import { LayoutComponent } from './public/layout/layout.component';
-import { AnnoncesComponent } from './public/views/annonces/annonces.component';
-import { AnnonceDetailComponent } from './public/views/annonce-detail/annonce-detail.component';
 
 export const routes: Routes = [
   {
@@ -36,13 +33,41 @@ export const routes: Routes = [
             (m) => m.HomeComponent
           ),
       },
-      // {
-      //   path: 'notre-offre',
-      //   loadComponent: () =>
-      //     import('./public/views/service/service.component').then(
-      //       (m) => m.ServiceComponent
-      //     ),
-      // },
+      {
+        path: 'pack-visibilite-coaching',
+        loadComponent: () =>
+          import('./public/views/pack-coaching/pack-coaching.component').then(
+            (m) => m.PackCoachingComponent
+          ),
+      },
+      {
+        path: 'pack-visibilite-vente-interactive',
+        loadComponent: () =>
+          import('./public/views/pack-encheres/pack-encheres.component').then(
+            (m) => m.PackEncheresComponent
+          ),
+      },
+      {
+        path: 'pack-reportage-photo-visite3D',
+        loadComponent: () =>
+          import('./public/views/pack-reportage/pack-reportage.component').then(
+            (m) => m.PackReportageComponent
+          ),
+      },
+      {
+        path: 'estimation-immobiliere-gratuite-en-ligne',
+        loadComponent: () =>
+          import('./public/views/outil-estimation/outil-estimation.component').then(
+            (m) => m.OutilEstimationComponent
+          ),
+      },
+      {
+        path: 'redaction-annonce-immobiliere-gratuite-en-ligne',
+        loadComponent: () =>
+          import('./public/views/outil-redaction/outil-redaction.component').then(
+            (m) => m.OutilRedactionComponent
+          ),
+      },
       {
         path: 'annonces',
         children: [

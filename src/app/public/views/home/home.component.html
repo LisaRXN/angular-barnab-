@@ -1,23 +1,26 @@
+<!-- Hero -->
 <section
   id="hero"
-  class="relative h-[700px] bg-[url('/assets/img/photo/immeuble1.jpg')] bg-cover bg-center flex items-center justify-center"
+  class="px-5 relative h-[calc(100vh-50px)] md:h-[700px] bg-[url('/assets/img/photo/immeuble1.jpg')] bg-cover bg-center flex items-center justify-center"
 >
   <div class="bg-myblue opacity-50 absolute inset-0 w-full h-full"></div>
 
   <div class="z-20 flex flex-col items-center text-white">
-    <p class="font-alternates text-sm font-medium">
+    <p class="font-alternates text-sm font-medium mb-4">
       L'immobilier entre vos mains
     </p>
-    <h1 class="text-[75px] leading-none font-paytone text-center mb-6">
+    <h1
+      class="z-20 text-[40px] md:text-[75px] leading-none font-paytone text-center mb-6"
+    >
       Vendez comme un pro <br />
       <span class="font-alternates italic"> sans commission </span>
     </h1>
-    <p class="md:w-3/4 text-center font-alternates text-xl mb-6">
+    <p class="md:w-3/4 text-center font-alternates text-xl mb-10">
       Accélérez votre vente en toute autonomie avec nos outils et notre
       accompagnement
     </p>
     <div
-      class="relative border border-white rounded-xl flex items-center py-5 px-10 justify-center gap-10"
+      class="relative border border-white rounded-xl flex flex-col md:flex-row items-center py-5 px-10 justify-center gap-5 md:gap-10 mb-10"
     >
       <div
         class="absolute w-full h-full inset-0 bg-white/10 backdrop-blur-lg rounded-xl"
@@ -32,8 +35,146 @@
         >Estimer mon bien</a
       >
     </div>
+    <div class="flex items-center justify-center gap-4">
+      <img src="assets/img/icon/etoiles.png" class="w-24 h-auto" alt="" />
+      <p class="font-light font-alternates text-lg">
+        4,9/5 sur plus de 100 avis clients
+      </p>
+    </div>
   </div>
 </section>
 
+<!-- Nos Partenaires -->
+<section id="platforms" class="px-5 py-10 md:py-20 max-w-screen-xl m-auto">
+  <h2
+    class="text-xl md:text-2xl font-medium font-jakarta text-zinc-500 w-full text-center mb-6 md:mb-0"
+  >
+    Nos partenaires de diffusion
+  </h2>
+  <!-- Carousel -->
+  <div class="relative flex items-stretch px-5 md:px-20">
+    <div #carousel class="carousel rounded-t">
+      <div
+        *ngFor="let platform of platforms"
+        class="carousel-item px-5 md:p-10"
+      >
+        <img
+          [src]="platform.image"
+          class="rounded-xl w-14 md:w-32 h-auto object-contain"
+          alt=""
+        />
+        <div
+          class="absolute left-2 right-2 md:left-10 md:right-10 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <i (click)="prevSlide()" class="fa-solid fa-chevron-left text-lg"></i>
+          <i
+            (click)="nextSlide()"
+            class="fa-solid fa-chevron-right text-lg"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Nos Formules -->
 
+<div
+  class="px-5 md:px-10 flex items-center justify-start gap-4 mb-6 md:mb-10 md:max-w-screen-2xl m-auto"
+>
+  <span class="h-3 w-3 rounded-full bg-myorange"></span>
+  <p class="text-myzinc">Découvrez nos formules</p>
+</div>
+<section
+  id="offers"
+  class="px-5 md:px-20 max-w-screen-2xl m-auto font-jakarta"
+>
+  <!-- Titre -->
+  <div class="flex items-center justify-between mb-8 md:mb-16 text-myzinc">
+    <p class="text-5xl font-semibold">Votre vente, notre soutien</p>
+    <div
+      class="hidden md:flex items-center justify-center border border-myzinc gap-5 rounded-full w-[240px] py-3 text-lg"
+    >
+      <a routerLink="/pack-visibilite-coaching">En savoir plus</a>
+      <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-45" />
+    </div>
+  </div>
+  <p class="text-xl font-light font-open text-zinc-950 mb-8 md:mb-16">
+    Vous n'arrivez pas à vendre ? Vous souhaitez être accompagné pour vendre
+    votre bien ? Vous souhaitez garder la main sur la vente de votre bien ? Nous
+    avons une formule adapté à vos besoins.
+  </p>
+  <!-- Formules -->
+
+  <div class="flex flex-col lg:flex-row gap-10 xl:gap-20 items-center justify-center">
+     <!-- Formule n°1 -->
+    <div class="w-full sm:w-[500px] 2xl:w-[620px] rounded-[50px] overflow-hidden font-jakarta">
+      <div
+        class="relative bg-[url('/assets/img/photo/appartement2.jpg')] bg-cover bg-center h-[320px] md:h-[380px]"
+      >
+        <div class="z-0 absolute bg-white/50 backdrop-blur-lg w-full h-full inset-0"></div>
+        <a routerLink="/pack-visibilite-coaching" class="absolute top-7 right-7 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45">
+        </a>
+        <div
+          class="z-20 py-10 md:py-16 h-full m-auto flex flex-col items-center justify-center text-center gap-4 md:gap-8 text-myblue font-jakarta"
+        >
+          <p class="z-20 font-light md:text-lg w-1/2 md:w-full">Boostez la vente de votre bien</p>
+          <p class="z-20 font-bold text-xl md:text-3xl">Formule<br> Visibilité & Coaching</p>
+          <p class="z-20 font-semibold text-3xl md:text-5xl">299 €</p>
+          <div class="z-20 flex items-center justify-start gap-2">
+            <img src="assets/img/logo/klarna.png" class="w-10" alt="" />
+            <p class="font-light md:text-lg">Paiement en 3x avec Klarna</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-10 2xl:p-14 bg-myblue h-auto md:h-[385px] place-items-start gap-y-2 grid grid-cols-[1fr_7fr] text-white font-open text-lg ">
+        <div class="pt-2"><img src="assets/img/icon/rocket-white.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Diffusion de votre annonce sur <span class="font-semibold">50 plateformes</span> de référence</div>
+        <div class="pt-2"><img src="assets/img/icon/coach-white.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Un expert immobilier dédié disponible 6j/7 pour vous coacher jusqu’à la vente</div>
+        <div class="pt-2"><img src="assets/img/icon/chart-white.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Estimation en ligne</div>
+        <div class="pt-2"><img src="assets/img/icon/pen-white.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Rédaction intelligente de l'annonce</div>
+        <div class="pt-2"><img src="assets/img/icon/camera-white.png" class="w-5 h-auto object-contain"></div>
+        <div class=""><a routerLink="/pack-reportage-photo-visite3D" class="underline">Pack Photos professionnelles & Visite 3D</a> en option</div>
+      </div>
+    </div>
+     <!-- Formule n°2 -->
+     <div class="w-full sm:w-[500px] 2xl:w-[620px] rounded-[50px] overflow-hidden font-jakarta">
+      <div
+        class="relative bg-[url('/assets/img/photo/appartement1.jpg')] bg-cover bg-center md:pt-0 h-[320px] md:h-[370px]"
+      >
+        <div class="z-0 absolute bg-white/50 backdrop-blur-lg w-full h-full inset-0"></div>
+        <a routerLink="/pack-visibilite-coaching" class="absolute top-7 right-7 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45">
+        </a>
+        <div
+          class="z-20 py-10 md:py-14 h-full m-auto flex flex-col items-center justify-center text-center gap-4 md:gap-8 text-myblue font-jakarta"
+        >
+        <p class="z-20 font-light md:text-lg w-1/2 md:w-full">Boostez la vente de votre bien</p>
+        <p class="z-20 font-bold text-xl md:text-3xl">Formule<br>Visibilité & Vente Interactive</p>
+          <p class="z-20 font-semibold text-3xl md:text-5xl">399 €</p>
+          <div class="z-20 flex items-center justify-start gap-2">
+            <img src="assets/img/logo/klarna.png" class="w-10" alt="" />
+            <p class="font-light md:text-lg">Paiement en 3x avec Klarna</p>
+          </div>
+        </div>
+      </div>
+      <div class="p-10 2xl:p-14 bg-myorange h-auto md:h-[385px] place-items-start gap-y-2 grid grid-cols-[1fr_7fr] text-myblue font-open text-lg ">
+        <div class="pt-2"><img src="assets/img/icon/rocket-blue.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Diffusion de votre annonce sur <span class="font-semibold">50 plateformes</span> de référence</div>
+        <div class="pt-2"><img src="assets/img/icon/house-blue.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Accès à la Vente Interactive : votre bien mis aux enchères en ligne</div>
+        <div class="pt-2"><img src="assets/img/icon/chart-blue.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Estimation en ligne</div>
+        <div class="pt-2"><img src="assets/img/icon/pen-blue.png" class="w-5 h-auto object-contain"></div>
+        <div class="">Rédaction intelligente de l'annonce</div>
+        <div class="pt-2"><img src="assets/img/icon/camera-blue.png" class="w-5 h-auto object-contain"></div>
+        <div class=""><a routerLink="/pack-reportage-photo-visite3D" class="underline">Pack Photos professionnelles & Visite 3D</a> en option</div>
+      </div>
+    </div>
+      
+  </div>
+</section>

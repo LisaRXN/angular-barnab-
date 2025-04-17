@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
 import { NumberCardComponent } from './components/number-card/number-card.component';
-import reviewsDetails from '../../../../assets/data/reviews.json';
+import platformsDetails from '../../../../assets/data/partners.json';
 
 @Component({
   selector: 'app-home',
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   isCarouselStart = true;
   isCarouselEnd = false;
   hasStartedAnimation: boolean = false;
-  reviews = reviewsDetails;
+  platforms = platformsDetails;
 
   @ViewChild(PartnersDialogComponent) dialogComponent!: PartnersDialogComponent;
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
@@ -95,5 +95,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     } else {
       console.error('modalComponent est undefined');
     }
+  }
+
+  prevSlide() {
+    const carousel = this.carousel.nativeElement;
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+  }
+
+  nextSlide() {
+    const carousel = this.carousel.nativeElement;
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
   }
 }

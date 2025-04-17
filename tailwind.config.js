@@ -54,6 +54,7 @@ module.exports = {
         success: "#36D399",
         warning: "#FBBD23",
         error: "#F87272",
+        myzinc:"#193252",
         myblue: "#020B78",
         myblue2: "#F2F3F8",
         myorange: "#FF8B37",

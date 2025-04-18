@@ -18,12 +18,15 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
 import { NumberCardComponent } from './components/number-card/number-card.component';
 import platformsDetails from '../../../../assets/data/partners.json';
+import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 
 @Component({
   selector: 'app-home',
   imports: [
     CommonModule,
     RouterLink,
+    SectionTitleComponent,
+    NgOptimizedImage
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

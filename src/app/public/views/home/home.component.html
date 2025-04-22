@@ -34,7 +34,7 @@
       />
       <a
         routerLink="/estimation"
-        class="z-10 text-sm whitespace-nowrap bg-myorange text-center rounded-full py-2 px-3 md:px-8 md:py-3 hover:bg-myorange/90 transition-all transition-300"
+        class="z-10 text-sm whitespace-nowrap bg-myorange text-center rounded-full py-2 px-3 md:px-8 md:py-3 hover:bg-orange-500 transition-all duration-300"
         >Estimer mon bien</a
       >
     </div>
@@ -144,7 +144,10 @@
         </div>
         <div class="">
           Diffusion de votre annonce sur
-          <span class="font-semibold">50 plateformes</span> de référence
+          <span (click)="openModal()" class="cursor-pointer underline"
+            >50 plateformes</span
+          >
+          de référence
         </div>
         <div class="pt-2">
           <img
@@ -226,7 +229,10 @@
         </div>
         <div class="">
           Diffusion de votre annonce sur
-          <span class="font-semibold">50 plateformes</span> de référence
+          <span (click)="openModal()" class="cursor-pointer underline"
+            >50 plateformes</span
+          >
+          de référence
         </div>
         <div class="pt-2">
           <img
@@ -304,8 +310,10 @@
       <p class="font-semibold text-2xl text-myzinc">Visibilité digitale</p>
       <p class="text-lg text-zinc-600">
         Exposition maximale sur
-        <span class="font-bold">plus de 50 plateformes</span> de références
-        réservées aux pros comme SeLoger ou Belles Demeures
+        <span (click)="openModal()" class="font-bold underline cursor-pointer"
+          >plus de 50 plateformes</span
+        >
+        de références réservées aux pros comme SeLoger ou Belles Demeures
       </p>
     </div>
 
@@ -346,16 +354,16 @@
   <!-- Chiffres -->
   <div class="grid lg:grid-cols-2 gap-10 md:gap-24">
     <div
+      #numbers
       class="order-2 md:order-1 flex flex-col items-start justify-start gap-10"
     >
       <div
         class="flex flex-col md:flex-row items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
       >
-        <p
-          class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
-        >
-          +5K
-        </p>
+        <span
+          class="inline text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
+        >+<app-counter [startValue]="0" [endValue]="5"/>K
+        </span>
         <div class="flex flex-col items-start gap-4">
           <p class="font-jakarta font-semibold text-myzinc text-2xl">
             Économie réalisée
@@ -372,7 +380,7 @@
         <p
           class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
         >
-          99%
+        <app-counter [startValue]="0" [endValue]="99"/>%
         </p>
         <div class="flex flex-col items-start gap-4">
           <p class="font-jakarta font-semibold text-myzinc text-2xl">
@@ -390,7 +398,7 @@
         <p
           class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
         >
-          41 j
+        <app-counter [startValue]="0" [endValue]="41"/> j
         </p>
         <div class="flex flex-col items-start gap-4">
           <p class="font-jakarta font-semibold text-myzinc text-2xl">
@@ -406,7 +414,7 @@
     <div class="relative order-1 md:order-2 min-h-[500px]">
       <a
         routerLink="/estimation"
-        class="absolute top-7 right-7 text-sm text-white bg-myorange/70 text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-myorange/90 transition-all transition-300"
+        class="absolute top-7 right-7 text-sm text-white bg-myorange/70 text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-orange-500/70 transition-all transition-300"
         >Prendre Rendez-vous</a
       >
       <img
@@ -445,7 +453,7 @@
       <a
         routerLink="/https://app.barnabe-immo.fr/register"
         target="_blank"
-        class="text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-myorange/90 transition-all transition-300"
+        class="text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-orange-500 transition-all transition-300"
         >Déposer mon annonce</a
       >
     </div>
@@ -675,7 +683,7 @@
         <div class="flex items-center justify-center gap-4">
           <button
             (click)="previousReview()"
-            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center"
+            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
           >
             <img
               class="w-5 rotate-180"
@@ -685,7 +693,7 @@
           </button>
           <button
             (click)="nextReview()"
-            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center"
+            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
           >
             <img class="w-5" src="assets/img/icon/arrow.png" alt="" />
           </button>
@@ -708,7 +716,10 @@
     </p>
     <p class="font-open text-myzinc text-xl">
       Pour vos besoins en tant que pro, rendez-vous sur
-      <a class="font-bold underline" href="https://www.diffuze.fr/" target="_blank"
+      <a
+        class="font-bold underline"
+        href="https://www.diffuze.fr/"
+        target="_blank"
         >DiffuZe</a
       >, notre partenaire dédié aux professionnels de l'immobilier et conçu pour
       faciliter la diffusion de vos annonces.
@@ -724,7 +735,9 @@
   <div
     class="bg-myblue/5 rounded-4xl p-5 md:p-10 flex flex-col md:flex-row items-stretch justify-center gap-5 md:gap-10"
   >
-    <div class="w-full md:w-1/3 relative flex flex-col items-start justify-start h-full p-5 md:p-0 pt-10 md:pr-10">
+    <div
+      class="w-full md:w-1/3 relative flex flex-col items-start justify-start h-full p-5 md:p-0 pt-10 md:pr-10"
+    >
       <div class="flex items-center justify-center gap-4 mb-6 md:mb-10">
         <span class="h-3 w-3 rounded-full bg-myorange"></span>
         <p class="text-myzinc">Découvrez nos avantages</p>
@@ -739,7 +752,7 @@
       </p>
       <a
         routerLink="/estimation"
-        class="text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-myorange/90 transition-all transition-300"
+        class="text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-orange-500 transition-all duration-300"
         >Prendre Rendez-vous</a
       >
     </div>
@@ -773,3 +786,6 @@
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<app-partners-dialog />

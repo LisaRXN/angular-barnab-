@@ -14,15 +14,15 @@
   >
     <!-- Modal header fixed -->
     <div
-      class="sticky top-0 left-0 right-0 bg-white z-10 flex items-center justify-between p-4 border-b border-gray-200"
+      class="sticky top-0 left-0 right-0 bg-white z-10 flex items-center justify-center p-4 border-b shadow-sm border-gray-200"
     >
-      <h3 class="text-xl font-semibold text-gray-900 text-start">
+      <h3 class="text-xl font-semibold text-myzinc text-center w-full font-jakarta">
         Toutes les plateformes de diffusion
       </h3>
       <button
         (click)="closeModal()"
         type="button"
-        class="sticky right-2 top-2 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        class="sticky right-2 top-2 border-none text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
         data-modal-hide="default-modal"
       >
         <svg
@@ -57,7 +57,7 @@
               [alt]="partner.alt"
             />
           </a>
-          <p class="font-bold text-sm text-mygrey2 text-center">
+          <p class="cursor-pointer text-sm text-myzinc/60 text-center">
             {{ partner.name }}
           </p>
         </div>

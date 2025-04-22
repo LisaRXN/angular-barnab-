@@ -2,11 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   inject,
   NgZone,
   OnInit,
+  QueryList,
   signal,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
@@ -19,6 +22,7 @@ import platformsDetails from '../../../../assets/data/partners.json';
 import userReviewsDetails from '../../../../assets/data/user-reviews.json';
 import faqHomeDetails from '../../../../assets/data/faq-home.json';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
+import { CounterComponent } from '../../shared/components/counter/counter.component';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +30,9 @@ import { SectionTitleComponent } from '../../shared/components/section-title/sec
     CommonModule,
     RouterLink,
     SectionTitleComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    PartnersDialogComponent,
+    CounterComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -47,7 +53,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('addresstext') addresstext!: ElementRef<HTMLInputElement>;
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
   @ViewChild('progressBar') progressBar!: ElementRef<HTMLDivElement>;
-  
+
   private router = inject(Router);
   private ngZone = inject(NgZone);
   place: any;
@@ -58,12 +64,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
   isCarouselStart = true;
   isCarouselEnd = false;
   platforms = platformsDetails;
-  faqHome =  faqHomeDetails;
-  userReviews = userReviewsDetails
-  visibleUserReview = 0
-  progressBarWidth = 20
+  faqHome = faqHomeDetails;
+  userReviews = userReviewsDetails;
+  visibleUserReview = 0;
+  progressBarWidth = 20;
+  hasStartedAnimation: boolean = false;
 
+  @ViewChildren(CounterComponent)
+  counters!: QueryList<CounterComponent>;
+  @ViewChild('numbers') numbersRef!: ElementRef;
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (this.hasStartedAnimation || typeof window === 'undefined') return;
 
+    const numberElement = this.numbersRef.nativeElement;
+    const windowHeight = window.innerHeight;
+
+    if (
+      numberElement &&
+      window.scrollY > numberElement.offsetTop + 100 - windowHeight
+    ) {
+      this.counters.forEach((number) => number.startCount());
+      this.hasStartedAnimation = true;
+    }
+  }
   ngOnInit() {
     this.propertyGateway.fetchLastProperties().subscribe((properties) => {
       this.properties = properties;
@@ -97,13 +121,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if (this.place.geometry === undefined || this.place.geometry === null) {
           return;
         }
-        localStorage.setItem("localization", this.place.name);
+        localStorage.setItem('localization', this.place.name);
       });
-
     });
-
   }
-
 
   openModal() {
     if (this.dialogComponent) {
@@ -124,19 +145,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   nextReview() {
-    if(this.progressBarWidth < 100){
-      this.visibleUserReview += 1
-      this.progressBarWidth += 20
-    }else{
-     null
+    if (this.progressBarWidth < 100) {
+      this.visibleUserReview += 1;
+      this.progressBarWidth += 20;
+    } else {
+      null;
     }
   }
-  previousReview(){
-    if(this.progressBarWidth > 0 ){
-      this.visibleUserReview -= 1
-      this.progressBarWidth -= 20
-    }else{
-     null
+  previousReview() {
+    if (this.progressBarWidth > 0) {
+      this.visibleUserReview -= 1;
+      this.progressBarWidth -= 20;
+    } else {
+      null;
     }
   }
+
 }

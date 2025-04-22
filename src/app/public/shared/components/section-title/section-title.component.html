@@ -18,10 +18,10 @@
   <a
     [routerLink]="link"
     *ngIf="link"
-    class="flex items-center justify-center border border-myzinc gap-5 rounded-full w-[240px] py-3 text-lg"
+    class="group flex items-center justify-center border border-myzinc gap-5 rounded-full w-[240px] py-3 text-lg"
   >
-    {{ button }}
-    <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-45" />
+    <p class="group-hover:-translate-y-[3px] duration-300 transition">{{ button }}</p>
+    <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-45 group-hover:-translate-y-[3px] duration-300 transition" />
   </a>
 </div>
 <p class="text-2xl text-myzinc font-semibold mt-6 md:mt-10">{{subtitle}}</p>

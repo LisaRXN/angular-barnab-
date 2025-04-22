@@ -26,8 +26,11 @@
         class="absolute w-full h-full inset-0 bg-white/10 backdrop-blur-lg rounded-xl"
       ></div>
       <input
-        class="z-10 bg-transparent border-white rounded-md pr-10"
-        value="2 rue du pont neuf, Paris"
+        #addresstext
+        type="location"
+        name="location"
+        class="z-10 bg-transparent border border-white rounded-md pr-10 p-2.5 focus:ring-1 focus:ring-white focus:outline-none"
+        placeholder="2 rue du pont neuf, Paris"
       />
       <a
         routerLink="/estimation"
@@ -418,7 +421,7 @@
 <!-- Services -->
 <section
   id="services"
-  class="px-5 md:px-20 max-w-screen-xl m-auto font-open mb-10 md:mb-28"
+  class="px-2 md:px-20 max-w-screen-xl m-auto font-open mb-10 md:mb-28"
 >
   <div
     class="relative w-full rounded-[50px] overflow-hidden grid lg:grid-cols-[1fr_1.5fr] gap-14 md:gap-20 p-5 md:p-16"
@@ -430,7 +433,9 @@
     />
     <div class="bg-myblue opacity-70 absolute inset-0 w-full h-full"></div>
     <div class="z-10 text-white p-5 md:p-0">
-      <p class="text-3xl font-jakarta font-semibold md:text-5xl mb-10 leading-relaxed">
+      <p
+        class="text-3xl font-jakarta font-semibold md:text-5xl mb-10 leading-relaxed"
+      >
         Des services complémentaires pour maximiser vos résultats
       </p>
       <div class="flex items-center justify-start gap-4 mb-10 lg:mb-40">
@@ -494,7 +499,7 @@
 <!-- Derniers biens vendus -->
 <section
   id="biens"
-  class="px-5 md:px-20 max-w-screen-2xl m-auto font-open mb-10 md:mb-28"
+  class="px-5 md:px-20 max-w-screen-2xl m-auto font-open mb-20 md:mb-36"
 >
   <!-- Titre -->
   <app-section-title
@@ -504,70 +509,267 @@
     link="/annonces"
     button="Voir tous les biens"
   />
-  <div class="grid lg:grid-cols-3 gap-10 place-items-center max-w-screen-xl m-auto">
-
-  <div class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien1.jpeg')] bg-cover bg-center rounded-4xl overflow-hidden">
-    <a
-    routerLink="/annonces"
-    class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+  <div
+    class="grid lg:grid-cols-3 gap-10 place-items-center max-w-screen-xl m-auto"
   >
-    <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
-  </a>
-  <div class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5">
-    <div class="flex items-center justify-between mb-2">
-      <p class="text-zinc-600">Appartement</p>
-      <p class="text-xl font-bold">460 000 €</p>
+    <div
+      class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien1.jpeg')] bg-cover bg-center rounded-4xl overflow-hidden"
+    >
+      <a
+        routerLink="/annonces"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+      </a>
+      <div
+        class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-zinc-600">Appartement</p>
+          <p class="text-xl font-bold">460 000 €</p>
+        </div>
+        <p class="font-bold text-lg">Paris</p>
+        <p class="text-zinc-700">75004</p>
+        <div class="flex items-center justify-start gap-5 text-zinc-700">
+          <p>40 m²</p>
+          <p>2 pièces</p>
+        </div>
+      </div>
     </div>
-    <p class="font-bold text-lg">Paris</p>
-    <p class="text-zinc-700">75004</p>
-    <div class="flex items-center justify-start gap-5 text-zinc-700">
-      <p>40 m²</p>
-      <p>2 pièces</p>
+    <div
+      class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien2.jpg')] bg-cover bg-center rounded-4xl overflow-hidden"
+    >
+      <a
+        routerLink="/annonces"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+      </a>
+      <div
+        class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-zinc-600">Appartement</p>
+          <p class="text-xl font-bold">380 000 €</p>
+        </div>
+        <p class="font-bold text-lg">Lyon</p>
+        <p class="text-zinc-700">69000</p>
+        <div class="flex items-center justify-start gap-5 text-zinc-700">
+          <p>75 m²</p>
+          <p>3 pièces</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien3.jpg')] bg-cover bg-center rounded-4xl overflow-hidden"
+    >
+      <a
+        routerLink="/annonces"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+      </a>
+      <div
+        class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-zinc-600">Appartement</p>
+          <p class="text-xl font-bold">520 000 €</p>
+        </div>
+        <p class="font-bold text-lg">Toulouse</p>
+        <p class="text-zinc-700">31000</p>
+        <div class="flex items-center justify-start gap-5 text-zinc-700">
+          <p>120 m²</p>
+          <p>4 pièces</p>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
-  <div class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien2.jpg')] bg-cover bg-center rounded-4xl overflow-hidden">
-    <a
-    routerLink="/annonces"
-    class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+</section>
+
+<!-- Les avis de nos clients -->
+<section
+  id="biens"
+  class="px-5 md:px-20 max-w-screen-2xl m-auto font-open mb-20 md:mb-36"
+>
+  <!-- Titre -->
+  <app-section-title
+    title="Ce que nos clients
+    disent de nous"
+  />
+
+  <div
+    class="flex flex-col md:flex-row gap-10 items-start justify-between text-myzinc"
   >
-    <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
-  </a>
-  <div class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5">
-    <div class="flex items-center justify-between mb-2">
-      <p class="text-zinc-600">Appartement</p>
-      <p class="text-xl font-bold">380 000 €</p>
+    <div class="flex flex-col items-start justify-start gap-10 md:pr-20">
+      <div class="flex items-center justify-start">
+        <span
+          class="z-40 w-[75px] h-[75px] bg-white rounded-full shadow-md flex items-center justify-center"
+          ><img src="assets/img/icon/arrow.png" class="w-7" alt=""
+        /></span>
+        <span class="z-30 w-[75px] h-[75px] -translate-x-4"
+          ><img
+            src="assets/img/illustration/avatar1.png"
+            class="w-full object-cover"
+            alt=""
+        /></span>
+        <span class="z-20 w-[75px] h-[75px] -translate-x-8"
+          ><img
+            src="assets/img/illustration/avatar2.png"
+            class="w-full object-cover"
+            alt=""
+        /></span>
+        <span class="z-10 w-[75px] h-[75px] -translate-x-12"
+          ><img
+            src="assets/img/illustration/avatar3.png"
+            class="w-full object-cover"
+            alt=""
+        /></span>
+      </div>
+      <div class="flex items-center gap-5">
+        <img src="assets/img/icon/etoiles.png" class="w-40" alt="" />
+        <p class="text-amber-400 text-xl font-open">4,9/5</p>
+      </div>
+      <div class="flex items-center gap-5">
+        <p class="text-5xl text-myzinc font-semibold">125+</p>
+        <p class="text-xl text-myzinc/40 font-light">Avis</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <p class="text-xl text-myzinc/40 font-light">A consulter sur</p>
+        <img src="assets/img/logo/avis-verifies.png" class="w-36" alt="" />
+      </div>
     </div>
-    <p class="font-bold text-lg">Lyon</p>
-    <p class="text-zinc-700">69000</p>
-    <div class="flex items-center justify-start gap-5 text-zinc-700">
-      <p>75 m²</p>
-      <p>3 pièces</p>
+    <div class="flex items-start justify-start">
+      <span
+        class="w-[75px] h-[75px] rounded-full bg-myorange flex items-center justify-center"
+        ><p class="font-paytone text-[70px] text-white translate-y-2">
+          “
+        </p></span
+      >
+    </div>
+    <div class="flex flex-col items-start justify-start gap-10">
+      <div class="flex items-center gap-5">
+        <img src="assets/img/icon/etoiles.png" class="w-36" alt="" />
+        <p class="text-amber-400 font-open text-xl">
+          {{ userReviews[visibleUserReview].notation }}
+        </p>
+      </div>
+      <p class="text-xl font-open text-myzinc min-h-[100px]">
+        {{ userReviews[visibleUserReview].review }}
+      </p>
+      <div class="bg-zinc-200 h-[2px] w-full">
+        <div
+          [ngStyle]="{ width: progressBarWidth + '%' }"
+          class="bg-myzinc h-[2px]"
+        ></div>
+      </div>
+      <div class="flex items-center w-full justify-between">
+        <div class="flex flex-col items-start justify-center gap-2">
+          <p class="font-semibold text-xl">
+            {{ userReviews[visibleUserReview].name }}
+          </p>
+          <p class="text-xl text-myzinc/40 font-light">
+            {{ userReviews[visibleUserReview].date }}
+          </p>
+        </div>
+        <div class="flex items-center justify-center gap-4">
+          <button
+            (click)="previousReview()"
+            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center"
+          >
+            <img
+              class="w-5 rotate-180"
+              src="assets/img/icon/arrow.png"
+              alt=""
+            />
+          </button>
+          <button
+            (click)="nextReview()"
+            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center"
+          >
+            <img class="w-5" src="assets/img/icon/arrow.png" alt="" />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- Pro de l'immobilier -->
+<section
+  id="pro"
+  class="px-2 md:px-10 max-w-screen-2xl m-auto font-open mb-20 md:mb-36"
+>
+  <div class="bg-myorange/5 rounded-4xl p-10">
+    <p
+      class="md:w-2/3 text-3xl md:text-5xl font-semibold leading-snug text-myzinc mb-14"
+    >
+      Pro de l’immobilier ? Par ici 👋
+    </p>
+    <p class="font-open text-myzinc text-xl">
+      Pour vos besoins en tant que pro, rendez-vous sur
+      <a class="font-bold underline" href="https://www.diffuze.fr/" target="_blank"
+        >DiffuZe</a
+      >, notre partenaire dédié aux professionnels de l'immobilier et conçu pour
+      faciliter la diffusion de vos annonces.
+    </p>
   </div>
-  <div class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien3.jpg')] bg-cover bg-center rounded-4xl overflow-hidden">
-    <a
-    routerLink="/annonces"
-    class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+</section>
+
+<!-- FAQ -->
+<section
+  id="faq"
+  class="px-2 md:px-10 max-w-screen-2xl m-auto font-open mb-20 md:mb-28 text-myzinc"
+>
+  <div
+    class="bg-myblue/5 rounded-4xl p-5 md:p-10 flex flex-col md:flex-row items-stretch justify-center gap-5 md:gap-10"
   >
-    <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
-  </a>
-  <div class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5">
-    <div class="flex items-center justify-between mb-2">
-      <p class="text-zinc-600">Appartement</p>
-      <p class="text-xl font-bold">520 000 €</p>
+    <div class="w-full md:w-1/3 relative flex flex-col items-start justify-start h-full p-5 md:p-0 pt-10 md:pr-10">
+      <div class="flex items-center justify-center gap-4 mb-6 md:mb-10">
+        <span class="h-3 w-3 rounded-full bg-myorange"></span>
+        <p class="text-myzinc">Découvrez nos avantages</p>
+      </div>
+      <p class="text-3xl md:text-5xl font-semibold leading-snug mb-14">
+        Questions Fréquentes
+      </p>
+
+      <p class="text-myzinc font-light mb-14">
+        Besoin de conseils personnalisés ? Prenez rendez-vous un de nos
+        conseillers : il répondra à toutes vos questions !
+      </p>
+      <a
+        routerLink="/estimation"
+        class="text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-myorange/90 transition-all transition-300"
+        >Prendre Rendez-vous</a
+      >
     </div>
-    <p class="font-bold text-lg">Toulouse</p>
-    <p class="text-zinc-700">31000</p>
-    <div class="flex items-center justify-start gap-5 text-zinc-700">
-      <p>120 m²</p>
-      <p>4 pièces</p>
+    <!-- FAQ -->
+    <div
+      class="w-full md:w-2/3 space-y-4 md:bg-white rounded-4xl md:p-10 text-myzinc font-open"
+    >
+      @for(item of faqHome; track item.id) {
+      <div
+        class="group hover:rounded-4xl hover:bg-myblue/10 transition-colors border-t border-myzinc-400 pt-2"
+      >
+        <button
+          class="flex items-center justify-between w-full p-5 cursor-pointer peer gap-10"
+          type="button"
+          aria-expanded="false"
+        >
+          <p class="font-semibold text-lg text-start">{{ item.question }}</p>
+          <i
+            class="fa-solid fa-chevron-down text-lg font-light transition-transform duration-300 group-hover:rotate-180"
+          ></i>
+        </button>
+        <div
+          class="grid grid-rows-[0fr] transition-all duration-300 group-hover:grid-rows-[1fr]"
+        >
+          <div class="overflow-hidden">
+            <p [innerHTML]="item.reponse" class="p-5 whitespace-pre-line"></p>
+          </div>
+        </div>
+      </div>
+      }
     </div>
   </div>
-  </div>
-
-</div>
-
-
 </section>

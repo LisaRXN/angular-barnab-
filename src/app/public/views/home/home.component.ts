@@ -2,12 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  HostListener,
   inject,
+  NgZone,
   OnInit,
-  QueryList,
+  signal,
   ViewChild,
-  ViewChildren,
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
@@ -16,8 +15,9 @@ import { Property } from '../../../core/models/property.model';
 import { Observable } from 'rxjs';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
-import { NumberCardComponent } from './components/number-card/number-card.component';
 import platformsDetails from '../../../../assets/data/partners.json';
+import userReviewsDetails from '../../../../assets/data/user-reviews.json';
+import faqHomeDetails from '../../../../assets/data/faq-home.json';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 
 @Component({
@@ -43,44 +43,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
     ]);
   }
-
-  router = inject(Router);
+  @ViewChild(PartnersDialogComponent) dialogComponent!: PartnersDialogComponent;
+  @ViewChild('addresstext') addresstext!: ElementRef<HTMLInputElement>;
+  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
+  @ViewChild('progressBar') progressBar!: ElementRef<HTMLDivElement>;
+  
+  private router = inject(Router);
+  private ngZone = inject(NgZone);
+  place: any;
   propertyGateway = inject(PropertyGateway);
   properties$!: Observable<Property[]>;
   properties: Property[] = [];
   isDialogOpen: boolean = false;
   isCarouselStart = true;
   isCarouselEnd = false;
-  hasStartedAnimation: boolean = false;
   platforms = platformsDetails;
+  faqHome =  faqHomeDetails;
+  userReviews = userReviewsDetails
+  visibleUserReview = 0
+  progressBarWidth = 20
 
-  @ViewChild(PartnersDialogComponent) dialogComponent!: PartnersDialogComponent;
-  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
-
-  @ViewChildren(NumberCardComponent)
-  numberCards!: QueryList<NumberCardComponent>;
-  @ViewChild('numbers') numbersRef!: ElementRef;
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    if (this.hasStartedAnimation || typeof window === 'undefined') return;
-
-    const numberElement = this.numbersRef.nativeElement;
-    const windowHeight = window.innerHeight;
-
-    if (
-      numberElement &&
-      window.scrollY > numberElement.offsetTop - windowHeight
-    ) {
-      this.numberCards.forEach((card) => card.startCount());
-      this.hasStartedAnimation = true;
-    }
-  }
-
-  ngAfterViewInit(): void {
-    if (typeof window !== 'undefined') {
-      this.onScroll();
-    }
-  }
 
   ngOnInit() {
     this.propertyGateway.fetchLastProperties().subscribe((properties) => {
@@ -88,9 +70,40 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  navigateToProperty(property: Property) {
-    this.router.navigate(['property', property.id]);
+  ngAfterViewInit() {
+    this.getPlaceAutocomplete();
   }
+
+  private getPlaceAutocomplete() {
+    if (typeof google === 'undefined' || !google.maps) {
+      console.error('Google Maps API non chargé');
+      return;
+    }
+
+    const options = {
+      componentRestrictions: { country: 'FR' },
+      types: ['geocode'],
+    };
+
+    const autocomplete = new google.maps.places.Autocomplete(
+      this.addresstext.nativeElement,
+      options
+    );
+
+    autocomplete.addListener('place_changed', () => {
+      this.ngZone.run(() => {
+        this.place = autocomplete.getPlace();
+
+        if (this.place.geometry === undefined || this.place.geometry === null) {
+          return;
+        }
+        localStorage.setItem("localization", this.place.name);
+      });
+
+    });
+
+  }
+
 
   openModal() {
     if (this.dialogComponent) {
@@ -108,5 +121,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   nextSlide() {
     const carousel = this.carousel.nativeElement;
     carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+  }
+
+  nextReview() {
+    if(this.progressBarWidth < 100){
+      this.visibleUserReview += 1
+      this.progressBarWidth += 20
+    }else{
+     null
+    }
+  }
+  previousReview(){
+    if(this.progressBarWidth > 0 ){
+      this.visibleUserReview -= 1
+      this.progressBarWidth -= 20
+    }else{
+     null
+    }
   }
 }

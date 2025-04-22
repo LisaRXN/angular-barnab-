@@ -1,0 +1,28 @@
+[
+    {
+        "id":1,
+        "question":"Pourquoi choisir Barnabé pour votre vente immobilière ?",
+        "reponse":"Barnabé souhaite révolutionner la vente immobilière en proposant une alternative à la vente immobilière traditionnelle baptisée le coaching immobilier. Économique et performant, le coaching immobilier est une solution pour vendre rapidement et au meilleur prix."
+    },
+    {
+        "id":2,
+        "question":"Combien ça coute et pourquoi n'y a t-il vraiment aucune commission ?",
+        "reponse":"Notre formule de coaching immobilier est une prestation de service. Le paiement se fait immédia-tement (à partir de 299 €). Il n’y a donc vraiment aucune commission, aucun frais cachés, aucun abonnement. Votre formule arrive a expiration automatiquement au bout de la période (60 jours), sauf contre ordre, vous pourrez bien entendu la renouveler."
+    },
+    {
+        "id":3,
+        "question":"À qui s'adresse notre service ?",
+        "reponse":"Notre service est destiné à tous les vendeurs qui souhaitent s'occuper eux-mêmes de la vente de leur bien tout en bénéficiant d'un accompagnement professionnel et de la meilleure visibilité digitale. Tout cela sans commission. Optez pour la vente entre particulier avec un support professionnel. Ne soyez plus livrez à vous-même."
+    },
+    {
+        "id":4,
+        "question":"Quelle est la valeur ajoutée de Barnabé ?",
+        "reponse":"Notre solution repose sur une offre principale innovante qui s’articule autour des fondamentaux de la vente immobilière (estimation, aide à la rédaction de votre annonce, multi-diffusion et accompagnement personnalisé), tout cela dispensé par des experts immobiliers dédié 6j/7. Bénéficiez d’outils et de conseils professionnels sans commission."
+    },
+    {
+        "id":5,
+        "question":"Je suis un professionnel de l’immobilier, vers quelle offre me tourner ?",
+        "reponse": "Pour vos besoins en tant que pro, rendez-vous sur <a class=\"font-bold underline\" href=\"https://www.diffuze.fr\" target=\"_blank\">DiffuZe</a>, notre partenaire dédié aux professionnels de l'immobilier et conçu pour faciliter la diffusion de vos annonces."
+    }
+]
+

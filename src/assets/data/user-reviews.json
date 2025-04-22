@@ -1,0 +1,37 @@
+[
+    {
+        "id":1,
+        "review":"Barnabé a tout compris ! Enfin un modèle innovant qui permet à un particulier d’accéder aux meilleures plateformes de commercialisation internet pour un prix très compétitif.",
+        "notation":5,
+        "name":"Jean",
+        "date":"25 mai 2023"
+    },
+    {
+        "id":2,
+        "review":"Je suis très satisfaite de l'équipe Barnabé et en particulier de Victor qui sait être disponible et d'excellents conseil. Je recommande Vivement",
+        "notation":5,
+        "name":"Mickaël",
+        "date":"16 mars 2023"
+    },
+    {
+        "id":3,
+        "review":"Très bon service, accompagnement à chaque étape pour vendre son bien dans les meilleures conditions. Réactivité, profeionnalisme. Je recommande",
+        "notation":5,
+        "name":"Stéphanie",
+        "date":"14 février 2023"
+    },
+    {
+        "id":4,
+        "review":"Accompagnement au top ! Disponible et arrangeants. Merci encore ⭐⭐⭐ ",
+        "notation":5,
+        "name":"Jessica",
+        "date":"10 avril 2023"
+    },
+    {
+        "id":5,
+        "review":"Très satisfaite du service. J'ai vendu mon appartement en quelques jours grâce à Barnabé. Equipe très sérieuse et réactive. Je recommande.",
+        "notation":5,
+        "name":"Laura M",
+        "date":"21 avril 2023"
+    }
+]

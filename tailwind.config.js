@@ -55,6 +55,7 @@ module.exports = {
         warning: "#FBBD23",
         error: "#F87272",
         myzinc:"#193252",
+        mygrey:"#636D7B",
         myblue: "#020B78",
         myblue2: "#F2F3F8",
         myorange: "#FF8B37",

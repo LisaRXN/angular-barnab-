@@ -1,7 +1,8 @@
 [
   {
-    "id": "lux",
-    "image": "assets/img/photo/lux.png",
+    "id": 1,
+    "name":"Lux & Belles Demeures",
+    "image": "assets/img/photo/option-lux.png",
     "features": [
       { "icon": "📢", 
         "title": "Où sera diffusée mon annonce ?", 
@@ -27,8 +28,9 @@
     "endText":""
   },
     {
-      "id": "jinka",
-      "image": "assets/img/photo/jinka.png",
+      "id": 2,
+      "name": "Jinka",
+      "image": "assets/img/photo/option-jinka.png",
       "features": [
         { "icon": "📢", 
           "title": "Pourquoi choisir Jinka pour maximiser la visibilité de votre bien immobilier ?", 
@@ -49,8 +51,9 @@
       "endText":""
     },
     {
-      "id": "gens-de-confiance",
-      "image": "assets/img/photo/confiance.png",
+      "id": 3,
+      "name": "Gens de Confiance",
+      "image": "assets/img/photo/option-gens.png",
       "features": [
         { "icon": "📢", 
           "title": "Où sera diffusée mon annonce ?", 
@@ -70,8 +73,9 @@
       "endText" : ""
     },
     {
-      "id": "green-acres",
-      "image": "assets/img/photo/green.png",
+      "id":4,
+      "name": "Green Acres",
+      "image": "assets/img/photo/option-green.png",
       "features": [
         { "icon": "📢", 
           "title": "Où sera diffusée mon annonce ?", 

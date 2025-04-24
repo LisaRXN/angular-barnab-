@@ -44,7 +44,87 @@
     </div>
 
     <!-- Modal content -->
-    <div class="z-10 w-full grid md:grid-cols-[1.5fr_1fr] gap-8 text-myzinc">
+    <div class="z-10 w-full gap-8 text-myzinc">
+      <div class="relative w-full h-[100px] md:h-[200px] 2xl:h-[300px]">
+        <img
+          class="object-cover object-center h-full w-full"
+          [src]="optionVisible.image"
+          alt="Option de Diffusion"
+        />
+      </div>
+
+      <div
+        class="p-5 md:px-10 flex flex-col gap-4 order-1 font-open font-normal"
+      >
+        @for( feature of optionVisible.features; track feature){
+        <div class="flex items-center gap-3 mt-4">
+          <span
+            class="min-h-9 min-w-9 flex items-center justify-center bg-orange-50 shadow-sm rounded-full"
+            >{{ feature.icon }}</span
+          >
+          <p class="font-bold">{{ feature.title }}</p>
+        </div>
+
+        <p>
+          <a
+            class="underline"
+            [href]="'https://' + feature.url"
+            target="_blank"
+            rel="external"
+            >{{ feature.url }}</a
+          >
+          <span *ngIf="feature.url2"> & </span>
+          <a
+            *ngIf="feature.url2"
+            target="_blank"
+            rel="external"
+            class="underline"
+            [href]="'https://' + feature.url2"
+            >{{ feature.url2 }}</a
+          >
+          {{ feature.text }}
+        </p>
+
+        <ul class="list-disc pl-4 space-y-4 font-normal">
+          @for( item of feature.list; track item){
+          <li>
+            <span class="font-bold">{{ item.bold }}</span
+            >{{ item.text }}
+          </li>
+          }
+        </ul>
+        }
+      </div>
+    </div>
+    <!-- Modal Footer -->
+    <div
+      class="sticky bg-white z-10 bottom-0 p-1 px-8 border-t border-zinc-100 shadow-xl overflow-hidden"
+    >
+      <div class="flex items-center justify-between w-full">
+        <button
+          (click)="previousOption()"
+          *ngIf="optionVisible.id > 1"
+          class="self-start p-4 lg:px-6 text-sm text-myzinc font-light flex items-center justify-center gap-4"
+        >
+          <img src="assets/img/icon/arrow.png" class="w-3 rotate-180" alt="" />
+          <p>{{ options[optionVisible.id - 2].name }}</p>
+        </button>
+        <button
+          (click)="nextOption()"
+          *ngIf="optionVisible.id < 4"
+          class="self-end ml-auto p-4 lg:px-6 text-sm text-myzinc font-light flex items-center justify-center gap-4"
+        >
+          <p>{{ options[optionVisible.id].name }}</p>
+          <img src="assets/img/icon/arrow.png" class="w-3" alt="" />
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+    <!-- Modal content -->
+    <!-- <div class="z-10 w-full grid md:grid-cols-[1.5fr_1fr] gap-8 text-myzinc">
       <div class="w-full h-full order-2">
         <img
           class="object-cover object-top h-full xl:max-h-[700px] w-full"
@@ -96,29 +176,4 @@
         }
         <p class="font-normal">{{ optionVisible.endText }}</p>
       </div>
-    </div>
-    <!-- Modal Footer -->
-    <div
-      class="sticky bg-white z-10 bottom-0 p-1 px-8 border-t border-zinc-100 shadow-xl overflow-hidden"
-    >
-      <div class="flex items-center justify-between w-full">
-        <button
-          (click)="previousOption()"
-          *ngIf="optionVisible.id > 1"
-          class="self-start p-4 lg:px-6 text-sm text-myzinc font-light flex items-center justify-center gap-4"
-        >
-          <img src="assets/img/icon/arrow.png" class="w-3 rotate-180" alt="" />
-          <p>{{ options[optionVisible.id - 2].name }}</p>
-        </button>
-        <button
-          (click)="nextOption()"
-          *ngIf="optionVisible.id < 4"
-          class="self-end ml-auto p-4 lg:px-6 text-sm text-myzinc font-light flex items-center justify-center gap-4"
-        >
-          <p>{{ options[optionVisible.id].name }}</p>
-          <img src="assets/img/icon/arrow.png" class="w-3" alt="" />
-        </button>
-      </div>
-    </div>
-  </div>
-</dialog>
+    </div> -->

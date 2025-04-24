@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name":"Lux & Belles Demeures",
-    "image": "assets/img/photo/option-lux.png",
+    "image": "assets/img/photo/option1.png",
     "features": [
       { "icon": "📢", 
         "title": "Où sera diffusée mon annonce ?", 
@@ -24,16 +24,15 @@
         { "bold": "Île-de-France : ", "text": "Biens d’un prix supérieur à 790 000 €" }
       ]
      }
-    ],
-    "endText":""
+    ]
   },
     {
       "id": 2,
       "name": "Jinka",
-      "image": "assets/img/photo/option-jinka.png",
+      "image": "assets/img/photo/option2.png",
       "features": [
         { "icon": "📢", 
-          "title": "Pourquoi choisir Jinka pour maximiser la visibilité de votre bien immobilier ?", 
+          "title": "Où sera diffusée mon annonce ?", 
           "url": "www.jinka.fr/pro",
           "text": " : publier sur Jinka, c’est accéder à une plateforme innovante, conçue pour connecter votre annonce à des acheteurs qualifiés et accroître sa visibilité.",
           "list": [
@@ -47,13 +46,12 @@
           { "bold": "Chiffres clés : ", "text": "Des milliers d’utilisateurs actifs chaque mois, attirés par les fonctionnalités intuitives de la plateforme. Un système de notifications en temps réel, favorisant un engagement élevé et des contacts qualifiés." }
         ]
        }
-      ],
-      "endText":""
+      ]
     },
     {
       "id": 3,
       "name": "Gens de Confiance",
-      "image": "assets/img/photo/option-gens.png",
+      "image": "assets/img/photo/option3.png",
       "features": [
         { "icon": "📢", 
           "title": "Où sera diffusée mon annonce ?", 
@@ -69,13 +67,12 @@
           { "bold": "Valorisation des annonces : ", "text": "Une visibilité accrue grâce à la qualité du réseau et aux outils proposés, tels que des descriptions détaillées et des échanges directs avec des acheteurs qualifiés." }
         ]
        }
-      ],
-      "endText" : ""
+      ]
     },
     {
       "id":4,
       "name": "Green Acres",
-      "image": "assets/img/photo/option-green.png",
+      "image": "assets/img/photo/option4.png",
       "features": [
         { "icon": "📢", 
           "title": "Où sera diffusée mon annonce ?", 
@@ -91,7 +88,6 @@
           { "bold": "Audience massive : ", "text": "Plus de 1 million de visites par mois, ce qui garantit une large exposition de votre bien." }
         ]
       }
-      ],
-      "endText":"Ne laissez pas votre bien passer inaperçu. Offrez-lui une visibilité mondiale sur Green-Acres !"
-    }
+      ]
+        }
   ]

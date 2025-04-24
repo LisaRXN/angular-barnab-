@@ -18,11 +18,12 @@ import { Property } from '../../../core/models/property.model';
 import { Observable } from 'rxjs';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
-import platformsDetails from '../../../../assets/data/partners.json';
-import userReviewsDetails from '../../../../assets/data/user-reviews.json';
-import faqHomeDetails from '../../../../assets/data/faq-home.json';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { CounterComponent } from '../../shared/components/counter/counter.component';
+import { ReviewsComponent } from "../../shared/components/reviews/reviews.component";
+import { FaqComponent } from '../../shared/components/faq/faq.component';
+import platformsDetails from '../../../../assets/data/partners.json';
+
 
 @Component({
   selector: 'app-home',
@@ -32,8 +33,10 @@ import { CounterComponent } from '../../shared/components/counter/counter.compon
     SectionTitleComponent,
     NgOptimizedImage,
     PartnersDialogComponent,
-    CounterComponent
-  ],
+    CounterComponent,
+    ReviewsComponent,
+    FaqComponent,
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -64,10 +67,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   isCarouselStart = true;
   isCarouselEnd = false;
   platforms = platformsDetails;
-  faqHome = faqHomeDetails;
-  userReviews = userReviewsDetails;
-  visibleUserReview = 0;
-  progressBarWidth = 20;
   hasStartedAnimation: boolean = false;
 
   @ViewChildren(CounterComponent)
@@ -142,23 +141,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   nextSlide() {
     const carousel = this.carousel.nativeElement;
     carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
-  }
-
-  nextReview() {
-    if (this.progressBarWidth < 100) {
-      this.visibleUserReview += 1;
-      this.progressBarWidth += 20;
-    } else {
-      null;
-    }
-  }
-  previousReview() {
-    if (this.progressBarWidth > 0) {
-      this.visibleUserReview -= 1;
-      this.progressBarWidth -= 20;
-    } else {
-      null;
-    }
   }
 
 }

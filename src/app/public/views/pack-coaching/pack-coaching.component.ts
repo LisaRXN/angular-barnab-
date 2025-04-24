@@ -2,9 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { RouterLink } from '@angular/router';
-import { PackDialogComponent } from '../../shared/components/pack-dialog/pack-dialog.component';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
 import { OptionDialogComponent } from "../../shared/components/option-dialog/option-dialog.component";
+import { ReviewsComponent } from "../../shared/components/reviews/reviews.component";
+import { FaqComponent } from '../../shared/components/faq/faq.component';
 
 @Component({
   selector: 'app-pack-coaching',
@@ -14,7 +15,9 @@ import { OptionDialogComponent } from "../../shared/components/option-dialog/opt
     SectionTitleComponent,
     RouterLink,
     PartnersDialogComponent,
-    OptionDialogComponent
+    OptionDialogComponent,
+    ReviewsComponent,
+    FaqComponent,
 ],
   templateUrl: './pack-coaching.component.html',
   styleUrl: './pack-coaching.component.scss'

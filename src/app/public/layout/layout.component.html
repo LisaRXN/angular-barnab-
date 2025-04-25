@@ -1,5 +1,10 @@
 <div class="drawer">
-  <input #drawerCheckbox id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+  <input
+    #drawerCheckbox
+    id="my-drawer-3"
+    type="checkbox"
+    class="drawer-toggle"
+  />
   <div class="drawer-content flex flex-col bg-white">
     <!-- <div class="container mx-auto"> -->
     <div class="w-full mx-auto">
@@ -11,7 +16,7 @@
       </main>
 
       @if( !isAnnoncesPage()){
-        <app-footer ></app-footer>
+      <app-footer></app-footer>
       }
     </div>
     <app-cookie-consent></app-cookie-consent>
@@ -24,71 +29,118 @@
     ></label>
 
     <ul
-      class="menu bg-mygrey1 min-h-full md:w-80 p-4 text-lg text-mygrey4 flex flex-col gap-4 items-start justify-start md:justify-start"
+      class="bg-myblue text-white font-open min-h-full w-full p-4 text-lg text-mygrey4 flex flex-col gap-2 items-start justify-start md:justify-start"
     >
-      <!-- Coupon -->
-      <div
-        class="relative block sm:hidden bg-zinc-200 px-5 p-2 h-[60px] w-[160px] rounded-lg mb-5"
-      >
-        <span
-          class="absolute left-0 transforme -translate-x-[50%] -translate-y-[50%] top-1/2 h-[20px] w-[20px] rounded-full bg-mygrey1"
-        ></span>
-        <span
-          class="absolute right-0 transforme translate-x-[50%] -translate-y-[50%] top-1/2 h-[20px] w-[20px] rounded-full bg-mygrey1"
-        ></span>
-        <div class="flex justify-between">
-          <p class="font-semibold text-mygrey1 text-xl whitespace-nowrap">-50 %</p>
-          <p class="font-extrabold text-yellow-500 text-xl whitespace-nowrap">DIF50</p>
-        </div>
-        <p class="text-[9px] whitespace-nowrap text-mygrey1">
-          Sur votre 1ère commande
-        </p>
-      </div>
-
       <!-- Sidebar content here -->
-      <li>
-        <div class="flex items-center gap-4"><img src="assets/img/icon/nav-offer.png" class="w-[20px]"/>
-        <a (click)="closeDrawer()" routerLink="/">Notre Offre</a>
-        </div>
-      </li>
-      <li>
-        <div class="flex items-center gap-4"><img src="assets/img/icon/nav-partners.png" class="w-[21px]"/>
-        <a (click)="closeDrawer()" routerLink="/">Nos Partenaires</a>
-        </div>
-      </li>
-      <li>
-        <div class="flex items-center gap-4"><img src="assets/img/icon/nav-blog.png" class="w-[25px]"/>
-        <a (click)="closeDrawer()" routerLink="/blog">Le Blog</a>
-        </div>
-      </li>
-      <li>
-        <div class="flex items-center gap-4"><img src="assets/img/icon/nav-property.png" class="w-[25px]"/>
-        <a (click)="closeDrawer()" routerLink="/blog">Les Annonces</a>
-        </div>
-      </li>
-      <li>
-        <div class="flex items-center gap-4"><img src="assets/img/icon/emoji-dashboard.png" class="w-[25px]"/>
-        <a href="https://www.app.diffuze.fr" target="_blank" rel="external"
-          >Espace personnel</a
+      <!-- Dropdown -->
+      <details class="dropdown">
+        <summary
+          class="bg-myblue cursor-pointer flex items-center gap-3 p-4 hover:bg-white/10 rounded-xl transition duration-300"
         >
+          <img src="assets/img/emoji/nav-offer.png" class="w-[18px]" />
+          Nos Services
+        </summary>
+        <ul class="flex! rounded-box w-full space-y-4 p-2 pl-8">
+          <li>
+            <a
+            (click)="closeDrawer()"
+              routerLink="/pack-visibilite-coaching"
+              class="hover:bg-white/10 p-4 rounded-xl"
+              >Pack Visibilité & Coaching</a
+            >
+          </li>
+          <li>
+            <a
+              (click)="closeDrawer()"
+              routerLink="/pack-visibilite-vente-interactive"
+              class="hover:bg-white/10 px-4 hover:py-4 rounded-xl"
+              >Pack Visibilité & Vente Interactive</a
+            >
+          </li>
+          <li>
+            <a
+              (click)="closeDrawer()"
+              routerLink="/pack-reportage-photo-visite3D"
+              class="hover:bg-white/10 px-4 hover:py-4 rounded-xl"
+              >Reportage Photo & Visite 3D</a
+            >
+          </li>
+        </ul>
+      </details>
+
+      <li routerLink="/blog">
+        <div
+          class="flex items-center justify-start gap-3 p-4 hover:bg-white/10 rounded-xl transition duration-300"
+        >
+          <img src="assets/img/emoji/nav-blog.png" class="w-[18px]" />
+          <a (click)="closeDrawer()" routerLink="/blog">Blog</a>
+        </div>
+      </li>
+
+      <!-- Dropdown -->
+      <details class="dropdown">
+        <summary
+          class="cursor-pointer flex items-center justify-start gap-3 p-4 hover:bg-white/10 rounded-xl transition duration-300"
+        >
+          <img src="assets/img/emoji/nav-tools.png" class="w-[18px]" />
+          Outils en ligne
+        </summary>
+        <ul class="flex! rounded-box w-full p-2 space-y-3 pl-8">
+          <li>
+            <a
+              routerLink="/estimation-immobiliere-gratuite-en-ligne"
+              class="hover:bg-white/10 px-4 hover:py-4 rounded-xl"
+              >Estimation de votre bien</a
+            >
+          </li>
+          <li>
+            <a
+              (click)="closeDrawer()"
+              routerLink="/redaction-annonce-immobiliere-gratuite-en-ligne"
+              class="hover:bg-white/10 px-4 hover:py-4 rounded-xl"
+              >Rédaction de votre annonce</a
+            >
+          </li>
+        </ul>
+      </details>
+
+      <li routerLink="/annonces">
+        <div
+          class="flex items-center justify-start gap-3 p-4 hover:bg-white/10 rounded-xl transition duration-300"
+        >
+          <img src="assets/img/emoji/nav-property.png" class="w-[19px]" />
+          <a (click)="closeDrawer()" routerLink="/annonces">Annonces</a>
+        </div>
+      </li>
+
+      <li>
+        <div
+          class="flex items-center justify-start gap-3 p-4 hover:bg-white/10 rounded-xl transition duration-300"
+        >
+          <img src="assets/img/emoji/nav-house.png" class="w-[19px]" />
+          <a (click)="closeDrawer()" href="https://app.barnabe-immo.fr/"
+            >Espace personnel</a
+          >
         </div>
       </li>
       <a
         (click)="closeDrawer()"
-        href="https://www.app.diffuze.fr"
+        href="https://app.barnabe-immo.fr/"
         target="_blank"
         rel="external"
-        class="bg-mygrey5 text-mygrey1 rounded-full py-4 text-center w-[300px] md:w-[280px]"
+        class="mt-2 bg-myorange rounded-full py-4 text-center w-[300px] hover:bg-orange-500 transition-all transition-300"
         >Déposer une annonce</a
       >
       <a
         (click)="closeDrawer()"
-        href="https://app.lemcal.com/@diffuze/15min"
+        href="https://calendly.com/barnabe-immo/15min"
         target="_blank"
         rel="external"
-        class="bg-myyellow1 text-mygrey1 rounded-full py-4 text-center w-[300px] md:w-[280px]"
-        >Prendre rendez-vous</a
+        class="mt-2 flex items-center justify-center gap-4 bg-white text-myzinc rounded-full py-4 text-center w-[300px] hover:bg-white/90 transition-all transition-300"
       >
+        <i class="fa-solid fa-phone text-myzinc"></i>
+        <p>Prendre rendez-vous</p>
+      </a>
     </ul>
   </div>
 </div>

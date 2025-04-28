@@ -4,8 +4,10 @@ import {
   ElementRef,
   HostListener,
   inject,
+  NgZone,
   OnInit,
   QueryList,
+  signal,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -16,15 +18,25 @@ import { Property } from '../../../core/models/property.model';
 import { Observable } from 'rxjs';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
-import { NumberCardComponent } from './components/number-card/number-card.component';
-import reviewsDetails from '../../../../assets/data/reviews.json';
+import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
+import { CounterComponent } from '../../shared/components/counter/counter.component';
+import { ReviewsComponent } from "../../shared/components/reviews/reviews.component";
+import { FaqComponent } from '../../shared/components/faq/faq.component';
+import platformsDetails from '../../../../assets/data/partners.json';
+
 
 @Component({
   selector: 'app-home',
   imports: [
     CommonModule,
     RouterLink,
-  ],
+    SectionTitleComponent,
+    NgOptimizedImage,
+    PartnersDialogComponent,
+    CounterComponent,
+    ReviewsComponent,
+    FaqComponent,
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -40,22 +52,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
     ]);
   }
+  @ViewChild(PartnersDialogComponent) dialogComponent!: PartnersDialogComponent;
+  @ViewChild('addresstext') addresstext!: ElementRef<HTMLInputElement>;
+  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
+  @ViewChild('progressBar') progressBar!: ElementRef<HTMLDivElement>;
 
-  router = inject(Router);
+  private router = inject(Router);
+  private ngZone = inject(NgZone);
+  place: any;
   propertyGateway = inject(PropertyGateway);
   properties$!: Observable<Property[]>;
   properties: Property[] = [];
   isDialogOpen: boolean = false;
   isCarouselStart = true;
   isCarouselEnd = false;
+  platforms = platformsDetails;
   hasStartedAnimation: boolean = false;
-  reviews = reviewsDetails;
 
-  @ViewChild(PartnersDialogComponent) dialogComponent!: PartnersDialogComponent;
-  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
-
-  @ViewChildren(NumberCardComponent)
-  numberCards!: QueryList<NumberCardComponent>;
+  @ViewChildren(CounterComponent)
+  counters!: QueryList<CounterComponent>;
   @ViewChild('numbers') numbersRef!: ElementRef;
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -66,27 +81,48 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     if (
       numberElement &&
-      window.scrollY > numberElement.offsetTop - windowHeight
+      window.scrollY > numberElement.offsetTop + 100 - windowHeight
     ) {
-      this.numberCards.forEach((card) => card.startCount());
+      this.counters.forEach((number) => number.startCount());
       this.hasStartedAnimation = true;
     }
   }
-
-  ngAfterViewInit(): void {
-    if (typeof window !== 'undefined') {
-      this.onScroll();
-    }
-  }
-
   ngOnInit() {
     this.propertyGateway.fetchLastProperties().subscribe((properties) => {
       this.properties = properties;
     });
   }
 
-  navigateToProperty(property: Property) {
-    this.router.navigate(['property', property.id]);
+  ngAfterViewInit() {
+    this.getPlaceAutocomplete();
+  }
+
+  private getPlaceAutocomplete() {
+    if (typeof google === 'undefined' || !google.maps) {
+      console.error('Google Maps API non chargé');
+      return;
+    }
+
+    const options = {
+      componentRestrictions: { country: 'FR' },
+      types: ['geocode'],
+    };
+
+    const autocomplete = new google.maps.places.Autocomplete(
+      this.addresstext.nativeElement,
+      options
+    );
+
+    autocomplete.addListener('place_changed', () => {
+      this.ngZone.run(() => {
+        this.place = autocomplete.getPlace();
+
+        if (this.place.geometry === undefined || this.place.geometry === null) {
+          return;
+        }
+        localStorage.setItem('localization', this.place.name);
+      });
+    });
   }
 
   openModal() {
@@ -96,4 +132,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
       console.error('modalComponent est undefined');
     }
   }
+
+  prevSlide() {
+    const carousel = this.carousel.nativeElement;
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+  }
+
+  nextSlide() {
+    const carousel = this.carousel.nativeElement;
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+  }
+
 }

@@ -1,0 +1,469 @@
+<!-- Hero -->
+<section
+  id="hero"
+  class="px-5 relative h-[calc(100vh-50px)] md:max-h-[700px] flex items-center justify-center"
+>
+  <img
+    ngSrc="assets/img/photo/reportage0.jpg"
+    class="object-cover w-full h-full"
+    fill
+    priority
+    alt="Barbabé - Coaching Immobilier"
+  />
+
+  <div
+    class="relative z-20 flex flex-col items-center justify-center text-myzinc p-10 md:py-20 max-w-3xl"
+  >
+    <div
+      class="bg-white/80 absolute inset-0 w-full h-full rounded-3xl border border-white"
+    ></div>
+
+    <p class="z-20 font-alternates text-lg font-medium mb-6 text-center">
+      Boostez la vente de votre bien
+    </p>
+    <h1 class="z-20 text-4xl md:text-6xl font-paytone text-center mb-6">
+      <span className="block leading-relaxed h-7 whitespace-nowrap"
+        >Pack Photo Pro &</span
+      >
+      <span class="block mt-4 font-alternates italic">Visite 3D</span>
+    </h1>
+    <p class="z-20 md:w-3/4 text-center font-alternates text-lg">
+      ​Attirez les acheteurs avec des visuels professionnels qui accélèrent
+      votre vente​
+    </p>
+  </div>
+</section>
+
+<!-- Présentation -->
+<section class="px-5 py-10 md:p-20 bg-myblue/5 mb-20 md:mb-22">
+  <div
+    class="flex flex-col items-center justify-center text-myzinc font-jakarta gap-10 md:gap-14 max-w-screen-2xl m-auto"
+  >
+    <h2 class="font-jakarta text-3xl md:text-5xl font-semibold text-center">
+      Démarquez-vous avec une annonce pro qui fait la différence
+    </h2>
+    <p class="text-xl font-bold font-open">
+      Mettez toutes les chances de votre côté pour vendre rapidement
+    </p>
+    <div
+      class="flex flex-col lg:flex-row items-start justify-start gap-10 max-w-screen-xl m-auto"
+    >
+      <div class="lg:w-1/3 w-full flex items-center justify-center">
+        <img
+          src="assets/img/illustration/reportage.png"
+          class="max-w-[250px] max-h-[250px]"
+          alt="Pack Visibilité & Coaching"
+        />
+      </div>
+      <div
+        class="lg:w-2/3 w-full flex flex-col items-start justify-start gap-10 font-light text-lg font-open"
+      >
+        <p class="text-justify hyphens-auto">
+          Vous souhaitez vendre rapidement et au meilleur prix ? Ne laissez rien
+          au hasard. Avec notre pack Photo + Visite 3D, vous valorisez votre
+          bien grâce a
+          <span class="font-bold">une présentation professionnelle</span>.
+        </p>
+        <p class="text-justify hyphens-auto">
+          Les annonces intégrant des photos professionnelles et une visite
+          virtuelle 3D sont jusqu’à
+          <span class="font-bold">7 fois plus visibles</span> et génèrent
+          jusqu'à
+          <span class="font-bold">40 % de contacts supplémentaires</span>.
+          Pourquoi ? Parce qu’elles captent l’attention instantanément,
+          suscitent l’envie de visiter et permettent aux acheteurs de se
+          projeter sans attendre.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- L'offre -->
+<section class="mb-10 md:mb-28 overflow-hidden font-open text-myzinc max-w-screen-2xl m-auto">
+  <!-- Titre -->
+  <div class="px-5 md:px-20">
+    <app-section-title
+      section="Découvrez l'offre"
+      title="Ce qui est inclus dans l’offre"
+    />
+  </div>
+  <div
+    class="2xl:mx-20 w-full h-[80px] bg-myorange mb-10 md:mb-20 flex items-center justify-center"
+  >
+    <p class="text-white font-medium text-xl text-center">
+      Offre valable en <span class="font-bold">Ile de France</span> uniquement
+    </p>
+  </div>
+
+  <div class="px-5 md:px-20">
+    <div class="flex flex-col items-center justify-center gap-6 mb-20">
+      <p class="text-2xl font-medium text-myzinc font-jakarta">
+        Pack Photos Pro & Visite 3D
+      </p>
+      <p class="text-5xl font-semibold text-myorange">
+        <span *ngIf="surface() === null" class="text-lg font-medium"
+          >à partir de</span
+        >{{ price() }} €
+      </p>
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-4">
+        <p class="font-normal text-lg">
+          Le prix du reportage s’ajuste à la surface de votre bien :
+        </p>
+        <div class="relative flex items-stretch">
+          <input
+            [(ngModel)]="surface"
+            type="number"
+            min="0"
+            placeholder="Entrez la surface"
+            class="text-myzinc border border-myzinc sm:text-sm rounded-lg block p-2.5 focus:border-none focus:ring-1 focus:ring-myorange focus:outline-none select-none"
+          />
+          <span class="absolute right-4 top-3 font-medium text-sm">m²</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="grid md:grid-cols-[min-content_min-content] gap-10 w-auto m-auto place-items-center justify-center mb-10 md:mb-20"
+    >
+      <!-- Card 1 -->
+      <div
+        class="rounded-4xl p-10 pt-14 flex flex-col gap-10 w-full h-auto md:h-[485px] md:w-[350px] lg:w-[475px] lg:h-[410px] bg-myorange/10"
+      >
+        <div class="w-full h-[100px] flex items-center justify-center">
+          <img
+            src="assets/img/icon/camera1.png"
+            class="object-contain h-full w-auto"
+            alt="Barnabé - Diffusion Immobilière"
+          />
+        </div>
+        <div class="">
+          <p class="text-2xl text-myzinc font-semibold font-jakarta mb-5">
+            Photos Professionnelles
+          </p>
+          <p class="text-lg text-mygrey font-medium font-open mb-5">
+            Un reportage photo professionnel de
+            <span class="font-bold text-myzinc">15 photos éblouissantes </span
+            >prises avec un appareil photo haut de gamme Lumix S5.
+          </p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div
+        class="rounded-4xl p-10 pt-14 flex flex-col gap-10 w-full h-auto md:h-[485px] md:w-[350px] lg:w-[475px] lg:h-[410px] bg-myblue/5"
+      >
+        <div class="w-full h-[120px] flex items-center justify-center">
+          <img
+            src="assets/img/icon/camera2.png"
+            class="object-contain h-full w-auto"
+            alt="Barnabé - Diffusion Immobilière"
+          />
+        </div>
+        <div class="">
+          <p class="text-2xl text-myzinc font-semibold font-jakarta mb-5">
+            Visite virtuelle 3D
+          </p>
+          <p class="text-lg text-mygrey font-medium font-open mb-5">
+            Une
+            <span class="font-bold text-myzinc"
+              >visite 3D virtuelle et immersive </span
+            >de votre bien, capturée avec une caméra de pointe (valable 2 mois).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-10 items-center justify-center">
+      <p class="max-w-screen-md font-semibold text-xl">
+        Offrez à votre bien la visibilité qu’il mérite — un conseiller vous
+        accompagne dans la souscription à notre reportage photo
+      </p>
+      <div
+        class="flex items-center justify-center gap-4 rounded-full py-2 px-3 md:px-6 md:py-4 bg-myblue hover:bg-blue-950 transition-all transition-300"
+      >
+        <i class="fa-solid fa-phone text-white"></i>
+        <a
+          href="https://calendly.com/barnabe-immo/15min"
+          target="_blank"
+          class="text-sm text-white"
+          >Prendre Rendez-vous</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visite 3D -->
+<section
+  class="px-5 md:px-20 max-w-screen-2xl m-auto mb-10 md:mb-28 overflow-hidden font-open text-myzinc"
+>
+  <!-- Titre -->
+  <app-section-title
+    title="Une immersion totale grâce à la visite 3D"
+    subtitle="Visite virtuelle pièce par pièce, intérieur et extérieur, tout est possible"
+  />
+
+  <div class="flex items-center justify-center max-w-screen-md m-auto">
+    <iframe
+      src="https://realsee.ai/VbOOdLRP"
+      class="rounded-xl aspect-video h-auto w-full"
+      frameborder="0"
+      controls
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+<!-- Chiffres -->
+<section
+  class="px-5 md:px-20 max-w-screen-2xl m-auto mb-10 md:mb-28 overflow-hidden font-open text-myzinc"
+>
+  <!-- Titre -->
+  <app-section-title
+    title="Valorisez votre bien, captez l’attention, vendez plus vite"
+  />
+
+  <div class="grid xl:grid-cols-2 gap-10 md:gap-24">
+    <div
+      #numbers
+      class="order-2 md:order-1 flex flex-col items-start justify-start gap-10"
+    >
+      <div
+        class="grid md:grid-cols-[1fr_2fr] items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
+      >
+        <span
+          class="inline text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
+          >7x
+        </span>
+        <div class="flex flex-col items-start gap-4">
+          <p class="font-jakarta font-semibold text-myzinc text-2xl">
+            Visibilité augmentée
+          </p>
+          <p class="font-open text-zinc-500">
+            Les annonces intégrant des photos de haute qualité sont 7 fois plus
+            visibles que les autres
+          </p>
+        </div>
+      </div>
+      <div
+        class="grid md:grid-cols-[1fr_2fr] items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
+      >
+        <p
+          class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
+        >
+          40%
+        </p>
+        <div class="flex flex-col items-start gap-4">
+          <p class="font-jakarta font-semibold text-myzinc text-2xl">
+            Plus de clics, plus d’ acheteurs intéressés
+          </p>
+          <p class="font-open text-zinc-500">
+            les annonces dotées de visites 3D reçoivent en moyenne 40 % de clics
+            supplémentaires par rapport à celles sans (source immo2*)
+          </p>
+        </div>
+      </div>
+      <div
+        class="grid md:grid-cols-[1fr_2fr] items-center justify-start gap-10 md:gap-20"
+      >
+        <p
+          class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
+        >
+          82%
+        </p>
+        <div class="flex flex-col items-start gap-4">
+          <p class="font-jakarta font-semibold text-myzinc text-2xl">
+            Gagner du temps
+          </p>
+          <p class="font-open text-zinc-500">
+            82% des acheteurs préfèrent voir une visite virtuelle avant un
+            déplacement. Plus de visites inutiles pour eux, un gain de temps
+            pour vous !
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="relative order-1 md:order-2 min-h-[500px]">
+      <a
+        href="https://calendly.com/barnabe-immo/15min"
+        target="_blank"
+        class="absolute top-7 right-7 text-sm text-white bg-myorange/70 text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-orange-500/70 transition-all transition-300"
+        >Prendre Rendez-vous</a
+      >
+      <img
+        src="assets/img/photo/bien2.jpg"
+        alt="Barnabé - Vendez comme un pro sans commission"
+        class="rounded-[50px] w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Photos -->
+<section
+  class="px-5 md:px-20 max-w-screen-2xl m-auto mb-10 md:mb-28 overflow-hidden font-open text-myzinc"
+>
+  <!-- Titre -->
+  <app-section-title
+    title="Démarquez vous grâce à des photos professionnelles"
+    subtitle="Mettez toutes les chances de votre côté pour vendre rapidement"
+  />
+  <div class="hidden md:block max-w-screen-lg m-auto">
+    <div class="flex flex-row items-end justify-center gap-5 mb-5">
+      <img
+        src="assets/img/photo/reportage2.jpg"
+        class="w-[300px] xl:w-[600px] h-auto rounded-xl"
+        alt=""
+      />
+      <img
+        src="assets/img/photo/reportage1.jpg"
+        class="w-[225px] xl:w-[450px] h-auto rounded-xl"
+        alt=""
+      />
+    </div>
+    <div class="flex flex-row items-start justify-center gap-5">
+      <img
+        src="assets/img/photo/reportage4.jpg"
+        class="w-[175px] xl:w-[350px] h-auto rounded-xl"
+        alt=""
+      />
+      <img
+        src="assets/img/photo/reportage5.jpg"
+        class="w-[250px] xl:w-[500px] h-auto rounded-xl"
+        alt=""
+      />
+      <img
+        src="assets/img/photo/reportage6.jpg"
+        class="w-[150px] xl:w-[300px] h-auto rounded-xl"
+        alt=""
+      />
+    </div>
+  </div>
+  <!-- Carousel -->
+  <div class="md:hidden relative flex items-stretch px-5">
+    <div #carousel class="carousel gap-2 rounded-t">
+      <div
+        *ngFor="let i of [].constructor(6); let index = index"
+        class="carousel-item"
+      >
+        <img
+          [src]="'assets/img/photo/reportage' + index + '.jpg'"
+          class="rounded-xl w-[300px] h-auto object-cover"
+          alt=""
+        />
+        <div
+          class="absolute left-0 right-0 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <i
+            (click)="prevSlide()"
+            class="fa-solid fa-chevron-left text-lg text-mygrey"
+          ></i>
+          <i
+            (click)="nextSlide()"
+            class="fa-solid fa-chevron-right text-lg text-mygrey"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Derniers biens vendus -->
+<section
+  id="biens"
+  class="px-5 md:px-20 max-w-screen-2xl m-auto font-open mb-20 md:mb-36"
+>
+  <!-- Titre -->
+  <app-section-title
+    title="Les derniers biens vendus avec"
+    nextTitle=" "
+    subtitle="Ils nous ont fait confiance"
+    link="/annonces"
+    button="Voir tous les biens"
+  />
+  <div
+    class="grid lg:grid-cols-3 gap-10 place-items-center max-w-screen-xl m-auto"
+  >
+    <div
+      class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien1.jpeg')] bg-cover bg-center rounded-4xl overflow-hidden"
+    >
+      <a
+        routerLink="/annonces"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+      </a>
+      <div
+        class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-zinc-600">Appartement</p>
+          <p class="text-xl font-bold">460 000 €</p>
+        </div>
+        <p class="font-bold text-lg">Paris</p>
+        <p class="text-zinc-700">75004</p>
+        <div class="flex items-center justify-start gap-5 text-zinc-700">
+          <p>40 m²</p>
+          <p>2 pièces</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien2.jpg')] bg-cover bg-center rounded-4xl overflow-hidden"
+    >
+      <a
+        routerLink="/annonces"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+      </a>
+      <div
+        class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-zinc-600">Appartement</p>
+          <p class="text-xl font-bold">380 000 €</p>
+        </div>
+        <p class="font-bold text-lg">Lyon</p>
+        <p class="text-zinc-700">69000</p>
+        <div class="flex items-center justify-start gap-5 text-zinc-700">
+          <p>75 m²</p>
+          <p>3 pièces</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative h-[435px] w-[325px] bg-[url('assets/img/photo/bien3.jpg')] bg-cover bg-center rounded-4xl overflow-hidden"
+    >
+      <a
+        routerLink="/annonces"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+      </a>
+      <div
+        class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-zinc-600">Appartement</p>
+          <p class="text-xl font-bold">520 000 €</p>
+        </div>
+        <p class="font-bold text-lg">Toulouse</p>
+        <p class="text-zinc-700">31000</p>
+        <div class="flex items-center justify-start gap-5 text-zinc-700">
+          <p>120 m²</p>
+          <p>4 pièces</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section
+  id="faq"
+  class="px-2 md:px-10 max-w-screen-2xl m-auto font-open mb-20 md:mb-28 text-myzinc"
+>
+  <app-faq />
+</section>

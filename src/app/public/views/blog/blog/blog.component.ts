@@ -2,13 +2,17 @@ import { Component, inject, model, OnInit, signal } from '@angular/core';
 import { PrerenderService } from '../../../../core/services/prerender.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { debounceTime, filter, forkJoin, map, Observable, switchMap, tap } from 'rxjs';
+import { debounceTime, filter, forkJoin, ignoreElements, map, Observable, switchMap, tap } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { ArticleCardComponent } from '../components/article-card/article-card.component';
 import { ArticleGateway } from '../../../../core/ports/article.gateway';
 import { Article } from '../../../../core/models/article.models';
 import { toObservable } from '@angular/core/rxjs-interop';
 
+interface Type {
+ id:number;
+ type:string;
+}
 
 @Component({
   selector: 'app-blog',
@@ -17,8 +21,8 @@ import { toObservable } from '@angular/core/rxjs-interop';
 })
 export class BlogComponent implements OnInit {
   private articleGateway = inject(ArticleGateway)
-  types: any[] = [];
-  selectedType = this.types;
+  types: Type[] = [];
+  selectedType:Type[] = []
   articles: Article[][] = [];
   
   search = signal(''); 
@@ -50,10 +54,16 @@ export class BlogComponent implements OnInit {
   }
 
   selectType(id: number) {
-    return (this.selectedType = this.types.filter((type) => type.id === id));
+    const isTypeSelected = this.selectedType.length === 1
+    const sameType = this.selectedType[0].id === id
+    this.selectedType = isTypeSelected && sameType  ? this.types : this.types.filter((type) => type.id === id)
   }
 
   getSlugCategory(id: number): string | undefined {
     return this.articleGateway.getSlugCategory(id);
+  }
+
+  getSelectedTypeId(id:number) {
+    return this.selectedType.length === 1 && this.selectedType.find( (type) => type.id === id)
   }
 }

@@ -2,8 +2,8 @@
 <a [routerLink]="['/blog', article.url]" class="block">
   <div
     [ngClass]="{
-      'h-full w-[280px] md:w-[320px]  cursor-pointer border border-zinc-100 rounded-xl m-auto': true,
-      'bg-zinc-100': bg === 'mygrey5',
+      'h-full w-[280px] md:w-[320px]  cursor-pointer border border-zinc-100 rounded-2xl m-auto': true,
+      'bg-myblue/5': bg === 'blue',
       'bg-white': bg === 'white'
     }"
   >
@@ -23,9 +23,9 @@
       </p>
       <div class="flex items-center justify-start gap-3">
         <div
-          class="h-10 w-10 p-1 flex items-center justify-center rounded-full bg-myyellow1"
+          class="h-10 w-10 p-1 flex items-center justify-center rounded-full bg-myorange"
         >
-          <img src="assets/img/icon/victor.png" class="object-contain" alt="" />
+          <img src="assets/img/illustration/victor.png" class="object-contain" alt="" />
         </div>
         <div class="font-light flex-col items-center justify-start">
           <p class="text-[10px]">{{ article.author }}</p>

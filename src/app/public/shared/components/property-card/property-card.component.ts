@@ -11,9 +11,10 @@ import { environment } from '../../../../../environments/environment';
   styleUrl: './property-card.component.scss',
 })
 export class PropertyCardComponent implements AfterViewInit {
+  
   router = inject(Router);
   @Input() property!: Property;
-  @Input() smallCard: boolean = false
+  // @Input() smallCard: boolean = false
 
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
   baseUrl = environment.publicURL;

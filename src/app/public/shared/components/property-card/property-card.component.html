@@ -1,4 +1,41 @@
 <div
+  class="relative h-[435px] w-[325px] bg-cover bg-center rounded-4xl overflow-hidden"
+  [ngStyle]="{ 'background-image': 'url(' + baseUrl + property.media.images[0].photo_path + ')' }"
+>
+  <a
+    routerLink="/annonces"
+    class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+  >
+    <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+  </a>
+  <div
+    class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+  >
+    <div class="flex items-center justify-between mb-2">
+      <p class="text-zinc-600">{{ property.property_type | titlecase }}</p>
+      <p
+        *ngIf="property.transaction_type === 'selling'"
+        class="text-xl font-bold"
+      >
+        {{ selling_price_number | currency : "EUR" : "symbol" : "1.0-0" }}
+      </p>
+      <p
+        *ngIf="property.transaction_type === 'renting'"
+        class="text-xl font-bold"
+      >
+        {{ property.rent_by_month | currency : "EUR" : "symbol" : "1.0-0" }}
+      </p>
+    </div>
+    <p class="font-bold text-lg text-start mb-1">{{ property.addressForm.city }}</p>
+    <p class="text-zinc-700 text-start mb-1">{{ property.addressForm.zip_code }}</p>
+    <div class="flex items-center justify-start gap-5 text-zinc-700">
+      <p>{{ property.living_space }} m²</p>
+      <p>{{ property.room }} pièces</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div
   [ngClass]="{
     'h-auto rounded-xl bg-white cursor-pointer m-auto mb-10 shadow-lg transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-xl': true,
     'w-[350px] max-w-[400px]': !smallCard,
@@ -78,11 +115,6 @@
     <div class="flex items-center justify-start gap-2">
       <p>{{ property.living_space }} m²</p>
       <p>{{ property.room }} pièces</p>
-      <!-- <p>
-        {{
-          property.floor !== null ? property.floor + "e étage" : ""
-        }}
-      </p> -->
     </div>
   </div>
   <div
@@ -105,4 +137,4 @@
       <span class="text-sm font-light text-myyellow1">/ mois</span>
     </p>
   </div>
-</div>
+</div> -->

@@ -20,8 +20,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { AdCardComponent } from '../annonces/components/ad-card/ad-card.component';
-import { ContactDetails } from '../../../core/models/contactDetails';
 import {
   DomSanitizer,
   Meta,
@@ -30,6 +28,7 @@ import {
 } from '@angular/platform-browser';
 import { PhoneNumberPipe } from '../../../pipes/phoneNumber/phone-number.pipe';
 import { SeoService } from '../../../core/services/seo.service';
+import { PropertyCardComponent } from '../../shared/components/property-card/property-card.component';
 
 @Component({
   selector: 'app-annonce-detail',
@@ -40,7 +39,7 @@ import { SeoService } from '../../../core/services/seo.service';
     GoogleMapsModule,
     RouterLink,
     CapitalizePipe,
-    AdCardComponent,
+    PropertyCardComponent,
     PhoneNumberPipe
   ],
   templateUrl: './annonce-detail.component.html',
@@ -74,7 +73,8 @@ export class AnnonceDetailComponent {
   };
   isCarouselStart = true;
   isCarouselEnd = false;
-
+  activeSlide:number = 0;
+  
   cityScanToken!: string;
   cityScanApiKey = environment.cityScanApiKey;
   safeUrl!: SafeResourceUrl
@@ -224,9 +224,13 @@ export class AnnonceDetailComponent {
     this.isCarouselStart = carousel.scrollLeft === 0;
     this.isCarouselEnd =
       carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth;
+
+    const index = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    this.activeSlide = index;
   }
 
   prevSlide() {
+
     const carousel = this.carousel.nativeElement;
     carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
   }

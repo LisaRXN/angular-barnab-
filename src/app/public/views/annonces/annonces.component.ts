@@ -163,7 +163,7 @@ export class AnnoncesComponent implements OnInit, AfterViewInit {
   imagePath: string =
     'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m';
   iconConfig = {
-    url: 'assets/img/icon/rectangle.png',
+    url: 'assets/img/icon/rectangle-blue.png',
     scaledSize: new google.maps.Size(60, 30),
   };
   isDesktop: boolean = true;

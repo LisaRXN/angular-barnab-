@@ -7,6 +7,7 @@ import { OptionDialogComponent } from '../../shared/components/option-dialog/opt
 import { ReviewsComponent } from '../../shared/components/reviews/reviews.component';
 import { FaqComponent } from '../../shared/components/faq/faq.component';
 import faqEncheresDetails from '../../../../assets/data/faq-encheres.json';
+import { HeroPackComponent } from '../../shared/components/hero-pack/hero-pack.component';
 
 @Component({
   selector: 'app-pack-encheres',
@@ -18,7 +19,8 @@ import faqEncheresDetails from '../../../../assets/data/faq-encheres.json';
     PartnersDialogComponent,
     OptionDialogComponent,
     ReviewsComponent,
-    FaqComponent
+    FaqComponent,
+    HeroPackComponent
   ],
   templateUrl: './pack-encheres.component.html',
   styleUrl: './pack-encheres.component.scss'

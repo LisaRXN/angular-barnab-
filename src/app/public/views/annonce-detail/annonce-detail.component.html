@@ -96,10 +96,10 @@
             "
             placeholder="Votre email*"
           />
-          <p class="error" *ngIf="contactFormError()">
+          <p class="text-sm text-rose-500" *ngIf="contactFormError()">
             {{ contactFormError() }}
           </p>
-          <p class="error" *ngIf="emailError()">
+          <p class="text-sm text-rose-500" *ngIf="emailError()">
             {{ emailError() }}
           </p>
           <div
@@ -144,7 +144,7 @@
           <button
             (click)="isContactVisible = !isContactVisible"
             type="button"
-            class="rounded-full border border-mygrey3 px-4 py-3 flex items-center justify-center gap-2"
+            class="rounded-full border border-myzinc hover:border-myblue transition duration-300 px-4 py-3 flex items-center justify-center gap-2"
           >
             <i class="fa-solid fa-phone mr-2"></i>
             <p *ngIf="!isContactVisible">Afficher le numéro</p>
@@ -157,7 +157,6 @@
 
       <!-- Description de l'annonce -->
       <section
-        *ngIf="!loading && property"
         id="description"
         class="w-full lg:w-2/3 order-1 overflow-y-auto"
       >
@@ -169,6 +168,7 @@
             <div class="relative flex items-stretch">
               <div #carousel class="carousel rounded-t">
                 <div
+                  #item
                   *ngFor="let photo of property?.media?.images; let i = index"
                   class="carousel-item w-full"
                 >
@@ -207,6 +207,7 @@
 
           <!-- Avantages -->
           <div
+          *ngIf="!loading && property" 
             class="order-1 md:order-2 flex flex-col gap-5 px-5 md:px-0 mb-16"
           >
             <p
@@ -314,14 +315,18 @@
           </div>
         </div>
         <!-- Description -->
-        <div class="mb-16">
+        <div 
+        *ngIf="!loading && property" 
+        class="mb-16">
           <p class="text-xl font-extrabold mb-10 font-jakarta">Description</p>
           <p class="whitespace-pre-line text-justify leading-relaxed">
             {{ property.description }}
           </p>
         </div>
         <!-- Caractéristiques -->
-        <div class="mb-16">
+        <div 
+        *ngIf="!loading && property" 
+        class="mb-16">
           <p class="text-xl font-extrabold mb-10 font-jakarta">Caractéristiques</p>
           <div
             class="grid md:grid-cols-2 border border-myorange rounded-4xl font-semibold"
@@ -386,7 +391,9 @@
           </div>
         </div>
         <!-- Performances Énergétique -->
-        <div class="mb-16">
+        <div
+        *ngIf="!loading && property" 
+         class="mb-16">
           <p class="text-xl font-extrabold font-jakarta mb-10">
             Diagnostic de Performances Énergétique
           </p>
@@ -533,8 +540,10 @@
           </div>
         </div>
         <!-- Localisation -->
-        <div class="mb-10">
-          <p class="text-xl font-extrabold font-jakarta mb-10">Localisation</p>
+        <div
+        *ngIf="!loading && property" 
+         class="mb-10">
+          <p class="text-xl font-extrabold  mb-10">Localisation</p>
 
           @if(property.valuation?.cityscan_id_address){
           <iframe
@@ -576,13 +585,13 @@
     @if(similarProperties.length > 0){
     <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
     <div
-      class="w-full text-center no-print flex flex-col items-center justify-center gap-16"
+      class="w-full text-center no-print flex flex-col items-center justify-center gap-16 max-w-screen-xl m-auto"
     >
       <h2 class="text-2xl font-bold font-jakarta">
         Ces biens pourraient vous intéresser
       </h2>
       <div
-        class="grid lg:grid-cols-3 gap-10 place-items-center max-w-screen-xl m-auto"
+        class="grid lg:grid-cols-3 gap-10 2xl:gap-20 place-items-center"
       >
         @for (property of similarProperties; track property) {
         <app-property-card
@@ -685,7 +694,7 @@
     <!-- Plus d'information -->
     <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
     <div
-      class="w-full px-5 md:px-10 rounded-2xl mb-16 font-open text-mygrey1 flex flex-col gap-14 items-center justify-center no-print"
+      class="w-full px-5 md:px-10 rounded-2xl mb-16 font-open text-myzinc flex flex-col gap-14 items-center justify-center no-print"
     >
       <div class="flex items-center justify-center gap-4">
         <h2 class="text-2xl font-bold font-jakarta text-center">
@@ -694,7 +703,7 @@
         <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
       </div>
 
-      <p class="text-xl leading-relaxed text-justify lg:w-3/4">
+      <p class="text-xl leading-relaxed text-justify lg:w-3/4 m-auto bg-pink-200 lg:text-center">
         Besoin de conseils personnalisés ? Réservez un rendez-vous avec un
         conseiller : il répondra à toutes vos questions !
       </p>
@@ -707,7 +716,7 @@
           href="https://calendly.com/barnabe-immo/15min"
           target="_blank"
           class="text-sm text-white"
-          >Prendre Rendez-vous</a
+          >Prendre rendez-vous</a
         >
       </div>
 

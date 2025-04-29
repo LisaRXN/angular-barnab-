@@ -1,38 +1,11 @@
 <!-- Hero -->
-<section
-  id="hero"
-  class="px-5 relative h-[calc(100vh-50px)] md:max-h-[700px] flex items-center justify-center"
->
-  <img
-    ngSrc="assets/img/photo/immeuble2.jpg"
-    class="object-cover w-full h-full"
-    fill
-    priority
-    alt="Barbabé - Coaching Immobilier"
-  />
-
-  <div
-    class="relative z-20 flex flex-col items-center justify-center text-white p-10 md:py-20 max-w-3xl"
-  >
-    <div
-      class="bg-myblue/80 absolute inset-0 w-full h-full rounded-3xl border border-white"
-    ></div>
-
-    <p class="z-20 font-alternates text-lg font-medium mb-6 text-center">
-      Boostez la vente de votre bien
-    </p>
-    <h1 class="z-20 text-4xl md:text-6xl font-paytone text-center mb-6">
-      <span className="block leading-relaxed h-7 whitespace-nowrap"
-        >Pack Visibilité &</span
-      >
-      <span class="block mt-4 font-alternates italic">Coaching</span>
-    </h1>
-    <p class="z-20 md:w-3/4 text-center font-alternates text-lg">
-      Et si vous vendiez votre bien entre particuliers, avec l’appui d’un
-      professionnel à vos côtés ?
-    </p>
-  </div>
-</section>
+<app-hero-pack
+  titleOne="Pack Visibilité"
+  titleTwo="& Coaching"
+  subtitle="Et si vous vendiez votre bien entre particuliers, avec l’appui d’un
+  professionnel à vos côtés ?"
+  image="immeuble2.jpg"
+/>
 
 <!-- Présentation -->
 <section class="px-5 py-10 md:p-20 bg-myblue/5 mb-20 md:mb-22">
@@ -95,7 +68,7 @@
 
   <div class="flex flex-col items-center justify-center gap-6 mb-20">
     <p class="text-lg font-medium text-mygrey font-jakarta">60 jours</p>
-    <p class="text-2xl font-medium text-myzinc font-jakarta">
+    <p class="text-2xl md:text-4xl font-medium text-myzinc font-jakarta">
       Pack Visibilité & Coaching
     </p>
     <p class="text-5xl font-semibold text-myorange font-open">299 €</p>
@@ -698,8 +671,8 @@
       </p>
       <p class="text-justify">
         Barnabé valide votre estimation en ligne, diffuse votre annonce sur les
-        plus grandes plateformes de vente, filtre vos potentiels acquéreurs et
-        vos visites, répond à vos questions 6 jours sur 7.
+        plus grandes plateformes de vente et répond à vos questions 6 jours sur
+        7.
       </p>
     </div>
   </div>
@@ -714,5 +687,5 @@
 </section>
 
 <!-- Modal -->
-<app-partners-dialog />
+<app-partners-dialog partnerVisibility="pack-coaching" />
 <app-option-dialog />

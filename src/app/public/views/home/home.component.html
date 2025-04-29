@@ -1,26 +1,27 @@
 <!-- Hero -->
 <section
   id="hero"
-  class="px-5 relative h-[calc(100vh-50px)] md:h-[700px] bg-[url('/assets/img/photo/immeuble1.jpg')] bg-cover bg-center flex items-center justify-center"
+  class="px-5 relative h-[calc(100vh-50px)] md:max-h-[700px] bg-[url('/assets/img/photo/home1.jpg')] bg-cover bg-center flex items-center justify-center"
 >
-  <div class="bg-myblue opacity-50 absolute inset-0 w-full h-full"></div>
+  <div class="opacity-85 bg-gradient-to-b from-myblue to-[#010644] absolute inset-0 w-full h-full"></div>
 
   <div class="z-20 flex flex-col items-center text-white">
-    <p class="font-alternates text-sm font-medium mb-4">
+    <!-- <p class="font-alternates text-sm font-medium mb-4">
       L'immobilier entre vos mains
-    </p>
+    </p> -->
     <h1
-      class="z-20 text-[40px] md:text-[75px] leading-none font-paytone text-center mb-6"
+      class="z-20 text-[40px] md:text-[75px] font-normal leading-none font-paytone text-center mb-8 tracking-wide"
     >
       Vendez comme un pro <br />
-      <span class="font-alternates italic"> sans commission </span>
+      <span class="font-paytone font-normal"> sans commission </span>
     </h1>
-    <p class="md:w-3/4 text-center font-alternates text-xl mb-10">
+    <p class="md:w-3/4 text-center font-open text-xl mb-10">
       Accélérez votre vente en toute autonomie avec nos outils et notre
       accompagnement
     </p>
+
     <div
-      class="relative border border-white rounded-xl flex flex-col md:flex-row items-center py-5 px-10 justify-center gap-5 md:gap-10 mb-10"
+      class="relative border border-white rounded-xl flex flex-col md:flex-row items-center py-5 px-10 justify-center gap-5 md:gap-10 mb-12"
     >
       <div
         class="absolute w-full h-full inset-0 bg-white/10 backdrop-blur-lg rounded-xl"
@@ -29,7 +30,7 @@
         #addresstext
         type="location"
         name="location"
-        class="z-10 bg-transparent border border-white rounded-md pr-10 p-2.5 focus:ring-1 focus:ring-white focus:outline-none"
+        class="z-10 bg-transparent border border-white rounded-md pr-10 pl-4 p-2.5 focus:ring-1 focus:ring-white focus:outline-none placeholder-white placeholder:text-sm"
         placeholder="2 rue du pont neuf, Paris"
       />
       <a
@@ -40,15 +41,20 @@
     </div>
     <div class="flex items-center justify-center gap-4">
       <img src="assets/img/icon/etoiles.png" class="w-24 h-auto" alt="" />
-      <p class="font-light font-alternates text-sm md:text-lg">
-        4,9/5 sur plus de 100 avis clients
-      </p>
+      <a
+        href="https://www.avis-verifies.com/avis-clients/barnabe-immo.fr"
+        target="_blank"
+        rel="external"
+        class="font-light font-open text-sm md:text-lg"
+      >
+        4,9/5 sur plus de 200 avis clients
+      </a>
     </div>
   </div>
 </section>
 
 <!-- Nos Partenaires -->
-<section id="platforms" class="px-5 py-10 md:py-20 max-w-screen-xl m-auto">
+<section id="platforms" class="px-5 py-10 md:py-20 max-w-screen-2xl m-auto">
   <h2
     class="text-xl md:text-2xl font-medium font-jakarta text-zinc-500 w-full text-center mb-6 md:mb-0"
   >
@@ -57,8 +63,11 @@
   <!-- Carousel -->
   <div class="relative flex items-stretch px-5 md:px-20">
     <div #carousel class="carousel rounded-t">
-      <div
+      <a
         *ngFor="let platform of platforms"
+        [href]="platform.web"
+        target="_blank"
+        rel="external"
         class="carousel-item px-5 md:p-10"
       >
         <img
@@ -75,7 +84,7 @@
             class="fa-solid fa-chevron-right text-lg"
           ></i>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -100,8 +109,173 @@
   <div
     class="flex flex-col lg:flex-row gap-10 xl:gap-20 items-center justify-center"
   >
-    <!-- Formule n°1 -->
+      <!-- Formule n°1 -->
+  <div
+  class="w-full sm:w-[500px] lg:w-[550px] 2xl:w-[620px] rounded-[50px] overflow-hidden font-jakarta shadow-lg cursor-pointer transition hover:-translate-y-2 duration-300 hover:shadow-xl"
+>
+  <div
+    class="relative bg-gradient-to-b from-myblue to-[#630EE1] h-[300px] md:h-[380px]"
+  >
+    <a
+      routerLink="/pack-visibilite-coaching"
+      class="absolute top-7 right-7 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+    >
+      <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+    </a>
     <div
+      class="z-20 py-10 md:py-16 h-full m-auto flex flex-col items-center justify-center text-center gap-4 md:gap-12 text-white font-jakarta"
+    >
+      <p class="z-20 font-light md:text-lg w-1/2 md:w-full">
+        Boostez la vente de votre bien
+      </p>
+      <p class="z-20 font-bold text-xl md:text-3xl">
+        Pack<br />
+        Visibilité & Coaching
+      </p>
+      <p class="z-20 font-semibold text-4xl md:text-[80px]">299 €</p>
+      <div class="z-20 flex items-center justify-start gap-2">
+        <img src="assets/img/logo/klarna.png" class="w-10" alt="" />
+        <p class="font-light md:text-lg">Paiement en 3x avec Klarna</p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="p-10 2xl:p-14 bg-white h-auto md:h-[385px] place-items-start gap-y-2 grid grid-cols-[1fr_8fr] text-myzinc font-open text-lg"
+  >
+    <div class="pt-2">
+      <img
+        src="assets/img/icon/color-rocket.png"
+        class="w-5 h-auto object-contain"
+      />
+    </div>
+    <div class="">
+      Diffusion de votre annonce sur
+      <span (click)="openModal()" class="cursor-pointer underline"
+        >50 plateformes</span
+      >
+      de référence
+    </div>
+    <div class="pt-2">
+      <img
+        src="assets/img/emoji/nav-partners.png"
+        class="w-5 h-auto object-contain"
+      />
+    </div>
+    <div class="">
+      Un expert immobilier dédié disponible 6j/7 pour vous coacher jusqu’à
+      la vente
+    </div>
+    <div class="pt-2">
+      <img
+        src="assets/img/icon/color-chart.png"
+        class="w-5 h-auto object-contain"
+      />
+    </div>
+    <div class="">Estimation en ligne</div>
+    <div class="pt-2">
+      <img
+        src="assets/img/emoji/pencil.png"
+        class="w-5 h-auto object-contain"
+      />
+    </div>
+    <div class="">Rédaction intelligente de l'annonce</div>
+    <div class="pt-2">
+      <img
+        src="assets/img/icon/camera1.png"
+        class="w-5 h-auto object-contain"
+      />
+    </div>
+    <div class="">
+      <a routerLink="/pack-reportage-photo-visite3D" class="underline"
+        >Pack Photos professionnelles & Visite 3D</a
+      > en option
+    </div>
+  </div>
+</div>
+      <!-- Formule n°2 -->
+      <div
+      class="w-full sm:w-[500px] lg:w-[550px] 2xl:w-[620px] rounded-[50px] overflow-hidden font-jakarta shadow-lg cursor-pointer transition hover:-translate-y-2 duration-300 hover:shadow-xl"
+    >
+      <div
+        class="relative bg-gradient-to-b from-[#E36204] to-myorange h-[300px] md:h-[380px]"
+      >
+        <a
+          routerLink="/pack-visibilite-coaching"
+          class="absolute top-7 right-7 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+        >
+          <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+        </a>
+        <div
+          class="z-20 py-10 md:py-16 h-full m-auto flex flex-col items-center justify-center text-center gap-4 md:gap-12 text-white font-jakarta"
+        >
+          <p class="z-20 font-light md:text-lg w-1/2 md:w-full">
+            Boostez la vente de votre bien
+          </p>
+          <p class="z-20 font-bold text-xl md:text-3xl">
+            Pack<br />
+            Visibilité & Vente Interactive
+          </p>
+          <p class="z-20 font-semibold text-4xl md:text-[80px]">399 €</p>
+          <div class="z-20 flex items-center justify-start gap-2">
+            <img src="assets/img/logo/klarna.png" class="w-10" alt="" />
+            <p class="font-light md:text-lg">Paiement en 3x avec Klarna</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-10 2xl:p-14 bg-white h-auto md:h-[385px] place-items-start gap-y-2 grid grid-cols-[1fr_8fr] text-myzinc font-open text-lg"
+      >
+        <div class="pt-2">
+          <img
+            src="assets/img/icon/color-rocket.png"
+            class="w-5 h-auto object-contain"
+          />
+        </div>
+        <div class="">
+          Diffusion de votre annonce sur
+          <span (click)="openModal()" class="cursor-pointer underline"
+            >50 plateformes</span
+          >
+          de référence
+        </div>
+        <div class="pt-2">
+          <img
+            src="assets/img/emoji/nav-property.png"
+            class="w-5 h-auto object-contain"
+          />
+        </div>
+        <div class="">
+          Accès à la Vente Interactive : votre bien mis aux enchères en ligne
+        </div>
+        <div class="pt-2">
+          <img
+            src="assets/img/icon/color-chart.png"
+            class="w-5 h-auto object-contain"
+          />
+        </div>
+        <div class="">Estimation en ligne</div>
+        <div class="pt-2">
+          <img
+            src="assets/img/emoji/pencil.png"
+            class="w-5 h-auto object-contain"
+          />
+        </div>
+        <div class="">Rédaction intelligente de l'annonce</div>
+        <div class="pt-2">
+          <img
+            src="assets/img/icon/camera1.png"
+            class="w-5 h-auto object-contain"
+          />
+        </div>
+        <div class="">
+          <a routerLink="/pack-reportage-photo-visite3D" class="underline"
+            >Pack Photos professionnelles & Visite 3D</a
+          > en option
+        </div>
+      </div>
+    </div>
+    <!-- Formule n°1 -->
+    <!-- <div
       class="w-full sm:w-[500px] 2xl:w-[620px] rounded-[50px] overflow-hidden font-jakarta"
     >
       <div
@@ -185,9 +359,9 @@
           > en option
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Formule n°2 -->
-    <div
+    <!-- <div
       class="w-full sm:w-[500px] 2xl:w-[620px] rounded-[50px] overflow-hidden font-jakarta"
     >
       <div
@@ -269,14 +443,14 @@
           > en option
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
 <!-- Avantages -->
 <section
   id="avantages"
-  class="px-5 md:px-20 max-w-screen-2xl m-auto font-open mb-10 md:mb-28"
+  class="px-5 md:px-20 max-w-screen-2xl m-auto font-open mb-20 md:mb-36"
 >
   <app-section-title
     section="Découvrez nos avantage"
@@ -284,10 +458,10 @@
     nextTitle="Une différence qui compte"
   />
   <div
-    class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 w-full mb-10 md:mb-20"
+    class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 gap-y-12 w-full mb-10 md:mb-24 bg-myorange/10 rounded-3xl p-10"
   >
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-clock.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-clock.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Gain de temps</p>
       <p class="text-lg text-zinc-600">
         Multi-diffusez rapidement sur plus de 50 plateformes de références.
@@ -297,7 +471,7 @@
       </p>
     </div>
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-coach.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Accompagnement</p>
       <p class="text-lg text-zinc-600">
         Evitez les erreurs couteuses grâce à notre
@@ -306,7 +480,7 @@
       </p>
     </div>
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-megaphone.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-megaphone.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Visibilité digitale</p>
       <p class="text-lg text-zinc-600">
         Exposition maximale sur
@@ -318,7 +492,7 @@
     </div>
 
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-card.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-card.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Coûts réduits</p>
       <p class="text-lg text-zinc-600">
         <span class="font-bold">10x moins cher</span> que les agences
@@ -326,7 +500,7 @@
       </p>
     </div>
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-search.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-search.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Référencement</p>
       <p class="text-lg text-zinc-600">
         Excellente visibilité avec un abonnement pro, placez votre annonce
@@ -334,7 +508,7 @@
       </p>
     </div>
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-rocket.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-rocket.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Boost</p>
       <p class="text-lg text-zinc-600">
         Boost hebdomadaire de votre annonce et alertes par email pour
@@ -342,7 +516,7 @@
       </p>
     </div>
     <div class="flex flex-col items-start justify-start gap-4">
-      <img src="assets/img/icon/color-pencil.png" class="w-7" alt="" />
+      <img src="assets/img/icon/color-pencil.png" class="w-8" alt="" />
       <p class="font-semibold text-2xl text-myzinc">Modifications illimitées</p>
       <p class="text-lg text-zinc-600">
         Flexibilité totale avec des
@@ -352,17 +526,17 @@
     </div>
   </div>
   <!-- Chiffres -->
-  <div class="grid lg:grid-cols-2 gap-10 md:gap-24">
+  <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-24">
     <div
       #numbers
       class="order-2 md:order-1 flex flex-col items-start justify-start gap-10"
     >
       <div
-        class="flex flex-col md:flex-row items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
+      class="grid md:grid-cols-[1.5fr_2fr] xl:grid-cols-[1fr_2fr] items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
       >
         <span
           class="inline text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
-        >+<app-counter [startValue]="0" [endValue]="5"/>K
+          >+<app-counter [startValue]="0" [endValue]="15" />K
         </span>
         <div class="flex flex-col items-start gap-4">
           <p class="font-jakarta font-semibold text-myzinc text-2xl">
@@ -375,16 +549,16 @@
         </div>
       </div>
       <div
-        class="flex flex-col md:flex-row items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
+      class="grid md:grid-cols-[1.5fr_2fr] xl:grid-cols-[1fr_2fr] items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
       >
         <p
           class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
         >
-        <app-counter [startValue]="0" [endValue]="99"/>%
+          <app-counter [startValue]="0" [endValue]="98" />%
         </p>
         <div class="flex flex-col items-start gap-4">
           <p class="font-jakarta font-semibold text-myzinc text-2xl">
-            Taux de ventes réussies et de clients satisfaits
+            Taux de clients satisfaits
           </p>
           <p class="font-open text-zinc-500">
             Nous nous efforçons de proposer un service efficace, économique et
@@ -393,12 +567,12 @@
         </div>
       </div>
       <div
-        class="flex flex-col md:flex-row items-center justify-start gap-10 md:gap-20"
+      class="grid md:grid-cols-[1.5fr_2fr] xl:grid-cols-[1fr_2fr] items-center justify-start gap-10 md:gap-20 border-b border-zinc-300 pb-10"
       >
         <p
           class="text-myorange text-[75px] font-semibold text-open whitespace-nowrap"
         >
-        <app-counter [startValue]="0" [endValue]="41"/> j
+          <app-counter [startValue]="0" [endValue]="41" /> j
         </p>
         <div class="flex flex-col items-start gap-4">
           <p class="font-jakarta font-semibold text-myzinc text-2xl">
@@ -415,8 +589,8 @@
       <a
         href="https://calendly.com/barnabe-immo/15min"
         target="_blank"
-        class="absolute top-7 right-7 text-sm text-white bg-myorange/70 text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-orange-500/70 transition-all transition-300"
-        >Prendre Rendez-vous</a
+        class="absolute top-7 right-7 text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-3 hover:bg-orange-500 transition-all transition-300"
+        >Prendre rendez-vous</a
       >
       <img
         src="assets/img/photo/maison1.jpg"
@@ -430,7 +604,7 @@
 <!-- Services -->
 <section
   id="services"
-  class="px-2 md:px-20 max-w-screen-xl m-auto font-open mb-10 md:mb-28"
+  class="px-2 md:px-20 max-w-screen-xl m-auto font-open mb-20 md:mb-36"
 >
   <div
     class="relative w-full rounded-[50px] overflow-hidden grid lg:grid-cols-[1fr_1.5fr] gap-14 md:gap-20 p-5 md:p-16"
@@ -607,8 +781,7 @@
     disent de nous"
   />
 
-  <app-reviews/>
-
+  <app-reviews />
 </section>
 
 <!-- Pro de l'immobilier -->
@@ -620,7 +793,11 @@
     <p
       class="md:w-2/3 text-3xl md:text-5xl font-semibold leading-snug text-myzinc mb-14"
     >
-      Pro de l’immobilier ? Par ici <span class="ml-1 group-hover:rotate-45 inline-block transition duration-300">👋</span>
+      Pro de l’immobilier ? Par ici
+      <span
+        class="ml-1 group-hover:rotate-45 inline-block transition duration-300"
+        >👋</span
+      >
     </p>
     <p class="font-open text-myzinc text-xl">
       Pour vos besoins en tant que pro, rendez-vous sur
@@ -640,8 +817,7 @@
   id="faq"
   class="px-2 md:px-10 max-w-screen-2xl m-auto font-open mb-20 md:mb-28 text-myzinc"
 >
-<app-faq/>
-
+  <app-faq />
 </section>
 
 <!-- Modal -->

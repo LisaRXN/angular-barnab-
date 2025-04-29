@@ -3,11 +3,11 @@
   <div
     [ngClass]="{
       'h-full w-[280px] md:w-[320px]  cursor-pointer border border-zinc-100 rounded-2xl m-auto': true,
-      'bg-myblue/5': bg === 'blue',
+      'bg-zinc-50': bg === 'blue',
       'bg-white': bg === 'white'
     }"
   >
-    <div class="rounded-t-xl h-[200px] w-full bg-white p-2 ">
+    <div class="rounded-t-xl h-[200px] lg:h-[240px] w-full bg-white p-2 ">
       <img
         [src]="env.publicURL + article.article_preview"
         class="rounded-t-xl w-full h-full bg-white object-cover"
@@ -16,7 +16,7 @@
     </div>
 
     <div
-      class="h-[225px] md:h-[200px] rounded-b-xl p-5 flex flex-col items-start justify-between gap-2 text-mygrey1"
+      class="h-[225px] md:h-[200px] rounded-b-xl p-5 flex flex-col items-start justify-between gap-2 text-myzinc"
     >
       <p class="font-raleway text-lg font-bold">
         {{ article.article_title }}

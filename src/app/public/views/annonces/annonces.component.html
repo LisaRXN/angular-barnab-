@@ -1,26 +1,23 @@
-<div
-  class="min-h-screen h-full flex flex-col items-center font-open overflow-x-hidden text-myzinc"
+<!-- Hero -->
+<section
+  class="relative h-[calc(100vh-50px)] md:max-h-[700px] w-full flex items-center justify-center text-white"
 >
-  <!-- Hero -->
-  <div
-    class="relative h-[600px] w-full flex flex-col items-center justify-center text-white md:mb-5"
-  >
-    <img
-      ngSrc="assets/img/photo/annonces.jpg"
-      fill
-      priority
-      class="w-full h-full object-cover"
-      alt="DiffuZe, diffusion d'annonces immobilières"
-    />
-    <div class="z-10 bg-black opacity-55 absolute inset-0 w-full h-full"></div>
-    <div class="z-10 transform flex flex-col items-center">
+  <img
+    ngSrc="assets/img/photo/annonces.jpg"
+    fill
+    priority
+    class="w-full h-full object-cover"
+    alt="DiffuZe, diffusion d'annonces immobilières"
+  />
+  <div class="bg-black opacity-55 absolute inset-0 w-full h-full"></div>
+
+  <div class="flex flex-col items-center justify-center gap-14 w-full">
+    <div class="z-10 flex flex-col items-center">
       <h1 class="z-10 text-4xl font-paytone text-center max-w-[600px] mb-10">
         Votre futur bien, en toute simplicité
       </h1>
-      <p
-        class="z-10 text-lg md:text-xl leading-relaxed md:w-3/4 text-center mb-20"
-      >
-      Découvrez les annonces exclusives de nos clients
+      <p class="z-10 text-lg md:text-xl leading-relaxed md:w-3/4 text-center">
+        Découvrez les annonces exclusives de nos clients
       </p>
     </div>
 
@@ -125,14 +122,18 @@
       </div>
       <div class="h-full flex items-center justify-center">
         <div
-          class="rounded-2xl bg-myyellow1 h-[60px] w-[60px] flex items-center justify-center p-2"
+          class="rounded-2xl bg-gradient-to-b from-myblue to-indigo-800 h-[60px] w-[60px] flex items-center justify-center p-2"
         >
-          <img src="assets/img/icon/loupe.png" class="object-contain" alt="" />
+          <i class="fa-solid fa-magnifying-glass text-xl text-white"></i>
         </div>
       </div>
     </div>
   </div>
+</section>
 
+<div
+  class="min-h-screen h-full flex flex-col items-center font-open overflow-x-hidden text-myzinc"
+>
   <!-- Filters section -->
   <div
     id="filters-section"
@@ -202,7 +203,9 @@
   </div>
 
   <!-- GOOGLE MAP -->
-  <div class="flex flex-col lg:flex-row h-auto lg:h-[calc(100vh-155px)] w-full md:max-w-screen-2xl m-auto">
+  <div
+    class="flex flex-col lg:flex-row h-auto lg:h-[calc(100vh-155px)] w-full md:max-w-screen-2xl m-auto"
+  >
     <div
       #propertiesContainer
       class="order-2 lg:order-1 lg:w-1/3 h-[500px] lg:h-full mb-10 overflow-y-auto"
@@ -215,7 +218,7 @@
           #propertyCard
           [id]="property.id"
           [routerLink]="['/annonces/', property.id]"
-          routerLinkActive="router-link-active"
+          routerLinkActive="active"
           class="transform md:scale-90 lg:scale-100"
           [property]="property"
         ></app-ad-card>
@@ -224,28 +227,24 @@
 
       <div class="flex items-center justify-center gap-4 pb-10 w-full">
         <button
-        (click)="previousPage()"
-        [ngClass]="{ hidden: currentPage() === 1 }"
-        [disabled]="currentPage() === 1"
-        class="h-[40px] w-[40px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
-      >
-        <img
-          class="w-4 rotate-180"
-          src="assets/img/icon/arrow.png"
-          alt=""
-        />
-      </button>
+          (click)="previousPage()"
+          [ngClass]="{ hidden: currentPage() === 1 }"
+          [disabled]="currentPage() === 1"
+          class="h-[40px] w-[40px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
+        >
+          <img class="w-4 rotate-180" src="assets/img/icon/arrow.png" alt="" />
+        </button>
         <span class="font-semibold"
           >Page {{ currentPage() }} / {{ totalPages }}</span
         >
         <button
-        (click)="nextPage()"
-        [ngClass]="{ hidden: currentPage() === totalPages }"
-        [disabled]="currentPage() === totalPages"
-        class="h-[40px] w-[40px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
-      >
-        <img class="w-4" src="assets/img/icon/arrow.png" alt="" />
-      </button>
+          (click)="nextPage()"
+          [ngClass]="{ hidden: currentPage() === totalPages }"
+          [disabled]="currentPage() === totalPages"
+          class="h-[40px] w-[40px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
+        >
+          <img class="w-4" src="assets/img/icon/arrow.png" alt="" />
+        </button>
       </div>
     </div>
 
@@ -283,12 +282,12 @@
               *ngFor="let property of displayedProperties"
               [position]="getPosition(property)"
               [label]="{
-                text: property.transaction_type === 'selling'
-                  ? (property.selling_price | mapPrice) + ' €'
-                  : property.rent_by_month + ' €',
-                  color: 'white'
-              }
-              "
+                text:
+                  property.transaction_type === 'selling'
+                    ? (property.selling_price | mapPrice) + ' €'
+                    : property.rent_by_month + ' €',
+                color: 'white'
+              }"
               [icon]="iconConfig"
               (mapClick)="displayOnMap(property)"
             ></map-marker>
@@ -320,7 +319,7 @@
 <div class="modal" role="dialog" #modal>
   <div
     class="modal-box relative bg-white text-myzinc lg:!w-4/5 max-h-4/5 !p-0 lg:!max-w-screen-xl m-auto"
-  > 
+  >
     <!-- Modal Header -->
     <div
       class="z-10 sticky inset-0 w-full p-4 bg-white border-b border-zinc-100"
@@ -333,9 +332,7 @@
           <i class="fa-solid fa-xmark"></i>
         </label>
       </div>
-      <h3
-        class="text-xl font-semibold self-center text-center w-full"
-      >
+      <h3 class="text-xl font-semibold self-center text-center w-full">
         Filtrer votre recherche
       </h3>
     </div>
@@ -732,9 +729,7 @@
           <i class="fa-solid fa-xmark"></i>
         </label>
       </div>
-      <h3
-        class="text-xl font-semibold self-center text-center w-full"
-      >
+      <h3 class="text-xl font-semibold self-center text-center w-full">
         Créer une alerte
       </h3>
     </div>
@@ -1209,25 +1204,25 @@
         {{ alertFormError() }}
       </p>
 
-          <!-- Modal Footer -->
-    <div
-    class="sticky bg-white z-10 bottom-0 p-2 px-8 border-t border-zinc-100 shadow-xl overflow-hidden"
-  >
-    <div class="flex items-center justify-between w-full">
-      <button
-      (click)="resetForm()"
-      class="rounded-lg p-4 hover:bg-zinc-100 font-semibold"
+      <!-- Modal Footer -->
+      <div
+        class="sticky bg-white z-10 bottom-0 p-2 px-8 border-t border-zinc-100 shadow-xl overflow-hidden"
       >
-        Réinitialiser
-      </button>
-      <button
-      type="submit"
-      class="rounded-lg p-4 lg:px-6 text-mygrey1 bg-myorange text-white font-semibold hover:bg-myyellow2 ursor-pointer"
-    >
-      Créer l'alerte
-    </button>
-    </div>
-  </div>
+        <div class="flex items-center justify-between w-full">
+          <button
+            (click)="resetForm()"
+            class="rounded-lg p-4 hover:bg-zinc-100 font-semibold"
+          >
+            Réinitialiser
+          </button>
+          <button
+            type="submit"
+            class="rounded-lg p-4 lg:px-6 text-mygrey1 bg-myorange text-white font-semibold hover:bg-myyellow2 ursor-pointer"
+          >
+            Créer l'alerte
+          </button>
+        </div>
+      </div>
     </form>
   </div>
 </div>

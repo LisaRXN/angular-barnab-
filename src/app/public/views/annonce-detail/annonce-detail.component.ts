@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   inject,
-  signal,
+  OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { map, of, switchMap, combineLatest } from 'rxjs';
@@ -45,8 +48,9 @@ import { PropertyCardComponent } from '../../shared/components/property-card/pro
   templateUrl: './annonce-detail.component.html',
   styleUrl: './annonce-detail.component.scss',
 })
-export class AnnonceDetailComponent {
-  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
+export class AnnonceDetailComponent implements AfterViewInit, OnInit {
+  @ViewChild('carousel', { static: false }) carousel!: ElementRef<HTMLDivElement>;
+  @ViewChildren('item') carouselItems!: QueryList<ElementRef>
   @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
   private route = inject(ActivatedRoute);
   private propertyGateway = inject(PropertyGateway);
@@ -109,19 +113,20 @@ export class AnnonceDetailComponent {
     propertyId: new FormControl<number>(0, { nonNullable: true }),
   });
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      if (!this.carousel) return;
-      this.checkScrollPosition();
-      this.carousel.nativeElement.addEventListener('scroll', () =>
-        this.checkScrollPosition()
-      );
-    });
+
+  ngAfterViewInit() {        
+        
+        let scrollDebounce:any
+        this.carousel.nativeElement.addEventListener('scroll', () => {
+          clearTimeout(scrollDebounce);
+          scrollDebounce = setTimeout(() => {
+            this.checkScrollPosition();
+          }, 50); 
+        });       
   }
 
   ngOnInit() {
     console.log('Composant chargé');
-
     this.route.params
       .pipe(
         switchMap((params) =>
@@ -230,7 +235,6 @@ export class AnnonceDetailComponent {
   }
 
   prevSlide() {
-
     const carousel = this.carousel.nativeElement;
     carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
   }

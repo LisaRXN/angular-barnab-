@@ -197,6 +197,7 @@ export class AnnoncesComponent implements OnInit, AfterViewInit {
   ngOnDestroy() {
     document.body.style.overflow = '';
   }
+  
   clearSelected() {
     this.selectedProperty = null;
   }
@@ -209,22 +210,6 @@ export class AnnoncesComponent implements OnInit, AfterViewInit {
     } else {
       this.selectedProperty = null;
     }
-    // const propertyCardRef = this.propertiesCardRef
-    //   .toArray()
-    //   .find((element) => element.property.id === property.id);
-
-    // setTimeout(() => {
-    //   const propertyCardRef = this.propertiesCardRef
-    //     .toArray()
-    //     .find((element) => element.property.id === property.id);
-
-    //   if (propertyCardRef?.carousel?.nativeElement) {
-    //     propertyCardRef.carousel.nativeElement.scrollIntoView({
-    //       behavior: 'smooth',
-    //       block: 'start',
-    //     });
-    //   }
-    // }, 50);
   }
 
   getPosition(property: any) {

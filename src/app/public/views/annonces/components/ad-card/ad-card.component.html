@@ -1,6 +1,6 @@
 <div
   [ngClass]="{
-    'h-auto rounded-3xl overflow-hidden bg-white cursor-pointer m-auto mb-10 shadow-lg transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-xl':true,
+    'h-auto rounded-3xl overflow-hidden bg-white cursor-pointer m-auto mb-10 shadow-md transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-lg':true,
     'w-[350px] max-w-[400px]': !smallCard,
     'transform scale-[70%]' : smallCard
     }"
@@ -90,21 +90,21 @@
   </div>
   <div
     *ngIf="property.transaction_type === 'selling'"
-    class="px-5 py-2 flex flex-col items-center justify-center bg-zinc-100 rounded-b-xl"
+    class="px-5 py-2 flex flex-col items-center justify-center bg-gradient-to-b from-blue-900 to-myblue rounded-b-xl"
   >
-    <p class="text-lg font-bold text-myzinc">
+    <p class="text-lg font-bold text-white">
       {{ sellingPrice | currency : "EUR" : "symbol" : "1.0-0" }}
     </p>
-    <p  class="text-sm font-light text-myblue">
+    <p  class="text-sm font-light text-white">
       {{ surface_price | currency : "EUR" : "symbol" : "1.0-0" }} / m²
     </p>
   </div>
   <div
     *ngIf="property.transaction_type === 'renting'"
-    class="p-5 flex items-center justify-center bg-zinc-100 rounded-b-xl"
+    class="p-5 flex items-center justify-center bg-gradient-to-b from-myblue from-blue-900 to-myblue rounded-b-xl"
   >
-    <p class="text-lg font-bold text-myzinc">
-      {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }} <span class="text-sm font-light text-myzinc">/ mois</span> 
+    <p class="text-lg font-bold text-white">
+      {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }} <span class="text-sm font-light text-white">/ mois</span> 
     </p>
   </div>
 </div>

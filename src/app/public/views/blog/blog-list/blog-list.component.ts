@@ -27,8 +27,12 @@ interface Subtitle {
   ],
 })
 export class BlogListComponent implements OnInit {
+  isLoaded=false
   articles: Article[] = [];
-  type!: Type;
+  type: Type = {
+    id:0,
+    type:""
+  }
   env = environment;
 
   constructor(
@@ -70,6 +74,7 @@ export class BlogListComponent implements OnInit {
         next: ([articles, type]) => {
           this.articles = articles;
           this.type = type[0];
+          this.isLoaded=true
         },
         error: (error) => console.error('Erreur:', error),
       });

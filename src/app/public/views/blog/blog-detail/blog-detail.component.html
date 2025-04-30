@@ -2,9 +2,9 @@
   class="relative min-h-screen bg-gray-50 flex flex-col items-center font-open text-mygrey1"
 >
   <div
-    class="z-10 absolute top-8 left-8 md:top-14 md:left-14 flex items-center justify-center gap-2 border border-mygrey2 hover:bg-mygrey4 transition duration-300 text-mygrey1 text-sm px-4 py-2 rounded-full"
+    class="z-10 absolute top-8 left-8 md:top-14 md:left-14 flex items-center justify-center gap-2 border border-myzinc hover:bg-zinc-50 transition duration-300 text-myzinc px-4 py-3 rounded-full"
   >
-    <img src="assets/img/icon/arrow-black.png" class="w-5" alt="" />
+    <img src="assets/img/icon/arrow.png" class="w-4 rotate-180" alt="" />
     <a
       [routerLink]="['/blog/categorie', getSlugCategory(articleType?.id)]"
       class="whitespace-nowrap"
@@ -18,7 +18,7 @@
     class="mb-10 md:mb-24 pt-32 px-4 md:px-8 text-myzinc w-full grid lg:grid-cols-[1fr_4fr_1fr] space-y-10 md:space-y-0 md:space-x-12 justify-start"
   >
     <!-- sidebar left -->
-    <div class="text-[12px] flex flex-col gap-2 py-14">
+    <div class="md:text-[12px] flex flex-col gap-2 px-5 md:px-0 md:py-14">
       <p class="font-light">Rédacteur</p>
       <div class="flex items-center justify-start gap-3">
         <div
@@ -33,10 +33,10 @@
         <div
           class="font-light flex-col items-center justify-start text-mygrey2"
         >
-          <p class="text-[11px] font-semibold">{{ article.author }}</p>
+          <p class="md:text-[11px] font-semibold">{{ article.author }}</p>
         </div>
       </div>
-      <hr class="text-mygrey5 w-3/4 justify-start" />
+      <hr class="text-zinc-400 w-3/4 justify-start my-2" />
       <div class="flex flex-col items-start gap-2 text-myzinc font-open">
         <p class="font-light">Temps de lecture</p>
         <div class="flex items-center gap-2">
@@ -49,18 +49,18 @@
     <!-- Article Body -->
     <!-- markdown -->
     <div
-      class="px-5 md:px-10 flex flex-col items-center justify-center border border-mygrey4 shadow-md bg-white py-20"
+      class="px-5 md:px-10 flex flex-col items-center justify-center border border-mygrey4 shadow-md bg-white py-14 md:py-20"
     >
       <div class="h-auto w-full px-8 flex flex-col items-center justify-center">
         <div
-          class="flex mb-12 items-center justify-center text-zinc-500 text-sm gap-2"
+          class="flex flex-col md:flex-row mb-10 md:mb-12 items-center justify-center text-zinc-500 text-sm gap-2"
         >
           <p>
             Publié le
             {{ article.update_date | date : "longDate" : "" : "fr-FR" }}
           </p>
           <p>•</p>
-          <p>Par {{ article.author }}</p>
+          <p class="text-center">Par {{ article.author }}</p>
         </div>
         <h1
           class="z-10 text-2xl md:text-3xl leading-relaxed font-bold font-jakarta text-center max-w-[600px] mb-12"
@@ -76,7 +76,7 @@
       <div class="w-4/5 h-[200px] md:h-[400px] my-3">
         <img
           [src]="env.publicURL + article.article_preview"
-          class="h-full w-auto m-auto rounded-4xl"
+          class="h-full w-auto m-auto rounded-4xl object-cover"
           alt=""
         />
       </div>
@@ -87,8 +87,8 @@
     </div>
 
     <!-- sidebar right -->
-    <div class="text-[12px] flex flex-col gap-2 mb-12 py-14">
-      <p class="font-light">Autres catégories</p>
+    <div class="md:text-[12px] flex flex-col gap-2 mb-12 px-5 md:px-0 md:py-14">
+      <p class="font-light mb-2">Autres catégories</p>
       <a
         [routerLink]="['/blog/type/', type.id]"
         *ngFor="let type of otherTypes"
@@ -99,13 +99,13 @@
 
       <!-- V2 -->
 
-      <hr class="text-mygrey5 w-3/4 justify-start my-2"/>
+      <hr class="text-zinc-400 w-3/4 justify-start my-2"/>
      
-      <p class="font-light">En lien</p>
+      <p class="font-light mb-2">En lien</p>
       <div class="flex flex-col items-start gap-2">
         <a
           routerLink="/redaction-annonce-immobiliere-gratuite-en-ligne"
-          class="p-2 bg-gray-100 w-[150px] rounded-lg cursor-pointer"
+          class="p-2 bg-gray-100 w-full md:w-[150px] rounded-lg cursor-pointer"
         >
           <div class="flex items-center gap-2 mb-1">
             <img class="h-5 w-5" src="assets/img/icon/outil.png" alt="" />
@@ -117,7 +117,7 @@
         </a>
         <a
           routerLink="/estimation-immobiliere-gratuite-en-ligne"
-          class="p-2 bg-gray-100 w-[150px] rounded-lg cursor-pointer"
+          class="p-2 bg-gray-100 w-full md:w-[150px] rounded-lg cursor-pointer"
         >
           <div class="flex items-center gap-2 mb-1">
             <img class="h-5 w-5" src="assets/img/icon/estimation.png" alt="" />
@@ -139,7 +139,7 @@
   @if(similarArticles.length ){
   <section 
   class="lg:w-4/5 p-5 md:p-10 rounded-2xl font-open text-myzinc">
-    <h2 class="text-2xl font-bold font-jakarta text-center mb-24">
+    <h2 class="text-2xl font-bold font-jakarta text-center mb-14 md:mb-24">
       Ces articles pourraient vous intéresser
     </h2>
     <div
@@ -157,13 +157,13 @@
    <!-- Plus d'information -->
    <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
    <section
-     class="w-full px-5 md:px-10 rounded-2xl mb-16 font-open text-myzinc flex flex-col gap-14 items-center justify-center no-print"
+     class="w-full px-5 md:px-10 rounded-2xl mb-20 md:mb-36 font-open text-myzinc flex flex-col gap-10 md:gap-14 items-center justify-center no-print"
    >
-     <div class="flex items-center justify-center gap-4">
+     <div class="flex flex-col md:flex-row items-center justify-center gap-4">
        <h2 class="text-2xl font-bold font-jakarta text-center">
          Besoin de plus d'information ?
        </h2>
-       <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
+        <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
      </div>
 
      <p class="text-xl leading-relaxed text-justify lg:w-3/4">
@@ -172,18 +172,18 @@
      </p>
 
      <div
-       class="flex items-center justify-center gap-4 rounded-full py-2 px-3 md:px-6 md:py-4 bg-myblue hover:bg-blue-950 transition-all transition-300"
+       class="flex items-center justify-center gap-4 rounded-full px-6 py-4 bg-myblue hover:bg-blue-950 transition-all transition-300"
      >
        <i class="fa-solid fa-phone text-white"></i>
        <a
          href="https://calendly.com/barnabe-immo/15min"
          target="_blank"
-         class="text-sm text-white"
+         class="text-white"
          >Prendre rendez-vous</a
        >
      </div>
 
-     <div class="flex items-center justify-center gap-5 w-1/2">
+     <!-- <div class="flex items-center justify-center gap-5 w-1/2">
        <hr class="w-full border-t-1 border-mygrey3" />
        <p>ou</p>
        <hr class="w-full border-t-1 border-mygrey3" />
@@ -191,9 +191,9 @@
      <a
        routerLink="/https://app.barnabe-immo.fr/register"
        target="_blank"
-       class="text-sm text-white bg-myorange text-center rounded-full py-2 px-3 md:px-6 md:py-4 hover:bg-orange-500 transition-all transition-300"
+       class="text-white bg-myorange text-center rounded-full px-6 py-4 hover:bg-orange-500 transition-all transition-300"
        >Déposer mon annonce</a
-     >
+     > -->
    </section>
 
 </div>

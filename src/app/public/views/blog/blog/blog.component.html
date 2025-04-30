@@ -1,4 +1,3 @@
-<!-- Hero -->
 <section
   id="hero"
   class="px-5 relative h-[calc(100vh-50px)] md:max-h-[700px] flex items-center justify-center"
@@ -12,18 +11,18 @@
   />
 
   <div
-    class="relative z-20 flex flex-col items-center justify-center text-myzinc p-10 md:py-20 max-w-3xl"
+    class="relative z-20 flex flex-col items-center justify-center text-white p-10 md:py-20 max-w-3xl"
   >
     <div
-      class="bg-white/80 absolute inset-0 w-full h-full rounded-3xl border border-white"
+      class=" bg-myblue opacity-85 absolute inset-0 w-full h-full rounded-3xl border border-white"
     ></div>
     <h1 class="z-20 text-4xl md:text-6xl font-paytone text-center mb-6">
       <span className="block leading-relaxed h-7 whitespace-nowrap"
         >Guide du vendeur :</span
       >
-      <span class="block mt-4 font-alternates italic">tout ce qu'il faut savoir</span>
+      <span class="md:w-4/5 m-auto block mt-4">tout ce qu'il faut savoir</span>
     </h1>
-    <p class="z-20 md:w-3/4 text-center font-alternates text-lg">
+    <p class="z-20 md:w-3/4 text-center font-open text-lg">
       Découvrez tous les incontournables de la vente immobilière dans notre guide complet.
     </p>
   </div>
@@ -38,11 +37,11 @@
       (keyup)="search.set($any($event.target).value)"
       type="text"
       placeholder="Rechercher un article, une catégorie..."
-      class="w-full p-3 pr-12 truncate rounded-full border border-zinc-400 focus:outline-none focus:ring-1 focus:ring-myzinc focus:border-none select-none"
+      class="w-full p-3 pl-5 pr-12 truncate rounded-full border border-zinc-400 focus:outline-none focus:ring-1 focus:ring-myzinc focus:border-none select-none"
     />
     <div class="absolute inset-y-0 right-1 flex items-center">
       <div
-        class="h-10 w-10 p-2 flex items-center justify-center bg-myzinc rounded-full"
+        class="h-10 w-10 p-2 flex items-center justify-center bg-myorange rounded-full"
       >
       <i class="fa-solid fa-magnifying-glass text-white"></i>      </div>
     </div>
@@ -97,17 +96,17 @@
             >
             {{ type.type }}
             </h2>
-            <p class="font-mygrey" *ngIf="type.id === 1">
+            <p class="font-mygrey font-open" *ngIf="type.id === 1">
               Les dernières tendances, conseils et analyses du marché
             </p>
-            <p class="font-mygrey" *ngIf="type.id === 2">
+            <p class="font-mygrey font-open" *ngIf="type.id === 2">
               Les plateformes et professionnels qui façonnent le marché
             </p>
-            <p class="font-mygrey" *ngIf="type.id === 3">Les dernières actualités sur l'immobilier</p>
+            <p class="font-mygrey font-open" *ngIf="type.id === 3">Les dernières actualités sur l'immobilier</p>
           </div>
           <div class="flex-1 flex h-full mt-auto  items-end justify-end">
             <div
-            class="w-[200px] flex items-center justify-center gap-2 bg-myzinc hover:bg-myzinc/80 transition duration-300 text-white text-sm py-2.5 rounded-full self-end"
+            class="w-[200px] flex items-center justify-center gap-2 bg-myzinc hover:bg-myzinc/80 transition duration-300 text-white py-2.5 rounded-full self-end"
           >
             <a
               [routerLink]="['/blog/categorie', getSlugCategory(type.id)]"

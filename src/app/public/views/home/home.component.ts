@@ -143,4 +143,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
   }
 
+  navigateTo(web:string) {
+    window.open(web, '_blank'); 
+  }
 }

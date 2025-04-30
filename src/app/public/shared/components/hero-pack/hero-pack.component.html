@@ -20,8 +20,8 @@
       [ngClass]="bgColor + ' ' + borderColor"
       ></div>
 
-    <p class="z-20 font-open text-lg font-medium mb-6 text-center">
-      Boostez la vente de votre bien
+    <p *ngIf="overtitle" class="z-20 font-jakarta text-lg font-medium mb-6 text-center">
+      {{overtitle}}
     </p>
     <h1
       class="z-20 text-4xl md:text-6xl font-paytone tracking-wide text-center mb-6"

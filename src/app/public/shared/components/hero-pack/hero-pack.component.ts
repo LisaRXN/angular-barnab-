@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class HeroPackComponent {
 
+  @Input() overtitle!: string
   @Input() titleOne!: string;
   @Input() titleTwo!: string;
   @Input() subtitle!: string;

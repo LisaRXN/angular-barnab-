@@ -13,7 +13,9 @@
       <img
         [id]="'photo' + property.id"
         [src]="baseUrl + photo.photo_path"
-        class="h-[250px] w-full object-cover"
+        class="w-full object-cover"
+        [ngClass]="smallCard ? 'h-[180px]' : 'h-[230px] '"
+
         alt=""
       />
       <div
@@ -95,13 +97,13 @@
     <p class="text-lg font-bold text-white">
       {{ sellingPrice | currency : "EUR" : "symbol" : "1.0-0" }}
     </p>
-    <p  class="text-sm font-light text-white">
+    <p  class="text-sm font-light text-myorange">
       {{ surface_price | currency : "EUR" : "symbol" : "1.0-0" }} / m²
     </p>
   </div>
   <div
     *ngIf="property.transaction_type === 'renting'"
-    class="p-5 flex items-center justify-center bg-gradient-to-b from-myblue from-blue-900 to-myblue rounded-b-xl"
+    class="p-5 flex items-center justify-center bg-gradient-to-b from-blue-900 to-myblue rounded-b-xl"
   >
     <p class="text-lg font-bold text-white">
       {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }} <span class="text-sm font-light text-white">/ mois</span> 

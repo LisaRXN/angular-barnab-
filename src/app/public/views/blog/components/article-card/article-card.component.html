@@ -1,8 +1,10 @@
 <!--  Card -->
-<a [routerLink]="['/blog', article.url]" class="block">
+<a
+  *ngIf="article !== undefined"
+ [routerLink]="['/blog', article.url]" class="block">
   <div
     [ngClass]="{
-      'h-full w-[280px] md:w-[320px]  cursor-pointer border border-zinc-100 rounded-2xl m-auto': true,
+      'h-full w-[280px] md:w-[320px]  cursor-pointer border border-zinc-100 overflow-hidden rounded-3xl m-auto': true,
       'bg-zinc-50': bg === 'blue',
       'bg-white': bg === 'white'
     }"

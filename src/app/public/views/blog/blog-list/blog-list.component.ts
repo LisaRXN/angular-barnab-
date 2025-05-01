@@ -6,6 +6,12 @@ import { combineLatest, fromEvent, map, Subscription, switchMap } from 'rxjs';
 import { ArticleCardComponent } from '../components/article-card/article-card.component';
 import { ArticleGateway } from '../../../../core/ports/article.gateway';
 import { environment } from '../../../../../environments/environment';
+import { Article, Type } from '../../../../core/models/article.models';
+
+interface Subtitle {
+  id:number;
+  subtitle:string;
+}
 
 @Component({
   selector: 'app-blog-list',
@@ -21,15 +27,34 @@ import { environment } from '../../../../../environments/environment';
   ],
 })
 export class BlogListComponent implements OnInit {
-  articles: any[] = [];
-  type: any = {};
+  isLoaded=false
+  articles: Article[] = [];
+  type: Type = {
+    id:0,
+    type:""
+  }
+  env = environment;
 
   constructor(
     private route: ActivatedRoute,
     private articleGateway: ArticleGateway
   ) {}
 
-  env = environment;
+  subtitles: Subtitle[] = [
+    {
+      id:1, subtitle:"Les dernières tendances, conseils et analyses du marché"
+    },
+    {
+      id:2, subtitle:"Les plateformes et professionnels qui façonnent le marché"
+    },
+    {
+      id:3, subtitle:"Les dernières actualités sur l'immobilier"
+    },
+  ]
+
+  getSubtitle(id:number) {
+    return this.subtitles.find( _ => Object.keys(id) )?.subtitle || ""
+  }
 
   ngOnInit() {
     this.route.params
@@ -49,6 +74,7 @@ export class BlogListComponent implements OnInit {
         next: ([articles, type]) => {
           this.articles = articles;
           this.type = type[0];
+          this.isLoaded=true
         },
         error: (error) => console.error('Erreur:', error),
       });

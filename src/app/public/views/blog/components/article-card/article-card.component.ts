@@ -9,7 +9,7 @@ import { environment } from '../../../../../../environments/environment';
   templateUrl: './article-card.component.html',
 })
 export class ArticleCardComponent {
-  @Input() article!: Article;
+  @Input() article!: Article
   @Input() bg: string = 'white';
   env = environment;
 }

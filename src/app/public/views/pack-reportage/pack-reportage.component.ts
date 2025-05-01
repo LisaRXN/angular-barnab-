@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FaqComponent } from '../../shared/components/faq/faq.component';
+import { HeroPackComponent } from '../../shared/components/hero-pack/hero-pack.component';
 
 interface SurfacePrice {
   maxSurface: number;
@@ -17,7 +18,8 @@ interface SurfacePrice {
     FormsModule,
     SectionTitleComponent,
     NgOptimizedImage,
-    FaqComponent
+    FaqComponent,
+    HeroPackComponent
   ],
   templateUrl: './pack-reportage.component.html',
   styleUrl: './pack-reportage.component.scss',

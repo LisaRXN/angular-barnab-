@@ -1,6 +1,6 @@
 <div
   [ngClass]="{
-    'h-auto rounded-xl bg-white cursor-pointer m-auto mb-10 shadow-lg transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-xl':true,
+    'h-auto rounded-3xl overflow-hidden bg-white cursor-pointer m-auto mb-10 shadow-md transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-lg':true,
     'w-[350px] max-w-[400px]': !smallCard,
     'transform scale-[70%]' : smallCard
     }"
@@ -13,11 +13,13 @@
       <img
         [id]="'photo' + property.id"
         [src]="baseUrl + photo.photo_path"
-        class="rounded-t-xl h-[250px] w-full object-cover"
+        class="w-full object-cover"
+        [ngClass]="smallCard ? 'h-[180px]' : 'h-[230px] '"
+
         alt=""
       />
       <div
-        class="absolute h-[250px] inset-0 top-0 flex justify-between items-center pointer-events-none"
+        class="absolute h-[240px] inset-0 top-0 flex justify-between items-center pointer-events-none"
       >
         <button
           [ngClass]="{
@@ -65,13 +67,13 @@
     </div>
   </div>
 
-  <div class="p-5 flex flex-col items-start gap-2 text-sm">
-    <p class="text-mygrey3 font-light">
+  <div class="p-5 flex flex-col items-start gap-2">
+    <p class="text-zinc-400 font-light">
       {{ property.property_type | titlecase }}
       <span *ngIf="property.transaction_type === 'selling'">en vente</span>
       <span *ngIf="property.transaction_type === 'renting'">en location</span>
     </p>
-    <p class="font-raleway font-extrabold text-mygrey1">{{ property.addressForm.city }}</p>
+    <p class="font-jakarta text-lg font-extrabold text-myzinc">{{ property.addressForm.city }}</p>
     <p class="">{{ property.addressForm.zip_code }}</p>
     <div class="flex items-center justify-start gap-2">
       <p>{{ property.living_space }} m²</p>
@@ -90,21 +92,21 @@
   </div>
   <div
     *ngIf="property.transaction_type === 'selling'"
-    class="px-5 py-2 flex flex-col items-center justify-center bg-mygrey2 rounded-b-xl"
+    class="px-5 py-2 flex flex-col items-center justify-center bg-gradient-to-b from-blue-900 to-myblue rounded-b-xl"
   >
     <p class="text-lg font-bold text-white">
       {{ sellingPrice | currency : "EUR" : "symbol" : "1.0-0" }}
     </p>
-    <p  class="text-sm font-light text-myyellow1">
+    <p  class="text-sm font-light text-myorange">
       {{ surface_price | currency : "EUR" : "symbol" : "1.0-0" }} / m²
     </p>
   </div>
   <div
     *ngIf="property.transaction_type === 'renting'"
-    class="p-5 flex items-center justify-center bg-mygrey2 rounded-b-xl"
+    class="p-5 flex items-center justify-center bg-gradient-to-b from-blue-900 to-myblue rounded-b-xl"
   >
     <p class="text-lg font-bold text-white">
-      {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }} <span class="text-sm font-light text-myyellow1">/ mois</span> 
+      {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }} <span class="text-sm font-light text-white">/ mois</span> 
     </p>
   </div>
 </div>

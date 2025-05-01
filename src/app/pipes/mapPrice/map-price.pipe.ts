@@ -8,11 +8,11 @@ export class MapPricePipe implements PipeTransform {
   transform(value: string): string {
     const valueNumber = parseFloat(value.replace(/\s/g, ''))
     if (valueNumber < 1000) {
-      return value;
+      return Math.round(valueNumber)*10/10 + "";
     } else if (valueNumber >= 1000000) {
-      return valueNumber/ 1000000 + "M";
+      return Math.round(valueNumber*10/ 1000000)/10 + "M";
     } else {
-      return valueNumber/ 1000 + "K";
+      return Math.round(valueNumber*10/1000)/10 + "K";
     }
   }
 }

@@ -6,6 +6,7 @@ import { PartnersDialogComponent } from '../../shared/components/partners-dialog
 import { OptionDialogComponent } from "../../shared/components/option-dialog/option-dialog.component";
 import { ReviewsComponent } from "../../shared/components/reviews/reviews.component";
 import { FaqComponent } from '../../shared/components/faq/faq.component';
+import { HeroPackComponent } from '../../shared/components/hero-pack/hero-pack.component';
 
 @Component({
   selector: 'app-pack-coaching',
@@ -18,6 +19,7 @@ import { FaqComponent } from '../../shared/components/faq/faq.component';
     OptionDialogComponent,
     ReviewsComponent,
     FaqComponent,
+    HeroPackComponent,
 ],
   templateUrl: './pack-coaching.component.html',
   styleUrl: './pack-coaching.component.scss'

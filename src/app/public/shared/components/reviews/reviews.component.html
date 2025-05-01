@@ -1,96 +1,95 @@
 <!-- Les avis de nos clients -->
-  <div
-    class="flex flex-col lg:flex-row gap-10 items-start justify-start text-myzinc"
-  >
-    <div class="flex flex-col items-start justify-start gap-10 md:pr-20">
-      <div class="flex items-center justify-start">
-        <span
-          class="z-40 w-[75px] h-[75px] bg-white rounded-full shadow-md flex items-center justify-center"
-          ><img src="assets/img/icon/arrow.png" class="w-7" alt=""
-        /></span>
-        <span class="z-30 w-[75px] h-[75px] -translate-x-4"
-          ><img
-            src="assets/img/illustration/avatar1.png"
-            class="w-full object-cover"
-            alt=""
-        /></span>
-        <span class="z-20 w-[75px] h-[75px] -translate-x-8"
-          ><img
-            src="assets/img/illustration/avatar2.png"
-            class="w-full object-cover"
-            alt=""
-        /></span>
-        <span class="z-10 w-[75px] h-[75px] -translate-x-12"
-          ><img
-            src="assets/img/illustration/avatar3.png"
-            class="w-full object-cover"
-            alt=""
-        /></span>
-      </div>
-      <div class="flex items-center gap-5">
-        <img src="assets/img/icon/etoiles.png" class="w-40" alt="" />
-        <p class="text-amber-400 text-xl font-open">4,9/5</p>
-      </div>
-      <div class="flex items-center gap-5">
-        <p class="text-5xl text-myzinc font-semibold">125+</p>
-        <p class="text-xl text-myzinc/40 font-light">Avis</p>
-      </div>
-      <div class="flex items-center gap-4">
-        <p class="text-xl text-myzinc/40 font-light">A consulter sur</p>
-        <img src="assets/img/logo/avis-verifies.png" class="w-36" alt="" />
-      </div>
-    </div>
-    <div class="flex items-start justify-start">
+<div
+  class="flex flex-col lg:flex-row gap-10 items-start justify-start text-myzinc"
+>
+  <div class="flex flex-col items-start justify-start gap-10 md:pr-20">
+    <div class="flex items-center justify-start">
       <span
-        class="w-[75px] h-[75px] rounded-full bg-myorange flex items-center justify-center"
-        ><p class="font-paytone text-[70px] text-white translate-y-2">
-          “
-        </p></span
-      >
+        class="z-40 w-[75px] h-[75px] bg-white rounded-full shadow-md flex items-center justify-center"
+        ><img src="assets/img/icon/arrow.png" class="w-7" alt=""
+      /></span>
+      <span class="z-30 w-[75px] h-[75px] -translate-x-4"
+        ><img
+          src="assets/img/illustration/avatar1.png"
+          class="w-full object-cover"
+          alt=""
+      /></span>
+      <span class="z-20 w-[75px] h-[75px] -translate-x-8"
+        ><img
+          src="assets/img/illustration/avatar2.png"
+          class="w-full object-cover"
+          alt=""
+      /></span>
+      <span class="z-10 w-[75px] h-[75px] -translate-x-12"
+        ><img
+          src="assets/img/illustration/avatar3.png"
+          class="w-full object-cover"
+          alt=""
+      /></span>
     </div>
-    <div class="flex flex-col items-start justify-start gap-10 w-full">
-      <div class="flex items-center gap-5">
-        <img src="assets/img/icon/etoiles.png" class="w-36" alt="" />
-        <p class="text-amber-400 font-open text-xl">
-          {{ userReviews[visibleUserReview].notation }}/5
+    <div class="flex items-center gap-5">
+      <img src="assets/img/icon/etoiles.png" class="w-40" alt="" />
+      <p class="text-amber-400 text-xl font-open">4,9/5</p>
+    </div>
+    <div class="flex items-center gap-5">
+      <p class="text-5xl text-myzinc font-semibold">200+</p>
+      <p class="text-xl text-zinc-500 font-light">Avis</p>
+    </div>
+    <a
+      href="https://www.avis-verifies.com/avis-clients/barnabe-immo.fr"
+      target="_blank"
+      rel="external"
+      class="flex items-center gap-4"
+    >
+      <p class="text-xl text-zinc-500 font-light">A consulter sur</p>
+      <img src="assets/img/logo/avis-verifies.png" class="w-36" alt="" />
+    </a>
+  </div>
+  <div class="flex items-start justify-start">
+    <span
+      class="w-[75px] h-[75px] rounded-full bg-myorange flex items-center justify-center"
+      ><p class="font-paytone text-[70px] text-white translate-y-2">“</p></span
+    >
+  </div>
+  <div class="flex flex-col items-start justify-start gap-10 w-full">
+    <div class="flex items-center gap-5">
+      <img src="assets/img/icon/etoiles.png" class="w-24 md:w-36" alt="" />
+      <p class="text-amber-400 font-open text-xl">
+        {{ userReviews[visibleUserReview].notation }}/5
+      </p>
+    </div>
+    <p class="text-lg font-open text-myzinc min-h-[100px]">
+      {{ userReviews[visibleUserReview].review }}
+    </p>
+    <div class="bg-zinc-200 h-[2px] w-full">
+      <div
+        [ngStyle]="{ width: progressBarWidth + '%' }"
+        class="bg-myzinc h-[2px]"
+      ></div>
+    </div>
+    <div class="flex items-center w-full justify-between">
+      <div class="flex flex-col items-start justify-center gap-2">
+        <p class="font-semibold text-lg">
+          {{ userReviews[visibleUserReview].name }}
+        </p>
+        <p class="text-lg text-zinc-500 font-light">
+          {{ userReviews[visibleUserReview].date }}
         </p>
       </div>
-      <p class="text-lg font-open text-myzinc min-h-[100px]">
-        {{ userReviews[visibleUserReview].review }}
-      </p>
-      <div class="bg-zinc-200 h-[2px] w-full">
-        <div
-          [ngStyle]="{ width: progressBarWidth + '%' }"
-          class="bg-myzinc h-[2px]"
-        ></div>
-      </div>
-      <div class="flex items-center w-full justify-between">
-        <div class="flex flex-col items-start justify-center gap-2">
-          <p class="font-semibold text-lg">
-            {{ userReviews[visibleUserReview].name }}
-          </p>
-          <p class="text-lg text-myzinc/40 font-light">
-            {{ userReviews[visibleUserReview].date }}
-          </p>
-        </div>
-        <div class="flex items-center justify-center gap-4">
-          <button
-            (click)="previousReview()"
-            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
-          >
-            <img
-              class="w-5 rotate-180"
-              src="assets/img/icon/arrow.png"
-              alt=""
-            />
-          </button>
-          <button
-            (click)="nextReview()"
-            class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
-          >
-            <img class="w-5" src="assets/img/icon/arrow.png" alt="" />
-          </button>
-        </div>
+      <div class="flex items-center justify-center gap-4">
+        <button
+          (click)="previousReview()"
+          class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
+        >
+          <img class="w-5 rotate-180" src="assets/img/icon/arrow.png" alt="" />
+        </button>
+        <button
+          (click)="nextReview()"
+          class="h-[50px] w-[50px] rounded-full bg-zinc-200 flex items-center justify-center transition duration-300 hover:bg-zinc-300"
+        >
+          <img class="w-5" src="assets/img/icon/arrow.png" alt="" />
+        </button>
       </div>
     </div>
   </div>
+</div>

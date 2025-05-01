@@ -2,10 +2,10 @@
 
     {
         "id":1,
-        "name":"Belles Demeures",
-        "image":"assets/img/logo-partners/belles.png",
-        "web":"https://www.bellesdemeures.com/",
-        "alt":"Belles Demeures"
+        "name":"Seloger",
+        "image":"assets/img/logo-partners/seloger.png",
+        "web":"https://www.seloger.com/",
+        "alt":"Seloger"
     },
     {
         "id":2,
@@ -37,24 +37,24 @@
     },
     {
         "id":6,
+        "name":"Figaro Immo",
+        "image":"assets/img/logo-partners/lefigaro.png",
+        "web":"https://immobilier.lefigaro.fr/",
+        "alt":"Figaro Immo"
+    },
+    {
+        "id":7,
         "name":"Logic Immo",
         "image":"assets/img/logo-partners/logic.png",
         "web":"https://www.logic-immo.com/",
         "alt":"Logic Immo"
     },
     {
-        "id":7,
-        "name":"Seloger",
-        "image":"assets/img/logo-partners/seloger.png",
-        "web":"https://www.seloger.com/",
-        "alt":"Seloger"
-    },
-    {
-        "id":5,
-        "name":"Figaro Immo",
-        "image":"assets/img/logo-partners/lefigaro.png",
-        "web":"https://immobilier.lefigaro.fr/",
-        "alt":"Figaro Immo"
+        "id":8,
+        "name":"Belles Demeures",
+        "image":"assets/img/logo-partners/belles.png",
+        "web":"https://www.bellesdemeures.com/",
+        "alt":"Belles Demeures"
     },
     {
         "id":9,

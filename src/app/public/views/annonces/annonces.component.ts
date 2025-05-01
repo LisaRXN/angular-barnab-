@@ -163,7 +163,7 @@ export class AnnoncesComponent implements OnInit, AfterViewInit {
   imagePath: string =
     'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m';
   iconConfig = {
-    url: 'assets/img/icon/rectangle.png',
+    url: 'assets/img/icon/rectangle-blue.png',
     scaledSize: new google.maps.Size(60, 30),
   };
   isDesktop: boolean = true;
@@ -197,6 +197,7 @@ export class AnnoncesComponent implements OnInit, AfterViewInit {
   ngOnDestroy() {
     document.body.style.overflow = '';
   }
+  
   clearSelected() {
     this.selectedProperty = null;
   }
@@ -209,22 +210,6 @@ export class AnnoncesComponent implements OnInit, AfterViewInit {
     } else {
       this.selectedProperty = null;
     }
-    // const propertyCardRef = this.propertiesCardRef
-    //   .toArray()
-    //   .find((element) => element.property.id === property.id);
-
-    // setTimeout(() => {
-    //   const propertyCardRef = this.propertiesCardRef
-    //     .toArray()
-    //     .find((element) => element.property.id === property.id);
-
-    //   if (propertyCardRef?.carousel?.nativeElement) {
-    //     propertyCardRef.carousel.nativeElement.scrollIntoView({
-    //       behavior: 'smooth',
-    //       block: 'start',
-    //     });
-    //   }
-    // }, 50);
   }
 
   getPosition(property: any) {

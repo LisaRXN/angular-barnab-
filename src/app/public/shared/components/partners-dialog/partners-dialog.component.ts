@@ -13,6 +13,9 @@ interface Partner {
   alt:string,
 }
 
+type PartnerVisibility = "pack-coaching" | "pack-encheres" | "all";
+
+
 @Component({
   selector: 'app-partners-dialog',
   imports: [CommonModule],
@@ -21,7 +24,17 @@ interface Partner {
 })
 export class PartnersDialogComponent {
 
+  @Input() partnerVisibility: PartnerVisibility = "all";
+
   partners:Partner[] = partnersDetails
+
+  getVisiblePartners(){
+    if(this.partnerVisibility === "pack-coaching" ) return this.partners.filter(partner => ![2, 3, 4, 5, 8].includes(partner.id));
+    if(this.partnerVisibility === "pack-encheres" ) return this.partners.filter(partner => ![2, 8].includes(partner.id));
+    else return this.partners
+  }
+
+
   @ViewChild('modal') modalRef!: ElementRef<HTMLDialogElement>;
 
   openModal() {

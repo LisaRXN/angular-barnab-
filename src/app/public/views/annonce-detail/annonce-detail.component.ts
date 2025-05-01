@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   inject,
-  signal,
+  OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { map, of, switchMap, combineLatest } from 'rxjs';
@@ -20,8 +23,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { AdCardComponent } from '../annonces/components/ad-card/ad-card.component';
-import { ContactDetails } from '../../../core/models/contactDetails';
 import {
   DomSanitizer,
   Meta,
@@ -30,6 +31,7 @@ import {
 } from '@angular/platform-browser';
 import { PhoneNumberPipe } from '../../../pipes/phoneNumber/phone-number.pipe';
 import { SeoService } from '../../../core/services/seo.service';
+import { PropertyCardComponent } from '../../shared/components/property-card/property-card.component';
 
 @Component({
   selector: 'app-annonce-detail',
@@ -40,14 +42,15 @@ import { SeoService } from '../../../core/services/seo.service';
     GoogleMapsModule,
     RouterLink,
     CapitalizePipe,
-    AdCardComponent,
+    PropertyCardComponent,
     PhoneNumberPipe
   ],
   templateUrl: './annonce-detail.component.html',
   styleUrl: './annonce-detail.component.scss',
 })
-export class AnnonceDetailComponent {
-  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
+export class AnnonceDetailComponent implements AfterViewInit, OnInit {
+  @ViewChild('carousel', { static: false }) carousel!: ElementRef<HTMLDivElement>;
+  @ViewChildren('item') carouselItems!: QueryList<ElementRef>
   @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
   private route = inject(ActivatedRoute);
   private propertyGateway = inject(PropertyGateway);
@@ -74,7 +77,8 @@ export class AnnonceDetailComponent {
   };
   isCarouselStart = true;
   isCarouselEnd = false;
-
+  activeSlide:number = 0;
+  
   cityScanToken!: string;
   cityScanApiKey = environment.cityScanApiKey;
   safeUrl!: SafeResourceUrl
@@ -109,19 +113,20 @@ export class AnnonceDetailComponent {
     propertyId: new FormControl<number>(0, { nonNullable: true }),
   });
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      if (!this.carousel) return;
-      this.checkScrollPosition();
-      this.carousel.nativeElement.addEventListener('scroll', () =>
-        this.checkScrollPosition()
-      );
-    });
+
+  ngAfterViewInit() {        
+        
+        let scrollDebounce:any
+        this.carousel.nativeElement.addEventListener('scroll', () => {
+          clearTimeout(scrollDebounce);
+          scrollDebounce = setTimeout(() => {
+            this.checkScrollPosition();
+          }, 50); 
+        });       
   }
 
   ngOnInit() {
     console.log('Composant chargé');
-
     this.route.params
       .pipe(
         switchMap((params) =>
@@ -224,6 +229,9 @@ export class AnnonceDetailComponent {
     this.isCarouselStart = carousel.scrollLeft === 0;
     this.isCarouselEnd =
       carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth;
+
+    const index = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    this.activeSlide = index;
   }
 
   prevSlide() {

@@ -11,5 +11,7 @@ import { environment } from '../../../../../../environments/environment';
 export class ArticleCardComponent {
   @Input() article!: Article
   @Input() bg: string = 'white';
+  @Input() shadow: boolean = false;
+  @Input() translate: boolean = false;
   env = environment;
 }

@@ -8,7 +8,6 @@ import { ArticleCardComponent } from '../components/article-card/article-card.co
 import { ArticleGateway } from '../../../../core/ports/article.gateway';
 import { Article } from '../../../../core/models/article.models';
 import { toObservable } from '@angular/core/rxjs-interop';
-import { HeroPackComponent } from "../../../shared/components/hero-pack/hero-pack.component";
 
 interface Type {
  id:number;
@@ -17,7 +16,7 @@ interface Type {
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule, RouterLink, FormsModule, ArticleCardComponent, NgOptimizedImage, HeroPackComponent],
+  imports: [CommonModule, RouterLink, FormsModule, ArticleCardComponent, NgOptimizedImage],
   templateUrl: './blog.component.html',
 })
 export class BlogComponent implements OnInit {

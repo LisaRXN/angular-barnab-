@@ -1,9 +1,10 @@
 import { Component, computed, ElementRef, signal, ViewChild } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FaqComponent } from '../../shared/components/faq/faq.component';
 import { HeroPackComponent } from '../../shared/components/hero-pack/hero-pack.component';
+import faqReportageDetails from '../../../../assets/data/faq-reportage.json';
 
 interface SurfacePrice {
   maxSurface: number;
@@ -17,7 +18,6 @@ interface SurfacePrice {
     ReactiveFormsModule,
     FormsModule,
     SectionTitleComponent,
-    NgOptimizedImage,
     FaqComponent,
     HeroPackComponent
   ],
@@ -27,6 +27,7 @@ interface SurfacePrice {
 
 export class PackReportageComponent {
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
+  faqReportage = faqReportageDetails
   
   surface = signal<number>(0);
 

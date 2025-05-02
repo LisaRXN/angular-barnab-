@@ -87,11 +87,13 @@
     <app-article-card
       class="md:hidden"
       [article]="articles[0]"
+      [translate]="true"
+      [shadow]="true"
     ></app-article-card>
 
     <div
       *ngIf="articles[0]"
-      class="hidden md:block z-10 bg-white relative w-3/4 max-w-[800px] h-[400px] lg:h-[450px] rounded-2xl shadow-md"
+      class="hidden md:block z-10 bg-white relative w-3/4 max-w-[800px] h-[400px] lg:h-[450px] rounded-2xl shadow-md  hover:-translate-y-[3px] duration-300 transition hover:shadow-lg"
     >
       <img
         [src]="env.publicURL + articles[0].article_preview"
@@ -143,6 +145,8 @@
           *ngFor="let article of articles | slice : 1"
           [article]="article"
           bg="blue"
+          [shadow]="true"
+          [translate]="true"
         ></app-article-card>
       </div>
     </div>

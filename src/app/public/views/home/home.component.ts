@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
     ]);
   }
-  @ViewChild(PartnersDialogComponent) dialogComponent!: PartnersDialogComponent;
+  @ViewChild('coachingDialog') coachingDialog!: PartnersDialogComponent;
+  @ViewChild('encheresDialog') encheresDialog!: PartnersDialogComponent;
   @ViewChild('addresstext') addresstext!: ElementRef<HTMLInputElement>;
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
   @ViewChild('progressBar') progressBar!: ElementRef<HTMLDivElement>;
@@ -125,10 +126,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openModal() {
-    if (this.dialogComponent) {
-      this.dialogComponent.openModal();
-    } else {
+  openModal(formuleId: number) {
+    if (this.coachingDialog && formuleId === 1) {
+      this.coachingDialog.openModal();
+    } 
+    else if(this.encheresDialog && formuleId === 2){
+      this.encheresDialog.openModal();
+    }
+    else {
       console.error('modalComponent est undefined');
     }
   }

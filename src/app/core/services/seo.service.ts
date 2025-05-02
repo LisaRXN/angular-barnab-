@@ -24,7 +24,7 @@ export interface SeoConfig {
   providedIn: 'root',
 })
 export class SeoService {
-  private readonly baseUrl = 'https://www.diffuze.fr';
+  private readonly baseUrl = 'https://barnabe-immo.fr/';
   private isBrowser: boolean;
 
   constructor(

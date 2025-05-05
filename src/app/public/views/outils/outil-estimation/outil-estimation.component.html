@@ -1,0 +1,66 @@
+<!-- Hero -->
+<app-hero-pack
+  overtitle="Nos outils en ligne"
+  titleOne="Estimation gratuite"
+  titleTwo="de votre bien"
+  subtitle="Obtenez une estimation rapide et des conseils basés sur le marché actuel."
+  image="home2.jpg"
+  bgColor="bg-white"
+  textColor="text-myzinc"
+/>
+
+<!-- Présentation -->
+<section class="px-5 py-10 md:p-20">
+  <div
+    class="flex flex-col items-center justify-center text-myzinc font-jakarta gap-10 md:gap-14 max-w-screen-xl m-auto"
+  >
+    <h2 class="font-jakarta text-3xl md:text-5xl font-semibold text-center">
+      L’estimation, comment ça marche ?
+    </h2>
+    <p class="text-xl font-bold font-open max-w-screen-lg m-auto">
+      Obtenez une estimation fiable de votre bien grâce à notre outil en ligne,
+      basé sur ses caractéristiques et les tendances du marché !
+    </p>
+    <div
+      class="grid md:grid-cols-3 gap-5 md:gap-0 place-items-center max-w-screen-lg m-auto"
+    >
+      <div
+        class="flex flex-col items-center justify-start gap-5 h-full text-myzinc md:border-r border-zinc-300 md:pr-10"
+      >
+        <img src="assets/img/icon/color-chart.png" class="w-14" alt="" />
+        <p class="font-bold font-jakarta text-lg">Données du marché</p>
+        <p class="font-normal font-open">
+          L’estimation est basée sur les données du fichier des Demandes de
+          Valeurs Foncières (DVF), qui recense les transactions immobilières des
+          cinq dernières années.
+        </p>
+      </div>
+      <div
+        class="flex flex-col items-center justify-start gap-5 h-full text-myzinc md:border-r border-zinc-300 md:px-10"
+      >
+        <img src="assets/img/icon/color-check.png" class="w-14" alt="" />
+        <p class="font-bold font-jakarta text-lg">Description du bien</p>
+        <p class="font-normal font-open">
+          Renseignez les caractéristiques de votre bien (surface, nombre de
+          salles de pièces, etc.) pour obtenir rapidement une estimation.
+        </p>
+      </div>
+      <div
+        class="flex flex-col items-center justify-start gap-5 h-full text-myzinc md:pl-10"
+      >
+        <img src="assets/img/icon/color-mail.png" class="w-14" alt="" />
+        <p class="font-bold font-jakarta text-lg">Estimation</p>
+        <p class="font-normal font-open">
+          Recevez par mail et gratuitement une estimation en euros de votre bien
+          immobilier (maison ou appartement).
+        </p>
+      </div>
+    </div>
+
+    <a
+      routerLink="/estimation-immobiliere-gratuite-en-ligne/address"
+      class="text-white bg-myorange text-center rounded-full px-6 py-3 hover:bg-orange-500 transition-all transition-300"
+      >Commencer l'estimation</a
+    >
+  </div>
+</section>

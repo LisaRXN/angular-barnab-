@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-outil-redaction',
   imports: [],
   templateUrl: './outil-redaction.component.html',
-  styleUrl: './outil-redaction.component.scss'
 })
 export class OutilRedactionComponent {
 

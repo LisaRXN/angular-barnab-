@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OutilEstimationComponent } from './outil-estimation.component';
+import { GmapSearchComponent } from './gmap-search.component';
 
-describe('OutilEstimationComponent', () => {
-  let component: OutilEstimationComponent;
-  let fixture: ComponentFixture<OutilEstimationComponent>;
+describe('GmapSearchComponent', () => {
+  let component: GmapSearchComponent;
+  let fixture: ComponentFixture<GmapSearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutilEstimationComponent]
+      imports: [GmapSearchComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OutilEstimationComponent);
+    fixture = TestBed.createComponent(GmapSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

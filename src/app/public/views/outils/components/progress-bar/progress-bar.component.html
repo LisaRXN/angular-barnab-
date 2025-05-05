@@ -1,0 +1,62 @@
+<section class="px-5 py-10 md:py-20">
+  <div
+    class="flex items-center flex-wrap justify-center gap-5 font-open text-myzinc text-sm"
+  >
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <p>Localisation</p>
+      <span
+        class="w-[150px] rounded-full h-3"
+        [ngClass]="{
+          'bg-myorange/20': step === 1,
+          'bg-myorange': step > 1
+        }"
+      ></span>
+    </div>
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <p>Type de bien</p>
+      <span
+        class="w-[150px] rounded-full h-3"
+        [ngClass]="{
+          'bg-zinc-200': step < 2,
+          'bg-myorange/20': step === 2,
+          'bg-myorange': step > 2
+        }"
+      ></span>
+    </div>
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <p>Caractéristiques</p>
+      <span
+        class="w-[150px] rounded-full h-3"
+        [ngClass]="{
+          'bg-zinc-200': step < 3,
+
+          'bg-myorange/20': step === 3,
+          'bg-myorange': step > 3
+        }"
+      ></span>
+    </div>
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <p>Avantages</p>
+      <span
+        class="w-[150px] rounded-full h-3"
+        [ngClass]="{
+          'bg-zinc-200': step < 5,
+
+          'bg-myorange/20': step === 5,
+          'bg-myorange': step > 5
+        }"
+      ></span>
+    </div>
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <p>Vos informations</p>
+      <span
+        class="w-[150px] rounded-full h-3"
+        [ngClass]="{
+          'bg-zinc-200': step < 6,
+          'bg-myorange/20': step === 6,
+          'bg-myorange': step > 6
+        }"
+      ></span>
+    </div>
+  </div>
+</section>

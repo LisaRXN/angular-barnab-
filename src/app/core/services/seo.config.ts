@@ -6,96 +6,101 @@ export interface RouteSeoConfig {
 
 export const SEO_CONFIG: RouteSeoConfig = {
   '/': {
-    title: 'Diffuze - Maîtrisez vos coûts de diffusion immobilière​',
+    title: 'Barnabé - La 1ère plateforme de coaching immobilier',
     description:
-      'Découvrez Diffuze, votre partenaire pour booster la visibilité de vos annonces immobilières sur plus de 50 plateformes, sans abonnement ni engagement.​',
+    "Boostez la visibilité de votre bien immobilier avec Barnabé. Diffusez votre annonce sur plus de 50 plateformes et profitez d’un accompagnement personnalisé 5j/7 pour vendre plus vite, en toute autonomie.",
     keywords:
-      'immobilier, annonces, diffusion, sans abonnement, vente, location, booster la visibilité, coûts de diffusion',
-    ogTitle: 'Diffuze - Maîtrisez vos coûts de diffusion immobilière​',
+      'immobilier, annonces, coaching, vente interactive, diffusion, sans abonnement, vente, location, réussir sa vente',
+    ogTitle: 'Barnabé - La 1ère plateforme de coaching en ligne"e​',
     ogDescription:
-      'Découvrez Diffuze, votre partenaire pour booster la visibilité de vos annonces immobilières sur plus de 50 plateformes, sans abonnement ni engagement.​',
-    ogImage: 'https://data.barnabe-immo.fr/img/google/paiement-immediat.jpeg',
+      'Vendez votre bien sans agence et diffusez votre annonces sur les meilleurs plateformes pros ! Pack Visibilité + Coaching à 299 €, ou Pack Visibilité + Vente interactive à 399 €. Aucun frais d’agence, plus de 1 500 clients satisfaits.',
+    ogImage: 'https://barnabe-immo.fr/img/logo/logo-barnabe.png',
     structuredData: {
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': 'Organization',
-          '@id': 'https://www.diffuze.fr/',
-          name: 'DiffuZe. Immobilier',
-          url: 'https://www.diffuze.fr/',
+          '@type': 'Brand',
+          '@id': 'https://barnabe-immo.fr/',
+          name: 'Barnabé Immobilier',
+          url: 'https://barnabe-immo.fr/',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://www.diffuze.fr/assets/img/logo/logo.png',
+            url: 'https://barnabe-immo.fr/assets/img/logo/logo.png',
             width: 180,
             height: 60,
           },
-          description:
-            "Service de diffusion d'annonces immobilières sans abonnement pour les professionnels",
+          description: 'La 1ère plateforme de coaching en ligne',
           sameAs: [
-            'https://www.linkedin.com/company/diffuze-immobilier',
-            'https://www.instagram.com/diffuze.immo/',
+            'https://www.linkedin.com/company/barnabeimmo/',
+            'https://www.instagram.com/barnabeimmo/?hl=fr',
           ],
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'customer service',
             availableLanguage: 'French',
-            url: 'https://app.lemcal.com/@diffuze/15min',
+            url: 'https://calendly.com/barnabe-immo/15min',
             contactOption: 'Prise de rendez-vous en ligne',
           },
         },
         {
           '@type': 'WebSite',
-          '@id': 'https://www.diffuze.fr/',
-          url: 'https://www.diffuze.fr/',
-          name: 'DiffuZe. Immobilier',
+          '@id': 'https://barnabe-immo.fr/#website',
+          url: 'https://barnabe-immo.fr/',
+          name: 'Barnabé. Immobilier',
           publisher: {
-            '@id': 'https://www.diffuze.fr/',
-          },
-          potentialAction: {
-            '@type': 'UseAction',
-            target: 'https://www.diffuze.fr/notre-offre',
+            '@id': 'https://barnabe-immo.fr/#organization',
+            name: 'Barnabé. Immobilier',
+            url: 'https://barnabe-immo.fr/',
           },
         },
         {
           '@type': 'WebPage',
-          '@id': 'https://www.diffuze.fr/',
-          url: 'https://www.diffuze.fr/',
-          name: "DiffuZe. Immobilier - Diffusion d'annonces immobilières sans abonnement",
+          '@id': 'https://barnabe-immo.fr/',
+          url: 'https://barnabe-immo.fr/',
+          name: 'Barnabé. Immobilier - La 1ère plateforme de coaching en ligne',
           isPartOf: {
-            '@id': 'https://www.diffuze.fr/',
+            '@id': 'https://barnabe-immo.fr/',
           },
           about: {
-            '@id': 'https://www.diffuze.fr/',
+            '@id': 'https://barnabe-immo.fr/',
           },
           description:
-            "Diffusez vos annonces immobilières sur plus de 50 plateformes sans abonnement. Solutions pour professionnels de l'immobilier.",
+            'Diffusez votre annonce sur plus de 50 plateformes de référence et bénéficiez d’un accompagnement 5j/7 par un expert immobilier. Vendez sans frais d’agence avec Barnabé.',
         },
         {
           '@type': 'Service',
-          name: "Diffusion d'annonces immobilières",
+          name: 'Vente immobilière entre particuliers avec diffusion professionnelle',
           description:
-            'Un prestataire unique pour prendre en charge la diffusion de votre annonce sur les plus grands portails immobiliers, sans abonnement',
+            'Barnabé vous aide à vendre entre particuliers grâce à deux formules incluant la diffusion de votre annonce sur plus de 50 plateformes : avec coaching personnalisé 5j/7 pour 299 €, ou avec vente interactive aux enchères en ligne pour 399 €. 0 % de frais d’agence.',
           provider: {
-            '@id': 'https://www.diffuze.fr/#organization',
+            '@id': 'https://barnabe-immo.fr/#organization',
           },
-          serviceType: 'Diffusion immobilière',
+          serviceType: 'Service immobilier sans agence',
           areaServed: 'France',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
-            name: "Services de diffusion d'annonces",
+            name: 'Formules de vente immobilière Barnabé',
             itemListElement: [
               {
                 '@type': 'Offer',
-                name: 'Paiement immédiat',
-                description: 'Paiement immédiat, unique et sans abonnement',
-                url: 'https://www.diffuze.fr/notre-offre',
+                name: 'Pack Visibilité + Coaching',
+                description:
+                  'Diffusez votre annonce sur 50 plateformes de référence et bénéficiez d’un coaching 5j/7 par un expert en immobilier.',
+                url: 'https://barnabe-immo.fr/pack-visibilite-coaching',
               },
               {
                 '@type': 'Offer',
-                name: 'Paiement au succès',
+                name: 'Pack Visibilité + Vente interactive',
                 description:
-                  'Paiement au succès, en co-mandat et sans abonnement',
-                url: 'https://www.diffuze.fr/notre-offre',
+                  'Diffusez votre annonce sur 50 plateformes de référence, bénéficiez d’un coaching 5j/7 par un expert en immobilier et de la mise en ligne de votre annonce sur une plateforme de vente aux enchères.',
+                url: 'https://barnabe-immo.fr/pack-visibilite-vente-interactive',
+              },
+              {
+                '@type': 'Offer',
+                name: 'Reportage photo + visite 3D virtuelle',
+                description:
+                  'Démarquez vous avec une annonce de qualité grâce à notre reportage photo professionnel incluant une video de visite virtuelle en 3D. À partir de 120 €.',
+                url: 'pack-reportage-photo-visite3D',
               },
             ],
           },
@@ -105,26 +110,43 @@ export const SEO_CONFIG: RouteSeoConfig = {
           mainEntity: [
             {
               '@type': 'Question',
-              name: 'Sur quelles plateformes sont diffusées mes annonces ?',
+              name: 'Pourquoi choisir Barnabé pour votre vente immobilière ?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: "Vos annonces sont diffusées sur plus de 50 plateformes immobilières incluant SeLoger, LeBonCoin, Belles Demeures, Jinka, Gens de Confiance, Green-Acres et bien d'autres portails de référence.",
+                text: 'Barnabé souhaite révolutionner la vente immobilière en proposant une alternative à la vente immobilière traditionnelle baptisée le coaching immobilier. Économique et performant, le coaching immobilier est une solution pour vendre rapidement et au meilleur prix.',
               },
             },
             {
               '@type': 'Question',
-              name: 'Comment fonctionne le paiement immédiat ?',
+              name: "Combien ça coute et pourquoi n'y a t-il vraiment aucune commission ?",
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Le paiement immédiat est un paiement unique sans abonnement. Vous payez une seule fois pour une diffusion de 60 jours sur plus de 50 plateformes immobiliers, avec possibilité de payer en 3 fois sans frais.',
+                text: 'Notre formule de coaching immobilier est une prestation de service. Le paiement se fait immédia-tement (à partir de 299 €). Il n’y a donc vraiment aucune commission, aucun frais cachés, aucun abonnement. Votre formule arrive a expiration automatiquement au bout de la période (60 jours), sauf contre ordre, vous pourrez bien entendu la renouveler.',
               },
             },
             {
               '@type': 'Question',
-              name: 'Comment fonctionne le paiement au succès ?',
+              name: "À qui s'adresse notre service ?",
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: "Avec le paiement au succès, les frais de diffusion sont offerts. Vous ne payez qu'en cas de vente, selon un barème dégressif, sans avance ni engagement. La diffusion est illimitée jusqu'à la vente du bien.",
+                text: "Notre service est destiné à tous les vendeurs qui souhaitent s'occuper eux-mêmes de la vente de leur bien tout en bénéficiant d'un accompagnement professionnel et de la meilleure visibilité digitale. Tout cela sans commission. Optez pour la vente entre particulier avec un support professionnel. Ne soyez plus livrez à vous-même.",
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Quelle est la valeur ajoutée de Barnabé ?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                reponse:
+                  'Notre solution repose sur une offre principale innovante qui s’articule autour des fondamentaux de la vente immobilière (estimation, aide à la rédaction de votre annonce, multi-diffusion et accompagnement personnalisé), tout cela dispensé par des experts immobiliers dédié 6j/7. Bénéficiez d’outils et de conseils professionnels sans commission.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Je suis un professionnel de l’immobilier, vers quelle offre me tourner ?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Pour vos besoins en tant que pro, rendez-vous sur <a class="font-bold underline" href="https://www.diffuze.fr" target="_blank">DiffuZe</a>, notre partenaire dédié aux professionnels de l\'immobilier et conçu pour faciliter la diffusion de vos annonces.',
               },
             },
           ],
@@ -143,154 +165,81 @@ export const SEO_CONFIG: RouteSeoConfig = {
       ],
     },
   },
-  '/notre-offre': {
-    title:
-      "Nos Offres - Diffuze : Solutions de diffusion pour professionnels de l'immobilier​",
+  '/pack-visibilite-coaching': {
+    title: 'Pack Visibilité & Coaching - Barnabé Immobilier',
     description:
-      'Explorez nos solutions de diffusion : paiement immédiat ou au succès, pour maximiser la visibilité de vos biens immobiliers tout en maîtrisant vos coûts.​',
+      "Diffusez votre bien sur plus de 50 plateformes avec notre pack visibilité & coaching. Bénéficiez d'un accompagnement personnalisé 5j/7 par un expert en immobilier pour 299 €.",
     keywords:
-      'services immobiliers, diffusion annonces, sans abonnement, coûts de diffusion, booster la visibilité, annonces immobilières',
-    ogTitle:
-      "Nos Offres - Diffuze : Solutions de diffusion pour professionnels de l'immobilier​",
+      'diffusion annonce, coaching immobilier, visibilité, immobilier, vente entre particuliers, prix immobilier',
+    ogTitle: 'Pack Visibilité & Coaching - Barnabé Immobilier',
     ogDescription:
-      'Explorez nos solutions de diffusion : paiement immédiat ou au succès, pour maximiser la visibilité de vos biens immobiliers tout en maîtrisant vos coûts.​',
+      "Diffusez votre bien sur plus de 50 plateformes avec notre pack visibilité & coaching. Bénéficiez d'un accompagnement personnalisé 5j/7 par un expert en immobilier pour 299 €.",
     structuredData: {
       '@context': 'http://schema.org',
-      '@type': 'Product',
-      name: "Diffusion d'annonces immobilières - DiffuZe",
+      '@type': 'Service',
+      name: 'Pack Visibilité & Coaching',
       image: 'https://data.barnabe-immo.fr/img/google/paiement-immediat.jpeg',
       description:
-        'Un prestataire unique pour prendre en charge la diffusion de votre annonce sur les plus grands portails immobiliers, sans abonnement',
+        'Diffusez votre bien sur plus de 50 plateformes avec notre pack visibilité & coaching. Accompagnement 5j/7 par un expert en immobilier.',
       offers: {
-        '@type': 'AggregateOffer',
+        '@type': 'Offer',
         priceCurrency: 'EUR',
-        offerCount: 2,
-        offers: [
+        price: '299',
+        priceValidUntil: '2030-01-01',
+        url: 'https://barnabe-immo.fr/pack-visibilite-coaching',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Visibilité et coaching immobilier',
+          serviceType: 'Coaching immobilier',
+          provider: {
+            '@type': 'Organization',
+            name: 'Barnabé Immobilier',
+          },
+          potentialAction: {
+            '@type': 'UseAction',
+            target: 'https://barnabe-immo.fr/pack-visibilite-coaching',
+          },
+        },
+        additionalProperty: [
           {
-            '@type': 'Offer',
-            name: 'Paiement immédiat',
-            description:
-              'Diffusion de votre annonce sur les principaux portails immobiliers sans abonnement',
-            price: '99',
-            priceCurrency: 'EUR',
-            availability: 'https://schema.org/InStock',
-            priceValidUntil: '2030-01-01',
-            url: 'https://www.diffuze.fr/notre-offre',
-            image:
-              'https://data.barnabe-immo.fr/img/google/paiement-immediat.jpeg',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Diffusion paiement immédiat',
-              description:
-                'Diffusion sur les portails immobiliers principaux sans abonnement',
-              serviceOutput: 'Visibilité immobilière optimisée',
-              provider: {
-                '@type': 'Organization',
-                name: 'DiffuZe. Immobilier',
-              },
-              serviceType: "Diffusion d'annonces immobilières",
-              potentialAction: {
-                '@type': 'UseAction',
-                target: 'https://www.diffuze.fr/notre-offre',
-              },
-            },
-            additionalProperty: [
-              {
-                '@type': 'PropertyValue',
-                name: 'Portails inclus',
-                value:
-                  'SeLoger, Belles Demeures, Jinka, Gens de Confiance, Green-Acres',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Boost hebdomadaire de votre annonce',
-                value: 'Oui',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Estimation en ligne',
-                value: 'Grâce à notre outil gratuit en ligne',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Rédaction de votre annonce par IA',
-                value: 'Grâce à notre outil gratuit en ligne',
-              },
-
-              {
-                '@type': 'PropertyValue',
-                name: 'Durée',
-                value: '60 jours',
-              },
-            ],
+            '@type': 'PropertyValue',
+            name: 'Portails inclus',
+            value:
+              'SeLoger, Belles Demeures, Jinka, Gens de Confiance, Green-Acres',
           },
           {
-            '@type': 'Offer',
-            name: 'Paiement au succès',
-            description:
-              'Diffusion prioritaire avec photos professionnelles et visibilité accrue',
-            price: '149',
-            priceCurrency: 'EUR',
-            availability: 'https://schema.org/InStock',
-            priceValidUntil: '2030-01-01',
-            url: 'https://www.diffuze.fr/notre-offre',
-            image:
-              'https://data.barnabe-immo.fr/img/google/paiement-comandat.jpeg',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Diffusion paiement au succès',
-              description:
-                'Diffusion prioritaire sur tous les portails immobiliers premium',
-              serviceOutput: 'Visibilité immobilière maximale',
-              provider: {
-                '@type': 'Organization',
-                name: 'DiffuZe. Immobilier',
-              },
-              serviceType: "Diffusion d'annonces immobilières premium",
-              potentialAction: {
-                '@type': 'UseAction',
-                target: 'https://www.diffuze.fr/notre-offre',
-              },
-            },
-            additionalProperty: [
-              {
-                '@type': 'PropertyValue',
-                name: 'Portails inclus',
-                value:
-                  'SeLoger, Belles Demeures, Jinka, Gens de Confiance, Green-Acres',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Nombre de photos',
-                value: "Jusqu'à 20 photos",
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Estimation en ligne',
-                value: 'Grâce à notre outil gratuit en ligne',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Rédaction de votre annonce par IA',
-                value: 'Grâce à notre outil gratuit en ligne',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Boost hebdomadaire',
-                value: 'Inclus',
-              },
-              {
-                '@type': 'PropertyValue',
-                name: 'Durée',
-                value: 'Sans limite de temps',
-              },
-            ],
+            '@type': 'PropertyValue',
+            name: 'Annonce optimisée',
+            value:
+              'Modifications illimitées et points d’intérêts à proximité de votre bien avec CityScan.',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Estimation en ligne',
+            value: 'Grâce à notre outil gratuit en ligne',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Rédaction de votre annonce par IA',
+            value: 'Grâce à notre outil gratuit en ligne',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Boost hebdomadaire',
+            value: 'Inclus',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Durée',
+            value: '60 jours',
           },
         ],
       },
       brand: {
         '@type': 'Brand',
-        name: 'DiffuZe.',
+        '@id': 'https://barnabe-immo.fr/',
+        name: 'Barnabé Immobilier',
+        url: 'https://barnabe-immo.fr/',
       },
       positiveNotes: {
         '@type': 'ItemList',
@@ -298,21 +247,16 @@ export const SEO_CONFIG: RouteSeoConfig = {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Paiement immédiat, unique et sans abonnement',
+            name: 'Diffusion sur 50 plateformes immobilières',
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Paiement au succès, en co-mandat et sans abonnement',
+            name: 'Accompagnement personnalisé 5j/7 pour maximiser la vente',
           },
           {
             '@type': 'ListItem',
             position: 3,
-            name: "Diffusion sur l'ensemble des plateformes immobilières",
-          },
-          {
-            '@type': 'ListItem',
-            position: 4,
             name: 'Assistance technique et juridique 6j/7',
           },
         ],
@@ -327,107 +271,381 @@ export const SEO_CONFIG: RouteSeoConfig = {
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'Quelles sont les différences entre les offres Standard et Premium ?',
+            name: 'Pourquoi choisir Barnabé pour votre vente immobilière ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "L'offre Standard inclut une diffusion sur les principaux portails immobiliers avec jusqu'à 10 photos, tandis que l'offre Premium ajoute des plateformes exclusives comme Belles Demeures et Green-Acres, jusqu'à 20 photos et un boost hebdomadaire pour une visibilité maximale.",
+              text: 'Barnabé souhaite révolutionner la vente immobilière en proposant une alternative à la vente immobilière traditionnelle baptisée le coaching immobilier. Économique et performant, le coaching immobilier est une solution pour vendre rapidement et au meilleur prix.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Comment fonctionne le paiement au succès ?',
+            name: "Combien ça coute et pourquoi n'y a t-il vraiment aucune commission ?",
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Avec le paiement au succès, les frais de diffusion sont offerts. Vous ne payez qu'en cas de vente, selon un barème dégressif (de 8% à 2% pour les mandats simples et de 6% à 1% pour les mandats exclusifs), sans avance ni engagement. La diffusion est illimitée jusqu'à la vente du bien.",
+              text: 'Notre formule de coaching immobilier est une prestation de service. Le paiement se fait immédia-tement (à partir de 299 €). Il n’y a donc vraiment aucune commission, aucun frais cachés, aucun abonnement. Votre formule arrive a expiration automatiquement au bout de la période (60 jours), sauf contre ordre, vous pourrez bien entendu la renouveler.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Puis-je modifier mon annonce après sa publication ?',
+            name: "À qui s'adresse notre service ?",
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Oui, vous pouvez effectuer des modifications illimitées sur vos annonces, directement depuis votre espace DiffuZe ou votre logiciel métier. Les mises à jour sont synchronisées sur toutes les plateformes de diffusion.',
+              text: "Notre service est destiné à tous les vendeurs qui souhaitent s'occuper eux-mêmes de la vente de leur bien tout en bénéficiant d'un accompagnement professionnel et de la meilleure visibilité digitale. Tout cela sans commission. Optez pour la vente entre particulier avec un support professionnel. Ne soyez plus livrez à vous-même.",
             },
           },
           {
             '@type': 'Question',
-            name: 'Sur quelles plateformes premium mes annonces seront-elles diffusées ?',
+            name: 'Quelle est la valeur ajoutée de Barnabé ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Avec l'offre Premium, vos annonces sont diffusées sur des plateformes exclusives comme SeLoger, LeBonCoin, Belles Demeures, Jinka, Gens de Confiance et Green-Acres, en plus des autres portails immobiliers de référence.",
+              reponse:
+                'Notre solution repose sur une offre principale innovante qui s’articule autour des fondamentaux de la vente immobilière (estimation, aide à la rédaction de votre annonce, multi-diffusion et accompagnement personnalisé), tout cela dispensé par des experts immobiliers dédié 6j/7. Bénéficiez d’outils et de conseils professionnels sans commission.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Quelle est la durée de diffusion de mes annonces ?',
+            name: 'Je suis un professionnel de l’immobilier, vers quelle offre me tourner ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Pour le paiement immédiat, la durée de diffusion est de 60 jours, renouvelable. Pour le paiement au succès, la diffusion est illimitée jusqu'à la vente du bien.",
+              text: 'Pour vos besoins en tant que pro, rendez-vous sur <a class="font-bold underline" href="https://www.diffuze.fr" target="_blank">DiffuZe</a>, notre partenaire dédié aux professionnels de l\'immobilier et conçu pour faciliter la diffusion de vos annonces.',
             },
           },
         ],
       },
     },
   },
-  '/blog': {
-    title: 'Blog Diffuze - Actualités et conseils en diffusion immobilière​',
+
+  '/pack-visibilite-vente-interactive': {
+    title: 'Pack Visibilité & Vente Interactive - Barnabé Immobilier',
     description:
-      "Consultez notre blog pour des actualités, conseils et astuces sur la diffusion d'annonces immobilières et les meilleures pratiques du secteur.​",
-    keywords: 'blog immobilier, conseils immobiliers, actualités immobilières',
-    ogTitle: 'Blog Immobilier - DiffuZe',
-    ogDescription: "Découvrez nos articles sur l'immobilier",
+      "Diffusez votre bien sur plus de 50 plateformes et bénéficiez d'une solution innovante de vente interactive avec accompagnement personnalisé 5j/7 pour 299 €.",
+    keywords:
+      'vente interactive, diffusion annonce, coaching immobilier, visibilité, immobilier, vente entre particuliers, prix immobilier',
+    ogTitle: 'Pack Visibilité & Vente Interactive - Barnabé Immobilier',
+    ogDescription:
+      "Diffusez votre bien sur plus de 50 plateformes et bénéficiez d'une solution innovante de vente interactive avec accompagnement personnalisé 5j/7 pour 299 €.",
+    structuredData: {
+      '@context': 'http://schema.org',
+      '@type': 'Service',
+      name: 'Pack Visibilité & Vente Interactive',
+      image: 'https://data.barnabe-immo.fr/img/google/paiement-immediat.jpeg',
+      description:
+        'Diffusez votre bien sur plus de 50 plateformes et vendez plus vite grâce à notre solution de vente interactive. Accompagnement 5j/7 par un expert immobilier.',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'EUR',
+        price: '299',
+        priceValidUntil: '2030-01-01',
+        url: 'https://barnabe-immo.fr/pack-visibilite-vente-interactive',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Visibilité et vente interactive',
+          serviceType: 'Coaching immobilier et vente interactive',
+          provider: {
+            '@type': 'Organization',
+            name: 'Barnabé Immobilier',
+          },
+          potentialAction: {
+            '@type': 'UseAction',
+            target: 'https://barnabe-immo.fr/pack-visibilite-vente-interactive',
+          },
+        },
+        additionalProperty: [
+          {
+            '@type': 'PropertyValue',
+            name: 'Plateformes exclusives incluses',
+            value: 'Jinka, Gens de Confiance, Green-Acres',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Durée',
+            value: '60 jours',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Boost hebdomadaire',
+            value: 'Inclus',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Estimation en ligne',
+            value: 'Grâce à notre outil gratuit en ligne',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Rédaction de votre annonce par IA',
+            value: 'Grâce à notre outil gratuit en ligne',
+          },
+        ],
+      },
+      brand: {
+        '@type': 'Brand',
+        '@id': 'https://barnabe-immo.fr/',
+        name: 'Barnabé Immobilier',
+        url: 'https://barnabe-immo.fr/',
+      },
+      positiveNotes: {
+        '@type': 'ItemList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: "Vente accélérée grâce au système d'enchères ou d'offres compétitives",
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Diffusion sur plus de 50 plateformes',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Accompagnement humain et réactif 5j/7',
+          },
+        ],
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '20',
+      },
+      mainEntityOfPage: {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: "Quel est le prix de départ ? Comment est-il défini ?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le prix de départ est fixé en concertation avec notre équipe, à partir d’une évaluation précise de la valeur de marché de votre bien.\nCe prix est généralement positionné 15 à 20 % en dessous du prix du marché, afin de créer un effet d’appel et d’attirer un maximum d’acquéreurs.\n\n<span class=\"font-bold\">Attention</span> : si le prix de départ n’est pas suffisamment attractif, la dynamique d’enchères risque de ne pas se déclencher, ou d’être moins performante.\nC’est pourquoi il est essentiel de déterminer ensemble un prix marché réaliste, sur lequel appuyer cette stratégie de lancement."
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "Suis-je dans l’obligation d’accepter une offre d’achat ?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+             text: "Non, vous n’êtes jamais obligé d’accepter une offre.\nÀ l’issue des enchères, vous restez entièrement libre d’accepter ou non l’offre la plus élevée.\nVous conservez ainsi le contrôle total de votre vente."
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "Quelle est la durée moyenne du processus de vente ?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le processus complet dure environ <span class=\"font-bold\">28 jours</span> entre le lancement de l’annonce et le jour des enchères.\nCette période permet de préparer, valoriser et promouvoir votre bien efficacement, en laissant aux acheteurs le temps de se positionner."
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "Y a-t-il d’autres frais à prévoir ?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Non, il n’y a rien à prévoir d’autre que le tarif affiché sur notre site, soit 399 € TTC pour la prestation complète.\nContrairement à une mise en vente via un intermédiaire classique, aucun honoraire supplémentaire ne vous est facturé pour bénéficier de ce service."
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "Qu’est-ce qui est inclus dans ce service à 399 € ?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Le service comprend : La définition du prix de départ avec l’un de nos experts immobiliers. La diffusion de votre annonce sur plus de 50 portails de référence, pour maximiser la visibilité de votre bien. La gestion de votre annonce en ligne via un espace personnel dédié. Un accompagnement personnalisé tout au long du processus de commercialisation. L’organisation de la vente aux enchères, grâce à la mise à disposition de notre outil d’enchères sécurisé en ligne.",
+            },
+          },
+        ],
+      },
+    },
+  },
+
+  '/pack-photo-visite-3d': {
+    title: 'Pack Reportage Photo & Visite 3D - Barnabé Immobilier',
+    description:
+      "Sublimez votre bien avec un reportage photo professionnel et une visite 3D immersive. Attirez plus d’acheteurs dès le premier coup d'œil, à partir de 120 €.",
+    keywords:
+      'photo immobilière, visite virtuelle 3D, reportage professionnel, valorisation bien immobilier, home staging, annonce immobilière, Barnabé Immobilier',
+    ogTitle:
+      'Pack Photo & Visite 3D - Sublimez votre bien | Barnabé Immobilier',
+    ogDescription:
+      'Attirez l’attention avec un reportage photo professionnel et une visite virtuelle 3D. Une présentation haut de gamme de votre bien à partir de 120 €.',
+    ogImage: 'https://data.barnabe-immo.fr/img/google/...',
+    structuredData: {
+      '@context': 'http://schema.org',
+      '@type': 'Service',
+      name: 'Pack Reportage Photo & Visite 3D',
+      image: 'https://data.barnabe-immo.fr/img/google/...',
+      description:
+        "Attirez plus d'acheteurs grâce à des photos professionnelles et une visite virtuelle immersive. Mettez votre bien en valeur pour une vente plus rapide.",
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'EUR',
+        price: '120',
+        priceValidUntil: '2030-01-01',
+        url: 'https://barnabe-immo.fr/pack-reportage-photo-visite3D',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Reportage photo professionnel & visite 3D',
+          serviceType: 'Valorisation immobilière',
+          provider: {
+            '@type': 'Organization',
+            name: 'Barnabé Immobilier',
+          },
+          potentialAction: {
+            '@type': 'UseAction',
+            target: 'https://barnabe-immo.fr/pack-reportage-photo-visite3D',
+          },
+        },
+        additionalProperty: [
+          {
+            '@type': 'PropertyValue',
+            name: 'Type de bien couvert',
+            value: 'Maisons, appartements, intérieur, extérieur',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Droits d’usage',
+            value: 'Libres pour diffusion web et print',
+          },
+        ],
+      },
+      brand: {
+        '@type': 'Brand',
+        '@id': 'https://barnabe-immo.fr/',
+        name: 'Barnabé Immobilier',
+        url: 'https://barnabe-immo.fr/',
+      },
+      positiveNotes: {
+        '@type': 'ItemList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: '15 photos professionnelles valorisant votre bien',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Visite 3D immersive pour capter plus d’acheteurs',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Livraison rapide et qualité haut de gamme',
+          },
+        ],
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '15',
+      },
+      mainEntityOfPage: {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Quels sont les avantages d’un reportage photo professionnel ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Des photos professionnelles permettent de capter l’attention, de valoriser les volumes et d’augmenter les chances de visites. Elles donnent une image sérieuse et engageante de votre bien.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Comment fonctionne la visite 3D ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Nous réalisons une captation immersive de votre bien avec une caméra 3D. Les acheteurs peuvent ainsi le visiter à distance, à tout moment, depuis leur ordinateur ou smartphone.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Quel est le délai pour obtenir les photos et la visite 3D ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Les médias sont livrés sous 72h après la captation. Vous recevez un lien de téléchargement et un lien de partage pour les intégrer à votre annonce.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Le pack inclut-il une prestation sur place ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Oui, un photographe professionnel se déplace chez vous pour réaliser la séance photo et la visite 3D dans les meilleures conditions.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "Puis-je utiliser les photos sur d'autres plateformes ?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Oui, vous disposez des droits de diffusion pour utiliser les photos et la visite 3D sur tous vos supports de communication, en ligne ou imprimés.',
+            },
+          },
+        ],
+      },
+    },
+  },
+
+  '/blog': {
+    title: 'Blog Barnabé - Conseils et actualités pour vendre votre bien',
+    description:
+      'Consultez notre blog pour découvrir des conseils concrets, des actualités et des astuces pour réussir la vente de votre bien immobilier en toute autonomie.',
+    keywords:
+      'blog immobilier, vente immobilière, conseils vente, actualités immobilier',
+    ogTitle: 'Blog Immobilier - Barnabé',
+    ogDescription: 'Découvrez nos articles pour vendre votre bien sereinement',
     structuredData: {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'WebPage',
-          '@id': 'https://www.diffuze.fr/blog/',
-          url: 'https://www.diffuze.fr/blog/',
-          name: 'Blog Immobilier - DiffuZe. Immobilier',
+          '@id': 'https://www.barnabe-immo.fr/blog/',
+          url: 'https://www.barnabe-immo.fr/blog/',
+          name: 'Blog Immobilier - Barnabé',
           isPartOf: {
-            '@id': 'https://www.diffuze.fr/',
+            '@id': 'https://www.barnabe-immo.fr/',
           },
           about: {
             '@type': 'Thing',
-            name: 'Immobilier',
+            name: 'Vente immobilière',
           },
           description:
-            "Conseils, actualités et guides sur l'immobilier pour les professionnels et particuliers",
+            'Conseils, guides pratiques et actualités pour vendre votre bien immobilier efficacement',
           breadcrumb: {
-            '@id': 'https://www.diffuze.fr/blog/',
+            '@id': 'https://www.barnabe-immo.fr/blog/',
           },
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://www.diffuze.fr/blog/',
+          '@id': 'https://www.barnabe-immo.fr/blog/',
           itemListElement: [
             {
               '@type': 'ListItem',
               position: 1,
               name: 'Accueil',
-              item: 'https://www.diffuze.fr/',
+              item: 'https://www.barnabe-immo.fr/',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Blog',
-              item: 'https://www.diffuze.fr/blog/',
+              item: 'https://www.barnabe-immo.fr/blog/',
             },
           ],
         },
         {
           '@type': 'CollectionPage',
-          '@id': 'https://www.diffuze.fr/blog/',
-          url: 'https://www.diffuze.fr/blog/',
-          name: 'Blog Immobilier - DiffuZe',
+          '@id': 'https://www.barnabe-immo.fr/blog/',
+          url: 'https://www.barnabe-immo.fr/blog/',
+          name: 'Blog Immobilier - Barnabé',
           description:
-            "Découvrez nos articles sur l'immobilier classés par catégories",
+            'Explorez nos articles classés par thèmes pour mieux vendre votre bien',
           isPartOf: {
-            '@id': 'https://www.diffuze.fr/blog/',
+            '@id': 'https://www.barnabe-immo.fr/blog/',
           },
           about: {
             '@type': 'Thing',
-            name: 'Immobilier',
+            name: 'Vente immobilière',
           },
         },
         {
@@ -437,92 +655,93 @@ export const SEO_CONFIG: RouteSeoConfig = {
               '@type': 'ListItem',
               position: 1,
               name: 'Conseils pour les vendeurs',
-              url: 'https://www.diffuze.fr/blog/type/1',
+              url: 'https://www.barnabe-immo.fr/blog/type/1',
               description:
-                "Conseils pour les vendeurs, conseils pour les acquéreurs, conseils pour les professionnels de l'immobilier",
+                'Astuces et bonnes pratiques pour bien vendre son bien immobilier',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Plateformes immobilières',
-              url: 'https://www.diffuze.fr/blog/type/2',
+              url: 'https://www.barnabe-immo.fr/blog/type/2',
               description:
-                'Les plateformes et professionnels qui façonnent le marché immobilier',
+                'Zoom sur les portails de diffusion et leurs spécificités',
             },
             {
               '@type': 'ListItem',
               position: 3,
               name: 'Actualités immobilières',
-              url: 'https://www.diffuze.fr/blog/type/3',
-              description: "Les dernières actualités sur l'immobilier",
+              url: 'https://www.barnabe-immo.fr/blog/type/3',
+              description: 'Tendances et évolutions du marché immobilier',
             },
           ],
         },
         {
           '@type': 'Blog',
-          headline: 'Blog Immobilier DiffuZe',
-          name: 'Blog DiffuZe',
+          headline: 'Blog Immobilier Barnabé',
+          name: 'Blog Barnabé',
           description:
-            "Conseils, actualités et guides sur l'immobilier pour les professionnels",
-          url: 'https://www.diffuze.fr/blog/',
+            'Conseils, actualités et outils pour vous accompagner dans votre vente immobilière',
+          url: 'https://www.barnabe-immo.fr/blog/',
           sameAs: [
-            'https://www.linkedin.com/company/diffuze-immobilier',
-            'https://www.instagram.com/diffuze.immo/',
+            'https://www.linkedin.com/company/barnabeimmo/',
+            'https://www.instagram.com/barnabeimmo/?hl=fr',
           ],
           publisher: {
-            '@id': 'https://www.diffuze.fr/',
+            '@id': 'https://www.barnabe-immo.fr/',
           },
         },
       ],
     },
   },
+
   '/annonces': {
-    title: 'Annonces Immobilières - Trouvez votre bien idéal avec Diffuze',
+    title: 'Annonces Immobilières - Trouvez votre bien idéal avec Barnabé',
     description:
-      "Explorez notre sélection d'annonces immobilières de qualité, publiées par des professionnels de l'immobilier partenaires de Diffuze. Trouvez votre prochain bien facilement.",
+      'Parcourez les annonces immobilières sélectionnées par Barnabé, publiées par des agences et professionnels de confiance. Trouvez le bien qui vous correspond.',
     keywords:
-      'annonces immobilières, recherche immobilière, biens à vendre, biens à louer, immobilier, DiffuZe',
-    ogTitle: 'Annonces Immobilières - Trouvez votre bien idéal | Diffuze',
+      'annonces immobilières, biens à vendre, biens à louer, immobilier, recherche immobilière, Barnabé',
+    ogTitle: 'Annonces Immobilières - Trouvez votre bien idéal | Barnabé',
     ogDescription:
-      "Explorez notre sélection d'annonces immobilières de qualité. Filtrez par type, prix, localisation et trouvez le bien qui répond à vos attentes.",
+      'Accédez à notre sélection d’annonces immobilières de qualité. Filtrez selon vos critères pour trouver facilement votre futur logement.',
     structuredData: {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'WebPage',
-          '@id': 'https://www.diffuze.fr/annonces/',
-          url: 'https://www.diffuze.fr/annonces/',
-          name: 'Annonces Immobilières - Trouvez votre bien idéal | Diffuze',
+          '@id': 'https://www.barnabe-immo.fr/annonces/',
+          url: 'https://www.barnabe-immo.fr/annonces/',
+          name: 'Annonces Immobilières - Trouvez votre bien idéal | Barnabé',
           description:
-            "Recherchez parmi nos annonces immobilières de qualité, publiées par des professionnels de l'immobilier partenaires",
+            'Recherchez parmi les annonces immobilières de qualité proposées par les clients de Barnabé.',
           isPartOf: {
-            '@id': 'https://www.diffuze.fr/',
+            '@id': 'https://www.barnabe-immo.fr/',
           },
           breadcrumb: {
-            '@id': 'https://www.diffuze.fr/annonces/#breadcrumb',
+            '@id': 'https://www.barnabe-immo.fr/annonces/#breadcrumb',
           },
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://www.diffuze.fr/annonces/#breadcrumb',
+          '@id': 'https://www.barnabe-immo.fr/annonces/#breadcrumb',
           itemListElement: [
             {
               '@type': 'ListItem',
               position: 1,
               name: 'Accueil',
-              item: 'https://www.diffuze.fr/',
+              item: 'https://www.barnabe-immo.fr/',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Annonces Immobilières',
-              item: 'https://www.diffuze.fr/annonces/',
+              item: 'https://www.barnabe-immo.fr/annonces/',
             },
           ],
         },
         {
           '@type': 'SearchResultsPage',
-          '@id': 'https://www.diffuze.fr/annonces/#searchresults',
+          '@id': 'https://www.barnabe-immo.fr/annonces/#searchresults',
           about: {
             '@type': 'RealEstateListing',
             name: 'Annonces immobilières',
@@ -530,7 +749,7 @@ export const SEO_CONFIG: RouteSeoConfig = {
           mainContentOfPage: {
             '@type': 'WebPageElement',
             isPartOf: {
-              '@id': 'https://www.diffuze.fr/annonces/',
+              '@id': 'https://www.barnabe-immo.fr/annonces/',
             },
           },
           potentialAction: {
@@ -538,16 +757,16 @@ export const SEO_CONFIG: RouteSeoConfig = {
             target: {
               '@type': 'EntryPoint',
               urlTemplate:
-                'https://www.diffuze.fr/annonces/?q={search_term_string}',
+                'https://www.barnabe-immo.fr/annonces/?q={search_term_string}',
             },
             'query-input': 'required name=search_term_string',
           },
         },
         {
           '@type': 'ItemList',
-          '@id': 'https://www.diffuze.fr/annonces/#listings',
+          '@id': 'https://www.barnabe-immo.fr/annonces/#listings',
           name: 'Annonces immobilières disponibles',
-          description: 'Liste des biens immobiliers à vendre ou à louer',
+          description: 'Liste des biens à vendre ou à louer',
           numberOfItems: '{{dynamicNumberOfItems}}',
           itemListOrder: 'https://schema.org/ItemListOrderDescending',
         },
@@ -559,7 +778,7 @@ export const SEO_CONFIG: RouteSeoConfig = {
               name: "Comment filtrer mes recherches d'annonces immobilières ?",
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Vous pouvez filtrer vos recherches par type de bien (appartement, maison, terrain), par prix, par surface, par nombre de pièces et par localisation pour trouver facilement le bien qui correspond à vos critères.',
+                text: 'Filtrez vos recherches selon le type de bien, la localisation, le prix, la surface ou le nombre de pièces pour cibler facilement les biens adaptés à vos besoins.',
               },
             },
             {
@@ -567,7 +786,7 @@ export const SEO_CONFIG: RouteSeoConfig = {
               name: 'Les annonces sont-elles vérifiées ?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: "Oui, toutes nos annonces sont publiées par des professionnels de l'immobilier partenaires de Diffuze. La qualité et la véracité des informations sont vérifiées avant publication.",
+                text: 'Oui, toutes les annonces sont publiées par des professionnels partenaires de Barnabé. Chaque bien est vérifié avant mise en ligne.',
               },
             },
             {
@@ -575,139 +794,16 @@ export const SEO_CONFIG: RouteSeoConfig = {
               name: "Comment contacter l'agent immobilier pour une annonce ?",
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: "Sur la page détaillée de chaque annonce, vous trouverez les coordonnées de l'agent immobilier en charge du bien, ainsi qu'un formulaire de contact pour demander plus d'informations ou organiser une visite.",
+                text: 'Chaque fiche annonce contient les coordonnées de l’agent immobilier ou un formulaire de contact pour poser vos questions ou demander une visite.',
               },
             },
           ],
         },
       ],
     },
-    ogImage: 'https://data.barnabe-immo.fr/img/google/paiement-immediat.jpeg',
+    ogImage: 'https://data.barnabe-immo.fr/img/logo/logo-barnabe.png',
   },
-  '/nos-partenaires': {
-    title:
-      'Avis Clients - Diffuze : Ils nous font confiance pour leur diffusion immobilière​​',
-    description:
-      "Découvrez les professionnels de l'immobilier qui ont choisi Diffuze pour optimiser la visibilité de leurs annonces et maîtriser leurs coûts de diffusion. Leur satisfaction est notre priorité !​",
-    keywords:
-      'partenaires, diffusion annonces, sans abonnement, coûts de diffusion, booster la visibilité, annonces immobilières',
-    ogTitle:
-      'Avis Clients - Diffuze : Ils nous font confiance pour leur diffusion immobilière​​',
-    ogDescription:
-      "Découvrez les professionnels de l'immobilier qui ont choisi Diffuze pour optimiser la visibilité de leurs annonces et maîtriser leurs coûts de diffusion. Leur satisfaction est notre priorité !​",
-    structuredData: {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebPage',
-          '@id': 'https://www.diffuze.fr/nos-partenaires/',
-          url: 'https://www.diffuze.fr/nos-partenaires/',
-          name: 'Avis Clients - Diffuze : Ils nous font confiance',
-          isPartOf: {
-            '@id': 'https://www.diffuze.fr/',
-          },
-          description:
-            "Découvrez les professionnels de l'immobilier qui ont choisi Diffuze pour optimiser la visibilité de leurs annonces",
-          breadcrumb: {
-            '@id': 'https://www.diffuze.fr/nos-partenaires/',
-          },
-        },
-        {
-          '@type': 'BreadcrumbList',
-          '@id': 'https://www.diffuze.fr/nos-partenaires/',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: 'Accueil',
-              item: 'https://www.diffuze.fr/',
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: 'Avis Clients',
-              item: 'https://www.diffuze.fr/nos-partenaires/',
-            },
-          ],
-        },
-        {
-          '@type': 'ItemList',
-          itemListElement: [
-            {
-              '@type': 'Review',
-              reviewRating: {
-                '@type': 'Rating',
-                ratingValue: '5',
-                bestRating: '5',
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'Agence Century 21',
-              },
-              itemReviewed: {
-                '@type': 'Service',
-                name: "Diffusion d'annonces immobilières",
-              },
-              reviewBody:
-                'Un outil simple, efficace et surtout adapté à nos besoins. La flexibilité des offres et la diffusion sur les grands portails immobiliers en font une solution incontournable pour les petites agences.',
-            },
-            {
-              '@type': 'Review',
-              reviewRating: {
-                '@type': 'Rating',
-                ratingValue: '5',
-                bestRating: '5',
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'Agence Laforêt',
-              },
-              itemReviewed: {
-                '@type': 'Service',
-                name: "Diffusion d'annonces immobilières",
-              },
-              reviewBody:
-                "Simple, rapide et efficace. Tout ce qu'on attend d'un bon service de diffusion d'annonces immobilières ! Je recommande sans hésitation.",
-            },
-            {
-              '@type': 'Review',
-              reviewRating: {
-                '@type': 'Rating',
-                ratingValue: '4',
-                bestRating: '5',
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'TOC immobilier',
-              },
-              itemReviewed: {
-                '@type': 'Service',
-                name: "Diffusion d'annonces immobilières",
-              },
-              reviewBody:
-                "Une solution parfaite pour les agences souhaitant optimiser leur budget tout en bénéficiant d'une visibilité sur les plus grands portails. Bravo pour cette initiative !",
-            },
-          ],
-        },
-        {
-          '@type': 'AggregateRating',
-          itemReviewed: {
-            '@type': 'Service',
-            name: "Diffusion d'annonces immobilières - DiffuZe",
-            provider: {
-              '@type': 'Organization',
-              name: 'DiffuZe. Immobilier',
-            },
-          },
-          ratingValue: '4.9',
-          bestRating: '5',
-          worstRating: '1',
-          ratingCount: '42',
-          reviewCount: '38',
-        },
-      ],
-    },
-  },
+
   '/conditions-generales​': {
     title:
       "Conditions Générales de Vente - Diffuze : Diffusion d'annonces immobilières​",

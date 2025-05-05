@@ -638,21 +638,48 @@
   />
 
   <div class="grid lg:grid-cols-2 gap-20 mt-20">
-    <div class="relative flex items-center justify-center">
+    <div class="relative flex-col flex items-center justify-center gap-5">
       <div
-        class="w-full h-full rounded-3xl bg-myblue/10 absolute -top-10 -left-10"
+        class="w-full h-3/4 rounded-3xl bg-myblue/10 absolute -top-10 -left-10"
       ></div>
-      <div
-        class="w-full h-full rounded-3xl bg-myorange/10 absolute -bottom-10 -right-10"
-      ></div>
+      <!-- <div
+        class="w-full h-3/4 rounded-3xl bg-myorange/10 absolute bottom-10 -right-10"
+      ></div> -->
       <video
-        src="assets/video/barnabe-tf1.mp4"
-        class="rounded-xl aspect-video w-full"
+        [src]="'assets/video/' + videos[displayVideo].src"
+        class="z-10 h-full rounded-xl aspect-video w-full"
         controls
         frameborder="0"
         loading="lazy"
         allowFullScreen
       ></video>
+      <div class="bg-zinc-200 h-[2px] w-1/2 self-start">
+        <div
+          [ngStyle]="{ width: progressBarWidth + '%' }"
+          class="bg-myorange h-[2px]"
+        ></div>
+      </div>
+      <div class="flex items-center w-full justify-between gap-10">
+        <div class="flex items-start justify-center gap-2">
+          <p [innerHTML]="videos[displayVideo].title" class="text-lg text-zinc-500 font-light">
+          </p>
+        </div>
+        <div class="flex items-center justify-center gap-4">
+          <button
+            (click)="previousVideo()"
+            class="h-[50px] w-[50px] rounded-full bg-myorange/10 flex items-center justify-center transition duration-300 hover:bg-myorange/15"
+          >
+            <img class="w-5 rotate-180" src="assets/img/icon/arrow.png" alt="" />
+          </button>
+          <button
+            (click)="nextVideo()"
+            class="h-[50px] w-[50px] rounded-full bg-myorange/10 flex items-center justify-center transition duration-300 hover:bg-myorange/15"
+          >
+            <img class="w-5" src="assets/img/icon/arrow.png" alt="" />
+          </button>
+        </div>
+      </div>
+
     </div>
     <div
       class="flex flex-col gap-10 justify-start items-start font-open text-myzinc"
@@ -665,12 +692,12 @@
         <hr class="absolute border-none h-[1px] bg-zinc-300 w-full -bottom-2" />
       </div>
       <div class="w-full flex items-start gap-2 font-normal"></div>
-      <p class="text-justify">
+      <p class="text-justify text-lg">
         Barnabé, votre coach immobilier, vous accompagne de l’estimation de
         votre bien aux visites de vos futurs acheteurs : l’idéal pour une vente
         immobilière autonome et indépendante, sans frais annexes.
       </p>
-      <p class="text-justify">
+      <p class="text-justify text-lg">
         Barnabé valide votre estimation en ligne, diffuse votre annonce sur les
         plus grandes plateformes de vente et répond à vos questions 6 jours sur
         7.

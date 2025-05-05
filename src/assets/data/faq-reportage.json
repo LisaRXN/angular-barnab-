@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "question": "Quels sont les avantages d’un reportage photo professionnel ?",
+    "reponse": "Des photos professionnelles permettent de capter l’attention, de valoriser les volumes et d’augmenter les chances de visites. Elles donnent une image sérieuse et engageante de votre bien."
+  },
+  {
+    "id":2,
+    "question": "Comment fonctionne la visite 3D ?",
+    "reponse": "Nous réalisons une captation immersive de votre bien avec une caméra 3D. Les acheteurs peuvent ainsi le visiter à distance, à tout moment, depuis leur ordinateur ou smartphone."
+  },
+  {
+    "id":3,
+    "question": "Quel est le délai pour obtenir les photos et la visite 3D ?",
+    "reponse": "Les médias sont livrés sous 72h après la captation. Vous recevez un lien de téléchargement et un lien de partage pour les intégrer à votre annonce."
+  },
+  {
+    "id":4,
+    "question": "Le pack inclut-il une prestation sur place ?",
+    "reponse": "Oui, un photographe professionnel se déplace chez vous pour réaliser la séance photo et la visite 3D dans les meilleures conditions."
+  },
+  {
+    "id":5,
+    "question": "Puis-je utiliser les photos sur d'autres plateformes ?",
+    "reponse": "Oui, vous disposez des droits de diffusion pour utiliser les photos et la visite 3D sur tous vos supports de communication, en ligne ou imprimés."
+
+  }
+]

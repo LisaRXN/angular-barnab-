@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
           <img
             src="assets/img/icon/cookies.png"
             class="z-10 w-[40px] h-auto"
-            alt=""
+            alt="Cookies"
           />
           <p class="text-slate-500 text-justify">
             Nous utilisons des cookies pour améliorer votre expérience sur notre
@@ -24,13 +24,13 @@ import { RouterLink } from '@angular/router';
         <div class="buttons flex-col md:flex-row">
           <button
             (click)="acceptCookies()"
-            class="w-full md:w-auto text-mygrey2 bg-myyellow1 hover:bg-myyellow2 px-4 py-3 rounded-xl transition duration-300"
+            class="w-full md:w-auto text-white bg-myorange hover:bg-orange-500 px-4 py-3 rounded-xl transition duration-300"
           >
             Accepter
           </button>
           <button
             (click)="rejectCookies()"
-            class="w-full md:w-auto text-mygrey2 hover:bg-mygrey4 px-4 py-3 rounded-xl  transition duration-300"
+            class="w-full md:w-auto text-myzinc/80 hover:bg-zinc-200 px-4 py-3 rounded-xl  transition duration-300"
           >
             Refuser
           </button>

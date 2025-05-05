@@ -152,7 +152,7 @@
         </div>
         <div class="">
           Diffusion de votre annonce sur
-          <span (click)="openModal()" class="cursor-pointer underline"
+          <span (click)="openModal(1)" class="cursor-pointer underline"
             >50 plateformes</span
           >
           de référence
@@ -235,7 +235,7 @@
         </div>
         <div class="">
           Diffusion de votre annonce sur
-          <span (click)="openModal()" class="cursor-pointer underline"
+          <span (click)="openModal(2)" class="cursor-pointer underline"
             >50 plateformes</span
           >
           de référence
@@ -486,7 +486,7 @@
       <p class="font-semibold text-2xl text-myzinc">Visibilité digitale</p>
       <p class="text-lg text-zinc-600">
         Exposition maximale sur
-        <span (click)="openModal()" class="font-bold underline cursor-pointer"
+        <span (click)="openModal(2)" class="font-bold underline cursor-pointer"
           >plus de 50 plateformes</span
         >
         de références réservées aux pros comme SeLoger ou Belles Demeures
@@ -545,7 +545,7 @@
             Économie réalisée
           </p>
           <p class="font-open text-zinc-500">
-            Nos clients vendeurs économisent en moyenne 5 000 € de commission —
+            Nos clients vendeurs économisent en moyenne 15 000 € de commission —
             et parfois bien plus !
           </p>
         </div>
@@ -837,4 +837,5 @@
 </section>
 
 <!-- Modal -->
-<app-partners-dialog />
+<app-partners-dialog #coachingDialog partnerVisibility="pack-coaching" />
+<app-partners-dialog #encheresDialog partnerVisibility="pack-encheres" />

@@ -32,6 +32,7 @@ import { AlertGateway } from './core/ports/alert.gateway';
 import { HttpAlertGateway } from './core/adapters/http/http-alert.gateway';
 import { ToolsGateway } from './core/ports/tools.gateaway';
 import { InMemoryToolsGateway } from './core/adapters/in-memory/in-memory-tools.gateway';
+import { HttpToolsGateway } from './core/adapters/http/http-tools.gateway';
 
 
 registerLocaleData(localeFr, 'fr-FR');
@@ -63,7 +64,7 @@ export const appConfig: ApplicationConfig = {
     { provide: PropertyGateway, useFactory: () => new HttpPropertyGateway() },
     { provide: ArticleGateway, useFactory: () => new HttpArticleGateway() },
     { provide: AlertGateway, useFactory: () => new HttpAlertGateway() },
-    { provide: ToolsGateway, useFactory: () => new InMemoryToolsGateway() },
+    { provide: ToolsGateway, useFactory: () => new HttpToolsGateway() },
     provideAnimationsAsync(),
   ],
 };

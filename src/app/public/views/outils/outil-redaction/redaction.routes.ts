@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { toolsFormCompleteGuard } from '../../../../core/guards/tools-form-complete.guard';
 
 export const REDACTION_ROUTES: Routes = [
   {
@@ -57,6 +58,8 @@ export const REDACTION_ROUTES: Routes = [
         (m) => m.ConfirmationComponent
       ),
     data: { service: 'redaction' },
+    canActivate: [toolsFormCompleteGuard]
+
   },
   { path: '**', redirectTo: '' },
 ];

@@ -5,22 +5,23 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { FormattedToolsDatas } from '../models/toolsDatas.model';
+import { FormattedToolsDatas, AddressForm } from '../models/toolsDatas.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PropertyToolsService {
   form: FormGroup;
-  formattedToolsDatas!: FormattedToolsDatas
 
+
+  formattedToolsDatas!: FormattedToolsDatas
   constructor(private fb: FormBuilder) {
 
     this.form = this.fb.group({
       // step 1 : adresse
       addressForm: this.fb.group({
         street_address: new FormControl('', Validators.required),
-        street_number: new FormControl(null, [Validators.min(1)]),
+        // street_number: new FormControl(null, [Validators.min(1)]),
         zip_code: new FormControl('', Validators.required),
         city: new FormControl('', Validators.required),
         country: new FormControl(''),
@@ -159,8 +160,20 @@ export class PropertyToolsService {
   }
   }
 
+  isFormValid() {
+    const addressFormValid = this.form.get('addressForm')?.valid
+    const estateTypeFormValid = this.form.get('estateTypeForm')?.valid
+    const characteristicsFormValid = this.form.get('characteristicsForm')?.valid
+    const identityFormValid = this.form.get('identityForm')?.valid  
+
+    return Boolean(addressFormValid && estateTypeFormValid && characteristicsFormValid && identityFormValid)
+}
+
   resetForm() {
     localStorage.removeItem('estimation-form');
     this.form.reset();
   }
+
+  
 }
+

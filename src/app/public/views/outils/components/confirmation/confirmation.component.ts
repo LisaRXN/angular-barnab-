@@ -17,9 +17,13 @@ export class ConfirmationComponent implements OnInit {
   private propertyToolsService = inject(PropertyToolsService);
   private toolsGateway = inject(ToolsGateway);
 
-  tools:string = ""
-
+  tools: string = '';
+  successRequest!: boolean;
   errorMessage: string = '';
+  isLoading: boolean = true;
+  lowPrice: string = '';
+  midPrice: string = '';
+  highPrice: string = '';
 
   get addressForm() {
     return this.propertyToolsService.form.get('addressForm') as FormGroup;
@@ -38,24 +42,67 @@ export class ConfirmationComponent implements OnInit {
       this.tools = data['service'];
     });
 
-    if (
-      this.identityForm.invalid ||
-      this.addressForm.invalid ||
-      this.characteristicsForm.invalid
-    ) {
-      this.identityForm.markAllAsTouched();
-      this.addressForm.markAllAsTouched();
-      this.characteristicsForm.markAllAsTouched();
-      this.tools === '/estimation' 
-        ? this.router.navigate(['/estimation-immobiliere-gratuite/address'])
-        : this.router.navigate(['/redaction-annonce-immobiliere/address'])
- 
-    } else {
+    const datas = this.propertyToolsService.formattedToolsDatas;
 
-      const datas = this.propertyToolsService.formattedToolsDatas;
-      this.tools === 'estimation'
-        ? this.toolsGateway.sendValuation(datas)
-        : this.toolsGateway.sendAdvertising(datas);
+    if (this.tools === 'estimation') {
+      this.toolsGateway.sendValuation(datas).subscribe({
+        next: (data) => {
+          console.log('data', data);
+
+          if (data.status == 200 && data.body.response) {
+            this.successRequest = true;
+            const { low, mid, high } = data.body.response;
+            this.lowPrice = low;
+            this.midPrice = mid;
+            this.highPrice = high;
+          } else {
+            this.errorMessage = data.response || 'Erreur inconnue';
+          }
+        },
+        error: (err) => {
+          console.error('Erreur API', err);
+          this.successRequest = false;
+          this.isLoading = false;
+          if (err.status === 400) {
+            this.errorMessage =
+              err.error.response.message || 'Requête invalide';
+          } else {
+            this.errorMessage =
+              "Une erreur s'est produite, veuillez recommencer.";
+          }
+        },
+        complete: () => {
+          this.isLoading = false;
+        },
+      });
+    } else if (this.tools === 'redaction') {
+      this.toolsGateway.sendAdvertising(datas).subscribe({
+        next: (data) => {
+          console.log('data', data);
+          console.log('status', data.status);
+          this.isLoading = true;
+
+          if (data.status == 200) {
+            this.successRequest = true;
+          } else {
+            this.errorMessage = data.response || 'Erreur inconnue';
+          }
+        },
+        error: (err) => {
+          console.error('Erreur API', err);
+          this.isLoading = false;
+          if (err.status === 400) {
+            this.errorMessage =
+              err.error.response.message || 'Requête invalide';
+          } else {
+            this.errorMessage =
+              "Une erreur s'est produite, veuillez recommencer.";
+          }
+        },
+        complete: () => {
+          this.isLoading = false;
+        },
+      });
     }
 
     // this.propertyToolsService.resetForm();

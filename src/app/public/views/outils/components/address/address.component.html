@@ -46,7 +46,9 @@
           <app-form-error [control]="addressForm.get('city')" />
         </div>
         <div class="flex flex-col gap-2">
-          <div class="grid grid-cols-[2fr_1fr] gap-x-5 place-items-center w-full">
+          <div
+            class="grid grid-cols-[2fr_1fr] gap-x-5 place-items-center w-full"
+          >
             <div class="flex flex-col gap-2 items-start justify-center w-full">
               <p>Rue*</p>
               <input
@@ -56,12 +58,9 @@
                 placeholder="du Paradis"
               />
             </div>
-            <div
-              class="flex flex-col gap-2 items-start justify-center"
-            >
-              <p>N°*</p>
+            <div class="flex flex-col gap-2 items-start justify-center">
+              <p>N°</p>
               <input
-                formControlName="street_number"
                 type="number"
                 min="0"
                 class="z-10 w-full bg-zinc-100 border-none rounded-md p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
@@ -69,7 +68,9 @@
               />
             </div>
           </div>
-          <div class="grid grid-cols-[2fr_1fr] gap-x-5 place-items-start w-full">
+          <div
+            class="grid grid-cols-[2fr_1fr] gap-x-5 place-items-start w-full"
+          >
             <app-form-error [control]="addressForm.get('street_address')" />
             <app-form-error [control]="addressForm.get('street_number')" />
           </div>
@@ -88,11 +89,7 @@
         </google-map>
       </div>
     </div>
-    
-    <app-tools-navigation
-    [form]="addressForm"
-    [step]="1"
-    />
+
+    <app-tools-navigation [form]="addressForm" [step]="1" />
   </section>
-  
 </div>

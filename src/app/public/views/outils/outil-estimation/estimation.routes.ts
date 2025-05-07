@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { toolsFormCompleteGuard } from '../../../../core/guards/tools-form-complete.guard';
 
 export const ESTIMATION_ROUTES: Routes = [
   {
@@ -7,7 +8,7 @@ export const ESTIMATION_ROUTES: Routes = [
       import('./outil-estimation.component').then(
         (m) => m.OutilEstimationComponent
       ),
-      data: { service: 'estimation' },
+    data: { service: 'estimation' },
   },
   {
     path: 'address',
@@ -15,8 +16,7 @@ export const ESTIMATION_ROUTES: Routes = [
       import('../components/address/address.component').then(
         (m) => m.AddressComponent
       ),
-      data: { service: 'estimation' },
-
+    data: { service: 'estimation' },
   },
   {
     path: 'estateType',
@@ -24,7 +24,7 @@ export const ESTIMATION_ROUTES: Routes = [
       import('../components/estate-type/estate-type.component').then(
         (m) => m.EstateTypeComponent
       ),
-      data: { service: 'estimation' },
+    data: { service: 'estimation' },
   },
   {
     path: 'characteristics',
@@ -57,6 +57,7 @@ export const ESTIMATION_ROUTES: Routes = [
         (m) => m.ConfirmationComponent
       ),
     data: { service: 'estimation' },
+    canActivate: [toolsFormCompleteGuard],
   },
   { path: '**', redirectTo: '' },
 ];

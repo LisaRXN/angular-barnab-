@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ToolsGateway } from '../../ports/tools.gateaway';
 import { FormattedToolsDatas } from '../../models/toolsDatas.model';
 
-export class HttpValuationGateway extends ToolsGateway {
+export class HttpToolsGateway extends ToolsGateway {
   http = inject(HttpClient);
 
   override sendValuation(datas:FormattedToolsDatas): Observable<any> {

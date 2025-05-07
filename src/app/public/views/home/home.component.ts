@@ -20,10 +20,11 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PartnersDialogComponent } from '../../shared/components/partners-dialog/partners-dialog.component';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { CounterComponent } from '../../shared/components/counter/counter.component';
-import { ReviewsComponent } from "../../shared/components/reviews/reviews.component";
+import { ReviewsComponent } from '../../shared/components/reviews/reviews.component';
 import { FaqComponent } from '../../shared/components/faq/faq.component';
 import platformsDetails from '../../../../assets/data/partners.json';
-
+import { PropertyToolsService } from '../../../core/services/property-tools.service';
+import { AutoCompleteService } from '../../../core/services/autoComplete.service';
 
 @Component({
   selector: 'app-home',
@@ -36,7 +37,7 @@ import platformsDetails from '../../../../assets/data/partners.json';
     CounterComponent,
     ReviewsComponent,
     FaqComponent,
-],
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -60,6 +61,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private router = inject(Router);
   private ngZone = inject(NgZone);
+  private autoCompleteService = inject(AutoCompleteService);
+
+  private propertyToolsService = inject(PropertyToolsService);
+
   place: any;
   propertyGateway = inject(PropertyGateway);
   properties$!: Observable<Property[]>;
@@ -95,45 +100,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.getPlaceAutocomplete();
-  }
+    this.autoCompleteService.getPlaceAutocomplete(this.addresstext, (place:any) => {
+      this.place = place;
+    })
 
-  private getPlaceAutocomplete() {
-    if (typeof google === 'undefined' || !google.maps) {
-      console.error('Google Maps API non chargé');
-      return;
-    }
-
-    const options = {
-      componentRestrictions: { country: 'FR' },
-      types: ['geocode'],
-    };
-
-    const autocomplete = new google.maps.places.Autocomplete(
-      this.addresstext.nativeElement,
-      options
-    );
-
-    autocomplete.addListener('place_changed', () => {
-      this.ngZone.run(() => {
-        this.place = autocomplete.getPlace();
-
-        if (this.place.geometry === undefined || this.place.geometry === null) {
-          return;
-        }
-        localStorage.setItem('localization', this.place.name);
-      });
-    });
   }
 
   openModal(formuleId: number) {
     if (this.coachingDialog && formuleId === 1) {
       this.coachingDialog.openModal();
-    } 
-    else if(this.encheresDialog && formuleId === 2){
+    } else if (this.encheresDialog && formuleId === 2) {
       this.encheresDialog.openModal();
-    }
-    else {
+    } else {
       console.error('modalComponent est undefined');
     }
   }
@@ -148,7 +126,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
   }
 
-  navigateTo(web:string) {
-    window.open(web, '_blank'); 
+  navigateTo(web: string) {
+    window.open(web, '_blank');
   }
 }

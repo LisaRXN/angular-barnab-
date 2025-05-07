@@ -2,6 +2,7 @@ import {
   AfterViewChecked,
   AfterViewInit,
   Component,
+  effect,
   ElementRef,
   inject,
   NgZone,
@@ -12,15 +13,12 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 
-import {
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { PropertyToolsService } from '../../../../../core/services/property-tools.service';
-import { FormErrorComponent } from "../../../../shared/components/form-error/form-error.component";
-import { ToolsNavigationComponent } from "../tools-navigation/tools-navigation.component";
+import { FormErrorComponent } from '../../../../shared/components/form-error/form-error.component';
+import { ToolsNavigationComponent } from '../tools-navigation/tools-navigation.component';
+import { AutoCompleteService } from '../../../../../core/services/autoComplete.service';
 
 @Component({
   selector: 'app-address',
@@ -31,18 +29,20 @@ import { ToolsNavigationComponent } from "../tools-navigation/tools-navigation.c
     ReactiveFormsModule,
     FormsModule,
     FormErrorComponent,
-    ToolsNavigationComponent
-],
+    ToolsNavigationComponent,
+  ],
   templateUrl: './address.component.html',
 })
 export class AddressComponent implements AfterViewInit {
   @ViewChild('addresstext') addresstext!: ElementRef<HTMLInputElement>;
 
   private ngZone = inject(NgZone);
-  private router = inject(Router)
+  private router = inject(Router);
+  private autoCompleteService = inject(AutoCompleteService);
   private propertyToolsService = inject(PropertyToolsService);
 
-  place: any;
+  place: any = null;
+  addressData: any = null;
   mapCenter = signal({ lat: 48.8566, lng: 2.3522 }); // Paris par défaut
   zoom = signal(12);
   mapOptions: any = {
@@ -55,64 +55,50 @@ export class AddressComponent implements AfterViewInit {
     return this.propertyToolsService.form.get('addressForm') as FormGroup;
   }
 
-  ngAfterViewInit() {
-    this.getPlaceAutocomplete();
-  }
-
-  private getPlaceAutocomplete() {
-    if (typeof google === 'undefined' || !google.maps) {
-      console.error('Google Maps API non chargé');
-      return;
+  ngOnInit() {
+    const place = this.autoCompleteService.getPlace();
+    if (place) {
+      this.place = place;
+    }
+    this.addressData = this.autoCompleteService.getStoredPlaceData();
+    if (this.addressData) {
+      this.updateAdressForm();
+      this.updateMapCenter()
     }
 
-    const options = {
-      componentRestrictions: { country: 'FR' },
-      types: ['geocode'],
-    };
+  }
 
-    const autocomplete = new google.maps.places.Autocomplete(
-      this.addresstext.nativeElement,
-      options
+  ngAfterViewInit() {
+
+    if (this.place && this.place.formatted_address) {
+      this.addresstext.nativeElement.value = this.place.formatted_address;
+    } 
+    this.autoCompleteService.getPlaceAutocomplete(
+      this.addresstext,
+      (place: any) => {
+        this.place = place;
+        this.addressData = this.autoCompleteService.getStoredPlaceData()
+        this.updateAdressForm();
+        this.updateMapCenter()
+      }
     );
+  }
 
-    autocomplete.addListener('place_changed', () => {
-      this.ngZone.run(() => {
-        this.place = autocomplete.getPlace();
+  updateAdressForm(){
+    this.addressForm.get('street_number')?.setValue(this.addressData.street_number)
+    this.addressForm.get('street_address')?.setValue(this.addressData.street_address)
+    this.addressForm.get('zip_code')?.setValue(this.addressData.zip_code)
+    this.addressForm.get('city')?.setValue(this.addressData.city)
+    this.addressForm.get('country')?.setValue(this.addressData.country)
+    this.addressForm.get('latitude')?.setValue(this.addressData.lat)
+    this.addressForm.get('longitude')?.setValue(this.addressData.lng)
+  }
 
-        if (this.place.geometry === undefined || this.place.geometry === null) {
-          return;
-        }
-        
-        this.addressForm.get('longitude')?.setValue(this.place.geometry.location.lng());
-        this.addressForm.get('latitude')?.setValue(this.place.geometry.location.lat());
-
-        for (const component of this.place.address_components) {
-          const types = component.types;
-          if (types.includes('street_number')) {
-            this.addressForm.get('street_number')?.setValue(component.long_name);
-          }
-          if (types.includes('route')) {
-            this.addressForm.get('street_address')?.setValue(component.long_name);
-          }
-          if (types.includes('postal_code')) {
-            this.addressForm.get('zip_code')?.setValue(component.long_name);
-          }
-          if (types.includes('locality')) {
-            this.addressForm.get('city')?.setValue(component.long_name);
-          }
-          if (types.includes('country')) {
-            this.addressForm.get('country')?.setValue(component.long_name);
-          }
-
-        }
-
-        const newCenter = {
-          lat: this.place.geometry.location.lat(),
-          lng: this.place.geometry.location.lng(),
-        };
-        this.mapCenter.set(newCenter);
-        this.zoom.set(12);
-      });
-    });
+  updateMapCenter(){
+    const newCenter = {
+      lat: this.addressData.lat,
+      lng: this.addressData.lng
+    };
+    this.mapCenter.set(newCenter);
   }
 }

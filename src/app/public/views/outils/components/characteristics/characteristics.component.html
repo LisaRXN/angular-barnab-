@@ -12,7 +12,7 @@
         </h1>
 
         <div
-          class="flex flex-col items-center justify-start gap-5 m-auto w-full md:w-3/4"
+          class="flex flex-col items-start justify-start gap-5 m-auto w-full md:w-3/4"
         >
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Surface du bien*</p>
@@ -20,7 +20,7 @@
               <input
                 formControlName="living_space"
                 type="number"
-                name=""
+                min="0"
                 class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
                 placeholder="70"
               />
@@ -29,14 +29,17 @@
                 >m²</span
               >
             </div>
+            <app-form-error
+              [control]="characteristicsForm.get('living_space')"
+            />
           </div>
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Surface du terrain*</p>
             <div class="relative flex w-full">
               <input
-                formControlName="living_space"
-                type="land_area"
-                name=""
+                formControlName="land_area"
+                type="number"
+                min="0"
                 class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
                 placeholder="70"
               />
@@ -45,6 +48,7 @@
                 >m²</span
               >
             </div>
+            <app-form-error [control]="characteristicsForm.get('land_area')" />
           </div>
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Nombre d'étages du bien</p>
@@ -52,9 +56,8 @@
               formControlName="total_floor"
               type="select"
               class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
-             placeholder="1"
-              >
-              <option value="0">Plain pied</option>
+              placeholder="1"
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -64,12 +67,15 @@
               <option value="7">7</option>
               <option value="8">8</option>
             </select>
+            <app-form-error
+              [control]="characteristicsForm.get('total_floor')"
+            />
           </div>
           <div
             *ngIf="estateTypeForm.get('property_type')?.value === 'apartment'"
             class="flex flex-col gap-2 items-start justify-center w-full"
           >
-            <p>Etage de l'appartement</p>
+            <p>À quel étage se situe l'appartement ?</p>
             <select
               formControlName="floor"
               type="select"
@@ -85,6 +91,7 @@
               <option value="7">7</option>
               <option value="8">8</option>
             </select>
+            <app-form-error [control]="characteristicsForm.get('floor')" />
           </div>
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Nombre de pièces</p>
@@ -105,7 +112,9 @@
               <option value="8">10</option>
               <option value="8">11</option>
             </select>
+            <app-form-error [control]="characteristicsForm.get('room')" />
           </div>
+
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Nombre de chambres</p>
             <select
@@ -125,7 +134,9 @@
               <option value="8">10</option>
               <option value="8">11</option>
             </select>
+            <app-form-error [control]="characteristicsForm.get('bedroom')" />
           </div>
+
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Période de construction</p>
             <select
@@ -144,7 +155,11 @@
               <option value="+2010">après 2010</option>
               <option value="neuf">neuf</option>
             </select>
+            <app-form-error
+              [control]="characteristicsForm.get('construction_period')"
+            />
           </div>
+
           <div class="flex flex-col gap-2 items-start justify-center w-full">
             <p>Etat général du bien</p>
             <select
@@ -156,24 +171,14 @@
               <option value="well_maintained">bon état</option>
               <option value="renovation_needed">à rénover</option>
             </select>
+            <app-form-error
+              [control]="characteristicsForm.get('general_condition')"
+            />
           </div>
         </div>
       </form>
     </div>
 
-    <div class="flex items-center justify-center gap-20 py-10 md:py-20">
-      <a
-        routerLink="/estimation-immobiliere-gratuite-en-ligne"
-        class="flex items-center justify-center border text-myzinc border-myzinc gap-5 rounded-full w-[200px] py-2.5 text-lg hover-bg-myzinc-100 duration-300 transition"
-      >
-        <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-180" />
-        <p class="">Retour</p>
-      </a>
-      <a
-        routerLink="/estimation-immobiliere-gratuite-en-ligne/characteristics"
-        class="text-white bg-myorange text-center rounded-full py-3 w-[200px] hover:bg-orange-500 transition-all transition-300"
-        >Continuer</a
-      >
-    </div>
+    <app-tools-navigation [form]="characteristicsForm" [step]="3" />
   </section>
 </div>

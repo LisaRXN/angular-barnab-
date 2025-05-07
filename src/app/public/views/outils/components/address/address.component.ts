@@ -13,14 +13,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 
 import {
-  FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { EstimationService } from '../../../../../core/services/estimation.service';
+import { Router, RouterLink } from '@angular/router';
+import { PropertyToolsService } from '../../../../../core/services/property-tools.service';
+import { FormErrorComponent } from "../../../../shared/components/form-error/form-error.component";
+import { ToolsNavigationComponent } from "../tools-navigation/tools-navigation.component";
 
 @Component({
   selector: 'app-address',
@@ -30,15 +30,17 @@ import { EstimationService } from '../../../../../core/services/estimation.servi
     GoogleMapsModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterLink,
-  ],
+    FormErrorComponent,
+    ToolsNavigationComponent
+],
   templateUrl: './address.component.html',
 })
 export class AddressComponent implements AfterViewInit {
   @ViewChild('addresstext') addresstext!: ElementRef<HTMLInputElement>;
 
   private ngZone = inject(NgZone);
-  private estimationService = inject(EstimationService);
+  private router = inject(Router)
+  private propertyToolsService = inject(PropertyToolsService);
 
   place: any;
   mapCenter = signal({ lat: 48.8566, lng: 2.3522 }); // Paris par défaut
@@ -50,7 +52,7 @@ export class AddressComponent implements AfterViewInit {
   };
 
   get addressForm() {
-    return this.estimationService.form.get('addressForm') as FormGroup;
+    return this.propertyToolsService.form.get('addressForm') as FormGroup;
   }
 
   ngAfterViewInit() {
@@ -80,11 +82,14 @@ export class AddressComponent implements AfterViewInit {
         if (this.place.geometry === undefined || this.place.geometry === null) {
           return;
         }
+        
+        this.addressForm.get('longitude')?.setValue(this.place.geometry.location.lng());
+        this.addressForm.get('latitude')?.setValue(this.place.geometry.location.lat());
 
         for (const component of this.place.address_components) {
           const types = component.types;
           if (types.includes('street_number')) {
-            this.addressForm.get('number')?.setValue(component.long_name);
+            this.addressForm.get('street_number')?.setValue(component.long_name);
           }
           if (types.includes('route')) {
             this.addressForm.get('street_address')?.setValue(component.long_name);
@@ -95,6 +100,10 @@ export class AddressComponent implements AfterViewInit {
           if (types.includes('locality')) {
             this.addressForm.get('city')?.setValue(component.long_name);
           }
+          if (types.includes('country')) {
+            this.addressForm.get('country')?.setValue(component.long_name);
+          }
+
         }
 
         const newCenter = {

@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { EstimationService } from '../../../../../core/services/estimation.service';
+import { Router, RouterLink } from '@angular/router';
+import { PropertyToolsService } from '../../../../../core/services/property-tools.service';
+import { FormErrorComponent } from '../../../../shared/components/form-error/form-error.component';
+import { ToolsNavigationComponent } from '../tools-navigation/tools-navigation.component';
 
 @Component({
   selector: 'app-characteristics',
@@ -11,18 +13,33 @@ import { EstimationService } from '../../../../../core/services/estimation.servi
     CommonModule,
     ProgressBarComponent,
     ReactiveFormsModule,
-    RouterLink,
+    FormErrorComponent,
+    ToolsNavigationComponent,
   ],
   templateUrl: './characteristics.component.html',
 })
 export class CharacteristicsComponent {
-  private estimationService = inject(EstimationService);
-  
+  private router = inject(Router);
+  private propertyToolsService = inject(PropertyToolsService);
+
   get estateTypeForm() {
-    return this.estimationService.form.get('estateTypeForm') as FormGroup;
+    return this.propertyToolsService.form.get('estateTypeForm') as FormGroup;
   }
 
   get characteristicsForm() {
-    return this.estimationService.form.get('characteristicsForm') as FormGroup;
+    return this.propertyToolsService.form.get(
+      'characteristicsForm'
+    ) as FormGroup;
+  }
+
+  nextStep() {
+    if (this.characteristicsForm.invalid) {
+      this.characteristicsForm.markAllAsTouched();
+      return;
+    } else {
+      this.router.navigate([
+        '/estimation-immobiliere-gratuite-en-ligne/advantages',
+      ]);
+    }
   }
 }

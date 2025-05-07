@@ -1,1 +1,117 @@
-<p>identity works!</p>
+<div class="bg-zinc-50 pb-20">
+  <app-progress-bar [step]="5" />
+
+  <section class="px-5 md:px-20 max-w-screen-lg m-auto">
+    <div
+      class="grid place-items-center items-start border rounded-3xl border-zinc-300 bg-white"
+    >
+      <form
+        [formGroup]="identityForm"
+        class="w-full md:w-4/5 p-10 md:p-14 flex-1 flex flex-col gap-5 items-start justify-center font-open text-myzinc"
+      >
+        <h1 class="self-center font-jakarta text-xl font-bold mb-4">
+          Vos informations personnelles
+        </h1>
+        <p class="text-lg self-center font-medium mb-4">
+          Plus qu’une étape pour obtenir votre estimation !
+        </p>
+
+        <div
+          class="flex flex-col items-center justify-start gap-5 m-auto w-full md:w-3/4"
+        >
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Prénom*</p>
+            <input
+              formControlName="firstName"
+              type="text"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+              placeholder="Jane"
+            />
+            <app-form-error [control]="identityForm.get('firstName')" />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Nom*</p>
+            <input
+              formControlName="lastName"
+              type="text"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+              placeholder="Doe"
+            />
+            <app-form-error [control]="identityForm.get('lastName')" />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Numéro de téléphone*</p>
+            <input
+              formControlName="phone"
+              type="text"
+              name=""
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+              placeholder="0102030405"
+            />
+            <app-form-error [control]="identityForm.get('phone')" />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Email*</p>
+            <input
+              formControlName="mail"
+              type="email"
+              min="0"
+              name=""
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+              placeholder="jane.doe@barnabé.com"
+            />
+            <app-form-error [control]="identityForm.get('mail')" />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Pour quelle raison souhaitez - vous estimer ce bien ?</p>
+            <select
+              formControlName="reason"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            >
+              <option class="text-zinc-400" value="" disabled>
+                Choisissez la raison
+              </option>
+              <option value="sell">Je souhaite le vendre</option>
+              <option value="buy">Je souhaite l'acheter</option>
+              <option value="info">Je m'informe</option>
+            </select>
+          </div>
+          <div class="flex items-center justify-center gap-6 mt-3">
+            <input
+              (change)="acceptCGU()"
+              type="checkbox"
+              class="checkbox checkbox-primary checkbox-md"
+              name="has_calm"
+            />
+            <label for="has_calm"
+              >En confirmant, vous acceptez notre
+              <a href="/protection-des-donnees" target="_blank" class="underline"
+                >politique d'utilisation des données personnelles</a
+              ></label
+            >
+          </div>
+          <p *ngIf="errorMessage != ''" class="text-rose-500 text-sm mt-1">
+            {{ errorMessage }}
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="flex items-center justify-center gap-20 py-10 md:py-20">
+      <a
+        routerLink="/estimation-immobiliere-gratuite/advantages"
+        class="flex items-center justify-center border text-myzinc border-myzinc gap-5 rounded-full w-[200px] py-2.5 text-lg hover-bg-myzinc-100 duration-300 transition"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-180" />
+        <p class="">Retour</p>
+      </a>
+      <a
+        (click)="confirmationStep()"
+        class="cursor-pointer text-white bg-myorange text-center rounded-full py-3 w-[200px] hover:bg-orange-500 transition-all transition-300"
+        >Continuer</a
+      >
+    </div>
+  </section>
+</div>

@@ -1,1 +1,75 @@
-<p>confirmation works!</p>
+<div class="bg-zinc-50 pb-20">
+    <app-progress-bar [step]="6" />
+  
+    <section class="px-5 md:px-20 max-w-screen-lg m-auto">
+      <div
+        class="grid place-items-center items-center border rounded-3xl border-zinc-300 bg-white"
+      >
+        <div
+        *ngIf="tools === 'estimation'"
+          class="w-full md:w-4/5 p-10 md:p-14 flex-1 flex flex-col gap-5 items-center justify-center font-open text-myzinc"
+        >
+          <h1 class="self-center font-jakarta text-xl font-bold mb-4">
+            Recevez votre estimation
+          </h1>
+          <img class="w-[100px] h-auto mb-4" src="assets/img/illustration/estimation-valide.png" alt="Estimation Immobilière">
+          <p class="text-lg self-center font-medium mb-4">
+            Vous recevrez votre estimation détaillée par mail, accompagnée d'une analyse du marché et de recommandations pour valoriser votre bien.          </p>
+
+        </div>
+        <div
+        *ngIf="tools === 'redaction'"
+          class="w-full md:w-4/5 p-10 md:p-14 flex-1 flex flex-col gap-5 items-center justify-center font-open text-myzinc"
+        >
+          <h1 class="self-center font-jakarta text-xl font-bold mb-4">
+            Recevez votre annonce rédigée
+          </h1>
+          <img class="w-[100px] h-auto mb-4" src="assets/img/illustration/estimation-valide.png" alt="Estimation Immobilière">
+          <p class="text-lg self-center font-medium mb-4">
+            Votre annonce, rédigée et prête à être publiée, vous sera envoyée par e-mail. Rendez-vous ensuite sur votre espace personnel pour la déposer en quelques clics !
+        </div>
+      </div>
+  
+      <div class="flex items-center justify-center gap-20 py-t0 md:pt-20">
+        <a
+          routerLink="/"
+          class="flex items-center justify-center border text-myzinc border-myzinc gap-5 rounded-full px-6 py-2.5 text-lg hover-bg-myzinc-100 duration-300 transition"
+        >
+          <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-180" />
+          <p class="">Retour à la page d'accueil</p>
+        </a>
+      </div>
+
+          <!-- Plus d'information -->
+    <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
+    <div
+      class="w-full px-5 md:px-10 rounded-2xl mb-16 font-open text-myzinc flex flex-col gap-14 items-center justify-center no-print"
+    >
+      <div class="flex items-center justify-center gap-4">
+        <h2 class="text-2xl font-bold font-jakarta text-center">
+          Besoin de plus d'information ?
+        </h2>
+        <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
+      </div>
+
+      <p class="text-lg leading-relaxed text-justify lg:w-3/4 m-auto lg:text-center">
+        Besoin de conseils personnalisés ? Réservez un rendez-vous avec un
+        conseiller : il répondra à toutes vos questions !
+      </p>
+
+      <div
+        class="flex items-center justify-center gap-4 rounded-full px-6 py-3 bg-myblue hover:bg-blue-950 transition-all transition-300"
+      >
+        <i class="fa-solid fa-phone text-white"></i>
+        <a
+          href="https://calendly.com/barnabe-immo/15min"
+          target="_blank"
+          class=" text-white"
+          >Prendre rendez-vous</a
+        >
+      </div>
+      </div>
+      
+    </section>
+  </div>
+  

@@ -14,6 +14,7 @@ export const REDACTION_ROUTES: Routes = [
       import('../components/address/address.component').then(
         (m) => m.AddressComponent
       ),
+    data: { service: 'redaction' },
   },
   {
     path: 'estateType',
@@ -21,6 +22,7 @@ export const REDACTION_ROUTES: Routes = [
       import('../components/estate-type/estate-type.component').then(
         (m) => m.EstateTypeComponent
       ),
+    data: { service: 'redaction' },
   },
   {
     path: 'characteristics',
@@ -28,6 +30,8 @@ export const REDACTION_ROUTES: Routes = [
       import('../components/characteristics/characteristics.component').then(
         (m) => m.CharacteristicsComponent
       ),
+      data: { service: 'redaction' },
+
   },
   {
     path: 'advantages',
@@ -35,6 +39,8 @@ export const REDACTION_ROUTES: Routes = [
       import('../components/advantages/advantages.component').then(
         (m) => m.AdvantagesComponent
       ),
+      data: { service: 'redaction' },
+
   },
   {
     path: 'identity',
@@ -42,6 +48,7 @@ export const REDACTION_ROUTES: Routes = [
       import('../components/identity/identity.component').then(
         (m) => m.IdentityComponent
       ),
+      data: { service: 'redaction' },
   },
   {
     path: 'confirmation',
@@ -49,6 +56,7 @@ export const REDACTION_ROUTES: Routes = [
       import('../components/confirmation/confirmation.component').then(
         (m) => m.ConfirmationComponent
       ),
+    data: { service: 'redaction' },
   },
   { path: '**', redirectTo: '' },
 ];

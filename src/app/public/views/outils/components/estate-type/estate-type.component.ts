@@ -1,22 +1,39 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-import { EstimationService } from '../../../../../core/services/estimation.service';
+import { PropertyToolsService } from '../../../../../core/services/property-tools.service';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { ToolsNavigationComponent } from '../tools-navigation/tools-navigation.component';
 
 @Component({
   selector: 'app-estate-type',
-  imports: [CommonModule, ProgressBarComponent, ReactiveFormsModule, RouterLink],
+  imports: [
+    CommonModule,
+    ProgressBarComponent,
+    ReactiveFormsModule,
+    ToolsNavigationComponent
+    ],
   templateUrl: './estate-type.component.html',
 })
 export class EstateTypeComponent {
+  private router = inject(Router);
+  private propertyToolsService = inject(PropertyToolsService);
 
-    private estimationService = inject(EstimationService);
+  get estateTypeForm() {
+    return this.propertyToolsService.form.get('estateTypeForm') as FormGroup;
+  }
 
-      get estateTypeForm() {
-        return this.estimationService.form.get('estateTypeForm') as FormGroup;
-      }
-  
+  routerLink = '/estimation-immobiliere-gratuite-en-ligne/address';
 
+  nextStep() {
+    if (this.estateTypeForm.invalid) {
+      this.estateTypeForm.markAllAsTouched();
+      return;
+    } else {
+      this.router.navigate([
+        '/estimation-immobiliere-gratuite-en-ligne/characteristics',
+      ]);
+    }
+  }
 }

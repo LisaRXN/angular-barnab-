@@ -83,6 +83,16 @@ module.exports = {
       },
     },
   },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#020B78", 
+          "base-100": "#ffffff", 
+        },
+      },
+    ],
+  },
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),

@@ -11,7 +11,7 @@
       <!-- Navbar -->
       <app-navbar></app-navbar>
       <!-- Page content here -->
-      <main class="min-h-screen bg-white transform -translate-y-[10px]">
+      <main class="min-h-screen bg-white">
         <router-outlet></router-outlet>
       </main>
 
@@ -88,7 +88,7 @@
         <ul class="flex! rounded-box w-full p-2 space-y-3 pl-8">
           <li>
             <a
-              routerLink="/estimation-immobiliere-gratuite-en-ligne"
+              routerLink="/estimation-immobiliere-gratuite"
               class="hover:bg-white/10 px-4 hover:py-4 rounded-xl"
               >Estimation de votre bien</a
             >
@@ -96,7 +96,7 @@
           <li>
             <a
               (click)="closeDrawer()"
-              routerLink="/redaction-annonce-immobiliere-gratuite-en-ligne"
+              routerLink="/redaction-annonce-immobiliere"
               class="hover:bg-white/10 px-4 hover:py-4 rounded-xl"
               >Rédaction de votre annonce</a
             >

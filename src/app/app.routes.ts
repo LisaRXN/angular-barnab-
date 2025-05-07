@@ -55,16 +55,14 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'estimation-immobiliere-gratuite-en-ligne',
+        path: 'estimation-immobiliere-gratuite',
         loadChildren: () =>
           import('./public/views/outils/outil-estimation/estimation.routes').then((m) => m.ESTIMATION_ROUTES),
       },
       {
-        path: 'redaction-annonce-immobiliere-gratuite-en-ligne',
-        loadComponent: () =>
-          import('./public/views/outils/outil-redaction/outil-redaction.component').then(
-            (m) => m.OutilRedactionComponent
-          ),
+        path: 'redaction-annonce-immobiliere',
+        loadChildren: () =>
+          import('./public/views/outils/outil-redaction/redaction.routes').then((m) => m.REDACTION_ROUTES),
       },
       {
         path: 'annonces',

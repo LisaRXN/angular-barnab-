@@ -40,6 +40,18 @@
       <span
         class="w-[150px] rounded-full h-3"
         [ngClass]="{
+          'bg-zinc-200': step < 4,
+
+          'bg-myorange/20': step === 4,
+          'bg-myorange': step > 4
+        }"
+      ></span>
+    </div>
+    <div class="flex flex-col gap-2 items-center justify-center">
+      <p>informations</p>
+      <span
+        class="w-[150px] rounded-full h-3"
+        [ngClass]="{
           'bg-zinc-200': step < 5,
 
           'bg-myorange/20': step === 5,
@@ -47,16 +59,6 @@
         }"
       ></span>
     </div>
-    <div class="flex flex-col gap-2 items-center justify-center">
-      <p>Vos informations</p>
-      <span
-        class="w-[150px] rounded-full h-3"
-        [ngClass]="{
-          'bg-zinc-200': step < 6,
-          'bg-myorange/20': step === 6,
-          'bg-myorange': step > 6
-        }"
-      ></span>
-    </div>
+
   </div>
 </section>

@@ -14,25 +14,7 @@
         <div class="flex items-center justify-between gap-10 m-auto">
           <div class="relative flex flex-col items-center justify-center gap-5">
             <input
-              formControlName="property_type"
-              name="property_type"
-              value="house"
-              type="radio"
-              class="absolute top-4 right-4"
-            />
-            <div class="p-10 border border-zinc-300 rounded-3xl">
-              <img
-                src="assets/img/illustration/type-house.png"
-                class="w-20 h-auto"
-                alt="Maison"
-              />
-            </div>
-            <label for="house" class="text-lg text-myzinc font-bold"
-              >Maison</label
-            >
-          </div>
-          <div class="relative flex flex-col items-center justify-center gap-5">
-            <input
+              selected
               formControlName="property_type"
               name="property_type"
               value="apartment"
@@ -50,23 +32,30 @@
               >Appartement</label
             >
           </div>
+          <div class="relative flex flex-col items-center justify-center gap-5">
+            <input
+              formControlName="property_type"
+              name="property_type"
+              value="house"
+              type="radio"
+              class="absolute top-4 right-4"
+            />
+            <div class="p-10 border border-zinc-300 rounded-3xl">
+              <img
+                src="assets/img/illustration/type-house.png"
+                class="w-20 h-auto"
+                alt="Maison"
+              />
+            </div>
+            <label for="house" class="text-lg text-myzinc font-bold"
+              >Maison</label
+            >
+          </div>
         </div>
       </form>
     </div>
 
-    <div class="flex items-center justify-center gap-20 py-10 md:py-20">
-      <a
-        routerLink="/estimation-immobiliere-gratuite-en-ligne/address"
-        class="flex items-center justify-center border text-myzinc border-myzinc gap-5 rounded-full w-[200px] py-2.5 text-lg hover-bg-myzinc-100 duration-300 transition"
-      >
-        <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-180" />
-        <p class="">Retour</p>
-      </a>
-      <a
-        routerLink="/estimation-immobiliere-gratuite-en-ligne/characteristics"
-        class="text-white bg-myorange text-center rounded-full py-3 w-[200px] hover:bg-orange-500 transition-all transition-300"
-        >Continuer</a
-      >
-    </div>
+    <app-tools-navigation [form]="estateTypeForm" [step]="2" />
+
   </section>
 </div>

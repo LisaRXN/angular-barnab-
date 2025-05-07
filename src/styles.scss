@@ -68,6 +68,11 @@ body { margin: 0;
     content: "";
     background-color: white !important;
   }
+
+  .checkbox:checked {
+    background-color: white !important;
+    --chkfg: #ffffff !important;
+  }
   
 
   @media print {

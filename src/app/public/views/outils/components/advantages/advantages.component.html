@@ -1,1 +1,194 @@
-<p>advantages works!</p>
+<div class="bg-zinc-50 pb-20">
+  <app-progress-bar [step]="4" />
+
+  <section class="px-5 md:px-20 max-w-screen-lg m-auto">
+    <div
+      class="grid place-items-center items-start border rounded-3xl border-zinc-300 bg-white"
+    >
+      <form
+        [formGroup]="advantagesForm"
+        class="w-full md:w-3/4 p-10 md:p-14 flex-1 flex flex-col gap-5 items-start justify-center font-open text-myzinc"
+      >
+        <h1 class="self-center font-jakarta text-xl font-bold mb-4">
+          Infrastructures, équipement et avantages
+        </h1>
+        <p class="text-lg self-center font-medium mb-4">
+          Ces informations sont optionnelles, mais elles permettent d'affiner
+          votre estimation.
+        </p>
+
+        <div
+          class="flex flex-col items-center justify-start gap-5 m-auto w-full"
+        >
+          <!-- Infrastructures -->
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p class="text-lg font-semibold mb-2">Infrastructures</p>
+            <div
+              class="flex flex-col items-start justify-start gap-5 m-auto w-1/2"
+            >
+              <!-- Ascenseur -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_elevator"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_elevator"
+                />
+                <label for="has_elevator">Ascenseur</label>
+              </div>
+              <!-- Balcon -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_balcony"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_balcony"
+                />
+                <label for="has_balcony">Balcon</label>
+              </div>
+              <!-- Terrasse -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_terrace"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_terrace"
+                />
+                <label for="has_terrace">Terrasse</label>
+              </div>
+              <!-- Cave -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_cellar"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_cellar"
+                />
+                <label for="has_cellar">Cave</label>
+              </div>
+            </div>
+          </div>
+          <!-- Equipements -->
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p class="text-lg font-semibold mb-2">Equipements</p>
+            <div
+              class="flex flex-col items-start justify-start gap-5 m-auto w-1/2"
+            >
+              <!-- Parking -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_parking"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_parking"
+                />
+                <label for="has_parking">Parking</label>
+              </div>
+              <!-- Cuisine ouverte -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_openedKitchen"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_openedKitchen"
+                />
+                <label for="has_openedKitchen">Cuisine ouverte</label>
+              </div>
+              <!-- Cuisine équipée -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_equipped"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_equipped"
+                />
+                <label for="has_equipped">Cuisine équipée</label>
+              </div>
+              <!-- Nombreux rangements -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_storage"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_storage"
+                />
+                <label for="has_storage">Nombreux rangements</label>
+              </div>
+              <!-- Meublé -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_furnished"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_furnished"
+                />
+                <label for="has_furnished">Meublé</label>
+              </div>
+            </div>
+          </div>
+          <!-- Avantages -->
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p class="text-lg font-semibold mb-2">Avantages</p>
+            <div
+              class="flex flex-col items-start justify-start gap-5 m-auto w-1/2"
+            >
+              <!-- Lumineux -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_luminous"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_luminous"
+                />
+                <label for="has_luminous">Lumineux</label>
+              </div>
+              <!-- Sans vis à vis -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_noOppositeView"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_noOppositeView"
+                />
+                <label for="has_noOppositeView">Sans vis à vis</label>
+              </div>
+              <!-- Vue exceptionnelle -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_exceptionalView"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_exceptionalView"
+                />
+                <label for="has_exceptionalView">Vue exceptionnelle</label>
+              </div>
+              <!-- Gardien -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_superIntendent"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_superIntendent"
+                />
+                <label for="has_superIntendent">Gardien</label>
+              </div>
+              <!-- Calme -->
+              <div class="flex items-center justify-center gap-6">
+                <input
+                  formControlName="has_calm"
+                  type="checkbox"
+                  class="checkbox checkbox-primary checkbox-md"
+                  name="has_calm"
+                />
+                <label for="has_calm">Calme</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <app-tools-navigation [form]="advantagesForm" [step]="4" />
+
+  </section>
+</div>

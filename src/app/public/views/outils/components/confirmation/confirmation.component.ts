@@ -5,10 +5,24 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PropertyToolsService } from '../../../../../core/services/property-tools.service';
 import { FormGroup } from '@angular/forms';
 import { ToolsGateway } from '../../../../../core/ports/tools.gateaway';
+import { SuccessEstimationComponent } from './components/success-estimation';
+import { SuccessRedactionComponent } from './components/success-redaction';
+import { OverlimitComponent } from './components/overlimit';
+import { ErrorComponent } from './components/error';
+import { LoadingComponent } from './components/loading';
 
 @Component({
   selector: 'app-confirmation',
-  imports: [CommonModule, ProgressBarComponent, RouterLink],
+  imports: [
+    CommonModule,
+    ProgressBarComponent,
+    RouterLink,
+    SuccessEstimationComponent,
+    SuccessRedactionComponent,
+    OverlimitComponent,
+    ErrorComponent,
+    LoadingComponent,
+  ],
   templateUrl: './confirmation.component.html',
 })
 export class ConfirmationComponent implements OnInit {
@@ -18,12 +32,14 @@ export class ConfirmationComponent implements OnInit {
   private toolsGateway = inject(ToolsGateway);
 
   tools: string = '';
-  successRequest!: boolean;
-  errorMessage: string = '';
+  displayTool!: string;
+  successRequest: boolean = false;
+  errorMessage!: string;
   isLoading: boolean = true;
   lowPrice: string = '';
   midPrice: string = '';
   highPrice: string = '';
+  overlimit: boolean = false;
 
   get addressForm() {
     return this.propertyToolsService.form.get('addressForm') as FormGroup;
@@ -40,6 +56,8 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe((data) => {
       this.tools = data['service'];
+      this.displayTool =
+        this.tools === 'estimation' ? 'estimation' : 'rédaction';
     });
 
     const datas = this.propertyToolsService.formattedToolsDatas;
@@ -61,12 +79,13 @@ export class ConfirmationComponent implements OnInit {
         },
         error: (err) => {
           console.error('Erreur API', err);
-          this.successRequest = false;
           this.isLoading = false;
           if (err.status === 400) {
             this.errorMessage =
               err.error.response.message || 'Requête invalide';
+            this.overlimit = true;
           } else {
+            this.successRequest = false;
             this.errorMessage =
               "Une erreur s'est produite, veuillez recommencer.";
           }
@@ -92,9 +111,11 @@ export class ConfirmationComponent implements OnInit {
           console.error('Erreur API', err);
           this.isLoading = false;
           if (err.status === 400) {
+            this.overlimit = true;
             this.errorMessage =
-              err.error.response.message || 'Requête invalide';
+              err.error.response.respons || 'Requête invalide';
           } else {
+            this.successRequest = false;
             this.errorMessage =
               "Une erreur s'est produite, veuillez recommencer.";
           }

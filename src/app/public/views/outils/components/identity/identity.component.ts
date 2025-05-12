@@ -44,8 +44,6 @@ export class IdentityComponent {
       }
 
       confirmationStep() {
-        console.log('error', this.identityForm.get('phone')?.errors);
-
         if(!this.checkCGU){
           this.errorMessage = "Veuillez acceptez la politique d'utilisation des données personnelles."
           return

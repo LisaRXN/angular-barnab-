@@ -93,7 +93,7 @@ export interface FormattedToolsDatas {
   bedroom: number;
   construction_period: string;
   general_condition: string;
-  advantagesForm: AdvantagesForm;
+  advantages: AdvantagesForm;
   reason: string;
   firstName: string;
   lastName: string;

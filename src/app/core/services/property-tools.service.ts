@@ -151,7 +151,7 @@ export class PropertyToolsService {
       bedroom: this.form.get('characteristicsForm')?.get('bedroom')?.value,
       construction_period: this.form.get('characteristicsForm')?.get('construction_period')?.value,
       general_condition: this.form.get('characteristicsForm')?.get('general_condition')?.value,
-      advantagesForm: this.form.get('advantagesForm')?.getRawValue(),
+      advantages: this.form.get('advantagesForm')?.getRawValue(),
       reason: this.form.get('identityForm')?.get('reason')?.value,
       firstName: this.form.get('identityForm')?.get('firstName')?.value,
       lastName: this.form.get('identityForm')?.get('lastName')?.value,
@@ -171,9 +171,9 @@ export class PropertyToolsService {
 
   resetForm() {
     localStorage.removeItem('estimation-form');
+    localStorage.removeItem('addressData');
+    localStorage.removeItem('place');
     this.form.reset();
-  }
-
-  
+  }  
 }
 

@@ -57,7 +57,7 @@ export class ConfirmationComponent implements OnInit {
       this.tools = data['service'];
       this.displayTool =
         this.tools === 'estimation' ? 'estimation' : 'redaction';
-        console.log('TOOLS', this.displayTool)
+        console.log('TOOLS', this.tools)
     });
 
     const datas = this.propertyToolsService.formattedToolsDatas;
@@ -123,6 +123,6 @@ export class ConfirmationComponent implements OnInit {
       });
     }
 
-    this.propertyToolsService.resetForm();
+    // this.propertyToolsService.resetForm();
   }
 }

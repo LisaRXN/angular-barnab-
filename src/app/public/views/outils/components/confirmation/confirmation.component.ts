@@ -123,6 +123,6 @@ export class ConfirmationComponent implements OnInit {
       });
     }
 
-    // this.propertyToolsService.resetForm();
+    this.propertyToolsService.resetForm();
   }
 }

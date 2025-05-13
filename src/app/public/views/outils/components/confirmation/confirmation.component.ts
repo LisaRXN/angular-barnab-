@@ -97,10 +97,7 @@ export class ConfirmationComponent implements OnInit {
     } else if (this.tools === 'redaction') {
       this.toolsGateway.sendAdvertising(datas).subscribe({
         next: (data) => {
-          console.log('data', data);
-          console.log('status', data.status);
           this.isLoading = true;
-
           if (data.status == 200) {
             this.successRequest = true;
           } else {
@@ -126,6 +123,6 @@ export class ConfirmationComponent implements OnInit {
       });
     }
 
-    this.propertyToolsService.resetForm();
+    // this.propertyToolsService.resetForm();
   }
 }

@@ -63,7 +63,7 @@ export class IdentityComponent {
       acceptCGU() {
         this.checkCGU = !this.checkCGU;
       }
-    
+        
     
 
 }

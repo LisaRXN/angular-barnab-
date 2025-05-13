@@ -18,6 +18,8 @@ export class PropertyToolsService {
   constructor(private fb: FormBuilder) {
 
     this.form = this.fb.group({
+      id:"",
+      id_source:"",
       // step 1 : adresse
       addressForm: this.fb.group({
         street_address: new FormControl('', Validators.required),
@@ -28,6 +30,11 @@ export class PropertyToolsService {
         latitude: new FormControl(''),
         longitude: new FormControl(''),
       }),
+      contact: this.fb.group ({
+        in_charge: new FormControl(""),
+        specific_num: new FormControl(""),
+        email: new FormControl(""),
+      }),
       description: new FormControl(null),
       selling_price: new FormControl(null),
       transaction_type: new FormControl(null),
@@ -37,23 +44,35 @@ export class PropertyToolsService {
       heating_type: new FormControl(null),
       heating_format: new FormControl(null),
       coPro: new FormGroup({
-        process: new FormControl(false),
+        process: new FormControl("1"),
         process_details: new FormControl(null),
-        lots: new FormControl(null),
+        lots: new FormControl(0),
       }),
       PROsettings: new FormGroup({
         fees: new FormControl(null),
         fees_price: new FormControl(null),
         exclusive_mandate: new FormControl(false),
       }),
+      media: new FormGroup({
+        images: new FormControl([""]),
+        videoURL: new FormControl(""),
+      }),
       DPE: new FormGroup({
         CE: new FormControl(null),
         EG: new FormControl(null),
-        DPEdate: new FormControl(null),
+        DPEdate: new FormControl("2024-11-15"),
         CEletter: new FormControl(null),
         EGletter: new FormControl(null),
         CEmin: new FormControl(null),
         CEmax: new FormControl(null),
+      }),
+      settings: new FormGroup({
+        id_forfait: new FormControl("1"),
+        option: new FormControl(null),
+        id_order: new FormControl(""),
+        id_order_state: new FormControl(null),
+        end_date: new FormControl("2030-12-31"),
+        options: new FormControl(null),
       }),
       
       // step 2 : estateType
@@ -94,7 +113,7 @@ export class PropertyToolsService {
       }),
       // step 5 : identity
       identityForm: this.fb.group({
-        reason: new FormControl('sell', Validators.required),
+        reason: new FormControl("sell"),
         firstName: new FormControl('', Validators.required),
         lastName: new FormControl('', Validators.required),
         mail: new FormControl('', [
@@ -130,7 +149,11 @@ export class PropertyToolsService {
 
   updateFormattedToolsDatas() {
     this.formattedToolsDatas = {
+      id: this.form.get('id')?.value,
+      id_source: this.form.get('id')?.value,
       addressForm: this.form.get('addressForm')?.getRawValue(),
+      settings: this.form.get('settings')?.getRawValue(),
+      contact: this.form.get('contact')?.getRawValue(),
       description: this.form.get('description')?.value,
       selling_price: this.form.get('selling_price')?.value,
       transaction_type: this.form.get('transaction_type')?.value,
@@ -152,6 +175,7 @@ export class PropertyToolsService {
       construction_period: this.form.get('characteristicsForm')?.get('construction_period')?.value,
       general_condition: this.form.get('characteristicsForm')?.get('general_condition')?.value,
       advantages: this.form.get('advantagesForm')?.getRawValue(),
+      media: this.form.get('media')?.getRawValue(),
       reason: this.form.get('identityForm')?.get('reason')?.value,
       firstName: this.form.get('identityForm')?.get('firstName')?.value,
       lastName: this.form.get('identityForm')?.get('lastName')?.value,

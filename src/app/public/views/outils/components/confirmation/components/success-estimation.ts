@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-success-estimation',
   imports: [CommonModule],
   template: `
-    <div
+    <!-- <div
       class="w-full md:w-4/5 p-10 md:p-14 flex-1 flex flex-col gap-5 items-center justify-center font-open text-myzinc m-auto"
     >
       <h1 class="self-center font-jakarta text-xl font-bold mb-4 text-center">
@@ -47,6 +47,24 @@ import { Component, Input } from '@angular/core';
         Barnabé, sur la base de nos algorithmes. Ils sont basés sur les
         informations que vous avez saisies et peuvent donc contenir des erreurs
         et des approximations.
+      </p>
+    </div> -->
+
+    <div
+      class="w-full md:w-4/5 p-10 md:p-14 flex-1 flex flex-col gap-5 items-center justify-center font-open text-myzinc m-auto"
+    >
+      <h1 class="self-center font-jakarta text-xl font-bold mb-4 text-center">
+        Découvrez votre estimation
+      </h1>
+      <img
+        class="w-[100px] h-auto mb-4"
+        src="assets/img/illustration/estimation-valide.png"
+        alt="Estimation Immobilière"
+      />
+      <p class="text-lg self-center font-medium mb-4">
+        Vous recevrez votre estimation détaillée par mail. Si vous souhaitez en
+        savoir plus sur votre bien ou le marché local, vous pourrez facilement
+        entrer en contact avec un conseiller.
       </p>
     </div>
   `,

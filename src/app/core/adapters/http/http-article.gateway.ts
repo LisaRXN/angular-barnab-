@@ -41,14 +41,14 @@ export class HttpArticleGateway extends ArticleGateway {
   override getArticlesByType(type_id: number): Observable<Article[]> {
     return this.http
       .get<FetchArticlesResponse>(
-        environment.prodURL + `/articles/pro/${type_id}/1/10`
+        environment.prodURL + `/articles/particulier/${type_id}/1/10`
       )
       .pipe(map((response) => response.data));
   }
 
   override getLastArticlesByType(): Observable<Article[][]> {
     return this.http
-      .get<FetchArticlesResponse>(environment.prodURL + '/articles/pro/0/1/1')
+      .get<FetchArticlesResponse>(environment.prodURL + '/articles/particulier/0/1/1')
       .pipe(map((response) => response.data));
   }
 
@@ -66,6 +66,6 @@ export class HttpArticleGateway extends ArticleGateway {
   override getFilteredArticles(search: string): Observable<Article[]> {
     const cleanedSearch = encodeURIComponent(search.trim().toLowerCase());
     return this.http
-    .get<Article[]>(`https://data.barnabe-immo.fr/api/articles/search?search=${cleanedSearch}&for=pro`)
+    .get<Article[]>(`https://data.barnabe-immo.fr/api/articles/search?search=${cleanedSearch}&for=particulier`)
   }
 }

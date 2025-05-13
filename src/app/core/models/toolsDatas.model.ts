@@ -13,6 +13,11 @@ export interface CoPro {
   process_details: string | null;
   lots: number | null;
 }
+export interface Contact {
+  in_charge: string;
+  specific_num: string;
+  email: string;
+}
 
 export interface PROSettings {
   fees: string | null;
@@ -70,9 +75,25 @@ export interface IdentityForm {
   mail: string;
   phone: string;
 }
+export interface Media {
+  images: string[];
+  videoURL: string;
+}
+
+export interface Settings {
+  id_forfait: string;
+  option: any | null;
+  id_order: string;
+  id_order_state: string;
+  end_date: string;
+  options: any | null;
+};
 
 export interface FormattedToolsDatas {
+  id: string,
+  id_source: string;
   addressForm: AddressForm;
+  contact: Contact;
   description: string | null;
   selling_price: number | null;
   transaction_type: string | null;
@@ -94,6 +115,8 @@ export interface FormattedToolsDatas {
   construction_period: string;
   general_condition: string;
   advantages: AdvantagesForm;
+  settings: Settings;
+  media: Media;
   reason: string;
   firstName: string;
   lastName: string;

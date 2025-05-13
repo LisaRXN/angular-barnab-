@@ -39,7 +39,6 @@ export class BlogComponent implements OnInit {
 
 
   ngOnInit() {
-
     forkJoin([
       this.articleGateway.getArticleTypes(),
       this.articleGateway.getLastArticlesByType(),

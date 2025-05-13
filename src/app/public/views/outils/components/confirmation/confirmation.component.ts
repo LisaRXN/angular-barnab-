@@ -26,8 +26,7 @@ import { LoadingComponent } from './components/loading';
   templateUrl: './confirmation.component.html',
 })
 export class ConfirmationComponent implements OnInit {
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
+  private route = inject(ActivatedRoute)
   private propertyToolsService = inject(PropertyToolsService);
   private toolsGateway = inject(ToolsGateway);
 
@@ -57,12 +56,13 @@ export class ConfirmationComponent implements OnInit {
     this.route.data.subscribe((data) => {
       this.tools = data['service'];
       this.displayTool =
-        this.tools === 'estimation' ? 'estimation' : 'rédaction';
+        this.tools === 'estimation' ? 'estimation' : 'redaction';
+        console.log('TOOLS', this.displayTool)
     });
 
     const datas = this.propertyToolsService.formattedToolsDatas;
 
-    if (this.tools === 'estimation') {
+    if (this.displayTool === 'estimation') {
       this.toolsGateway.sendValuation(datas).subscribe({
         next: (data) => {
           console.log('data', data);
@@ -94,7 +94,7 @@ export class ConfirmationComponent implements OnInit {
           this.isLoading = false;
         },
       });
-    } else if (this.tools === 'redaction') {
+    } else if (this.displayTool === 'redaction') {
       this.toolsGateway.sendAdvertising(datas).subscribe({
         next: (data) => {
           this.isLoading = true;
@@ -110,7 +110,7 @@ export class ConfirmationComponent implements OnInit {
           if (err.status === 400) {
             this.overlimit = true;
             this.errorMessage =
-              err.error.response.respons || 'Requête invalide';
+              err.error.response.message || 'Requête invalide';
           } else {
             this.successRequest = false;
             this.errorMessage =
@@ -123,6 +123,6 @@ export class ConfirmationComponent implements OnInit {
       });
     }
 
-    // this.propertyToolsService.resetForm();
+    this.propertyToolsService.resetForm();
   }
 }

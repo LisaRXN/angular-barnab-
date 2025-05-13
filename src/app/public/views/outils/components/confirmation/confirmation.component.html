@@ -7,14 +7,14 @@
     >
       <!-- Success & Estimation -->
       <app-success-estimation
-        *ngIf="tools === 'estimation' && successRequest && !isLoading && !overlimit"
+        *ngIf="displayTool === 'estimation' && successRequest && !isLoading && !overlimit"
         [lowPrice]="lowPrice"
         [midPrice]="midPrice"
         [highPrice]="highPrice"
       ></app-success-estimation>
 
       <!-- Success & Redaction -->
-       <app-success-redaction *ngIf="tools === 'redaction' && successRequest && !isLoading"/>
+       <app-success-redaction *ngIf="displayTool === 'redaction' && successRequest && !isLoading"/>
 
       <!-- Overlimit -->
        <app-overlimit 

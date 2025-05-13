@@ -43,10 +43,10 @@ import { AutoCompleteService } from '../../../core/services/autoComplete.service
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private meta: Meta, private title: Title) {
-    this.title.setTitle('Accueil - DiffuZe. Immobilier');
+    this.title.setTitle('Accueil - Barnabé Immobilier');
     this.meta.addTags([
-      { name: 'description', content: "Page d'accueil de DiffuZe. Immobilier" },
-      { property: 'og:title', content: 'DiffuZe. Immobilier - Accueil' },
+      { name: 'description', content: "Page d'accueil de Barnabé Immobilier" },
+      { property: 'og:title', content: 'Barnabé Immobilier - Accueil' },
       {
         property: 'og:description',
         content: 'Découvrez nos services professionnels',
@@ -100,10 +100,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.autoCompleteService.getPlaceAutocomplete(this.addresstext, (place:any) => {
-      this.place = place;
-    })
-
+    this.autoCompleteService.getPlaceAutocomplete(
+      this.addresstext,
+      (place: any) => {
+        this.place = place;
+      }
+    );
   }
 
   openModal(formuleId: number) {

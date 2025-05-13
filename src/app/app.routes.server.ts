@@ -27,7 +27,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client,
   },
   {
-    path: 'blog/:slug', // Articles de blog en SSG avec paramètres
+    path: 'guide/:slug', // Articles de blog en SSG avec paramètres
     renderMode: RenderMode.Prerender, // SSG avec paramètres dynamiques
     async getPrerenderParams() {
       const articleGateway = inject(ArticleGateway);

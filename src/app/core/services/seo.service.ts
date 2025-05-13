@@ -139,7 +139,7 @@ export class SeoService {
 
   updateDynamicSeoTags(
     config: Partial<SeoConfig>,
-    baseRoute: string = '/blog'
+    baseRoute: string = '/guide'
   ): void {
     // Récupérer la configuration de base pour ce type de route
     const baseConfig = SEO_CONFIG[baseRoute] || SEO_CONFIG['/'];

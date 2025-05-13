@@ -18,7 +18,7 @@
     class="z-10 absolute top-8 left-8 md:top-14 md:left-14 flex items-center justify-center gap-2 transition duration-300 text-white border border-white px-6 py-3 rounded-full"
   >
     <img src="assets/img/icon/arrow-white.png" class="w-4 rotate-180" alt="" />
-    <a [routerLink]="['/blog']" class="whitespace-nowrap"
+    <a [routerLink]="['/guide']" class="whitespace-nowrap"
       >Retour aux catégories</a
     >
   </div>
@@ -93,7 +93,7 @@
 
     <div
       *ngIf="articles[0]"
-      class="hidden md:block z-10 bg-white relative w-3/4 max-w-[800px] h-[400px] lg:h-[450px] rounded-2xl shadow-md  hover:-translate-y-[3px] duration-300 transition hover:shadow-lg"
+      class="hidden md:block z-10 bg-white relative w-3/4 max-w-[800px] h-[400px] lg:h-[450px] rounded-2xl shadow-md hover:-translate-y-[3px] duration-300 transition hover:shadow-lg"
     >
       <img
         [src]="env.publicURL + articles[0].article_preview"

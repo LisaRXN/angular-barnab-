@@ -6,7 +6,7 @@
   >
     <img src="assets/img/icon/arrow.png" class="w-4 rotate-180" alt="" />
     <a
-      [routerLink]="['/blog/categorie', getSlugCategory(articleType?.id)]"
+      [routerLink]="['/guide/categorie', getSlugCategory(articleType?.id)]"
       class="whitespace-nowrap"
       >Retour aux articles</a
     >
@@ -90,7 +90,7 @@
     <div class="md:text-[12px] flex flex-col gap-2 mb-12 px-5 md:px-0 md:py-14">
       <p class="font-light mb-2">Autres catégories</p>
       <a
-        [routerLink]="['/blog/type/', type.id]"
+        [routerLink]="['/guide/type/', type.id]"
         *ngFor="let type of otherTypes"
         class="semibold"
       >
@@ -99,8 +99,8 @@
 
       <!-- V2 -->
 
-      <hr class="text-zinc-400 w-3/4 justify-start my-2"/>
-     
+      <hr class="text-zinc-400 w-3/4 justify-start my-2" />
+
       <p class="font-light mb-2">En lien</p>
       <div class="flex flex-col items-start gap-2">
         <a
@@ -137,13 +137,12 @@
 
   <!-- Ces articles pourraient vous intéresser -->
   @if(similarArticles.length ){
-  <section 
-  class="lg:w-4/5 p-5 md:p-10 rounded-2xl font-open text-myzinc">
+  <section class="lg:w-4/5 p-5 md:p-10 rounded-2xl font-open text-myzinc">
     <h2 class="text-2xl font-bold font-jakarta text-center mb-14 md:mb-24">
       Ces articles pourraient vous intéresser
     </h2>
     <div
-    class="grid lg:grid-cols-3 gap-10 place-items-center max-w-screen-xl m-auto"
+      class="grid lg:grid-cols-3 gap-10 place-items-center max-w-screen-xl m-auto"
     >
       <app-article-card
         *ngFor="let article of similarArticles"
@@ -154,36 +153,36 @@
   </section>
   }
 
-   <!-- Plus d'information -->
-   <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
-   <section
-     class="w-full px-5 md:px-10 rounded-2xl mb-20 md:mb-36 font-open text-myzinc flex flex-col gap-10 md:gap-14 items-center justify-center no-print"
-   >
-     <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-       <h2 class="text-2xl font-bold font-jakarta text-center">
-         Besoin de plus d'information ?
-       </h2>
-        <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
-     </div>
+  <!-- Plus d'information -->
+  <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
+  <section
+    class="w-full px-5 md:px-10 rounded-2xl mb-20 md:mb-36 font-open text-myzinc flex flex-col gap-10 md:gap-14 items-center justify-center no-print"
+  >
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+      <h2 class="text-2xl font-bold font-jakarta text-center">
+        Besoin de plus d'information ?
+      </h2>
+      <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
+    </div>
 
-     <p class="text-xl leading-relaxed text-justify lg:w-3/4">
-       Besoin de conseils personnalisés ? Réservez un rendez-vous avec un
-       conseiller : il répondra à toutes vos questions !
-     </p>
+    <p class="text-xl leading-relaxed text-justify lg:w-3/4">
+      Besoin de conseils personnalisés ? Réservez un rendez-vous avec un
+      conseiller : il répondra à toutes vos questions !
+    </p>
 
-     <div
-       class="flex items-center justify-center gap-4 rounded-full px-6 py-4 bg-myblue hover:bg-blue-950 transition-all transition-300"
-     >
-       <i class="fa-solid fa-phone text-white"></i>
-       <a
-         href="https://calendly.com/barnabe-immo/15min"
-         target="_blank"
-         class="text-white"
-         >Prendre rendez-vous</a
-       >
-     </div>
+    <div
+      class="flex items-center justify-center gap-4 rounded-full px-6 py-4 bg-myblue hover:bg-blue-950 transition-all transition-300"
+    >
+      <i class="fa-solid fa-phone text-white"></i>
+      <a
+        href="https://calendly.com/barnabe-immo/15min"
+        target="_blank"
+        class="text-white"
+        >Prendre rendez-vous</a
+      >
+    </div>
 
-     <!-- <div class="flex items-center justify-center gap-5 w-1/2">
+    <!-- <div class="flex items-center justify-center gap-5 w-1/2">
        <hr class="w-full border-t-1 border-mygrey3" />
        <p>ou</p>
        <hr class="w-full border-t-1 border-mygrey3" />
@@ -194,6 +193,5 @@
        class="text-white bg-myorange text-center rounded-full px-6 py-4 hover:bg-orange-500 transition-all transition-300"
        >Déposer mon annonce</a
      > -->
-   </section>
-
+  </section>
 </div>

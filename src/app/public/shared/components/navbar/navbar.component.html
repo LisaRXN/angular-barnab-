@@ -28,7 +28,9 @@
     </label>
   </div>
 
-  <div class="flex w-full items-center justify-between gap-5 md:gap-10 px-2 mx-2">
+  <div
+    class="flex w-full items-center justify-between gap-5 md:gap-10 px-2 mx-2"
+  >
     <a routerLink="/">
       <p class="text-white text-xl md:text-2xl font-quicksand font-bold">
         Barnabé<span class="text-myorange">.</span>
@@ -52,10 +54,7 @@
           class="hidden md:block h-auto flex-shrink-0 w-[25px] cursor-pointer"
           alt=""
       /></a>
-      <a
-        href="https://app.barnabe-immo.fr/"
-        target="_blank"
-        rel="external"
+      <a href="https://app.barnabe-immo.fr/" target="_blank" rel="external"
         ><img
           src="assets/img/icon/user-white.png"
           class="hidden md:block h-auto flex-shrink-0 w-[25px] cursor-pointer"
@@ -75,7 +74,7 @@
         <!-- Dropdown -->
         <div class="dropdown dropdown-hover">
           <div tabindex="0" role="button" class="m-1 flex items-center gap-3">
-            <img src="assets/img/emoji/nav-offer.png" class="w-[18px]"/>
+            <img src="assets/img/emoji/nav-offer.png" class="w-[18px]" />
             Nos Services
           </div>
           <ul
@@ -83,27 +82,27 @@
             class="dropdown-content bg-myblue rounded-box z-1 w-52 p-2 pt-6 shadow-sm"
           >
             <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
-                <a routerLink="/pack-visibilite-coaching" class=""
-                >Pack Visibilité <br>& Coaching</a
-              > 
-            </li>
-            <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
-              <a routerLink="/pack-visibilite-vente-interactive" class=""
-                >Pack Visibilité <br>& Vente Interactive</a
+              <a routerLink="/pack-visibilite-coaching" class=""
+                >Pack Visibilité <br />& Coaching</a
               >
             </li>
             <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
-              <a routerLink="/pack-reportage-photo-visite3D"class=""
-                >Reportage Photo <br>& Visite 3D</a
+              <a routerLink="/pack-visibilite-vente-interactive" class=""
+                >Pack Visibilité <br />& Vente Interactive</a
+              >
+            </li>
+            <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
+              <a routerLink="/pack-reportage-photo-visite3D" class=""
+                >Reportage Photo <br />& Visite 3D</a
               >
             </li>
           </ul>
         </div>
 
-        <li routerLink="/blog">
+        <li routerLink="/guide">
           <div class="flex items-center gap-3">
             <img src="assets/img/emoji/nav-blog.png" class="w-[18px]" /><a
-              >Blog</a
+              >Guide du vendeur</a
             >
           </div>
         </li>
@@ -118,8 +117,10 @@
             tabindex="0"
             class="dropdown-content bg-myblue rounded-box z-1 w-52 p-2 pt-6 shadow-sm"
           >
-          <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
-            <a routerLink="/estimation-immobiliere-gratuite">Estimation de votre bien</a>
+            <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
+              <a routerLink="/estimation-immobiliere-gratuite"
+                >Estimation de votre bien</a
+              >
             </li>
             <li class="hover:bg-blue-900 w-full rounded-lg px-4 py-2">
               <a routerLink="/redaction-annonce-immobiliere"

@@ -14,50 +14,62 @@
     class="relative z-20 flex flex-col items-center justify-center text-white p-10 md:py-20 max-w-3xl"
   >
     <div
-      class=" bg-myblue opacity-85 absolute inset-0 w-full h-full rounded-3xl border border-white"
+      class="bg-myblue opacity-85 absolute inset-0 w-full h-full rounded-3xl border border-white"
     ></div>
-    <h1 class="z-20 text-4xl leading-tight md:text-6xl font-paytone text-center mb-6">
+    <h1
+      class="z-20 text-4xl leading-tight md:text-6xl font-paytone text-center mb-6"
+    >
       <span className="block leading-relaxed h-7 whitespace-nowrap"
         >Guide du vendeur :</span
       >
-      <span class="md:w-4/5 leading-tight md:leading-tight m-auto block mt-3">tout ce qu'il faut savoir</span>
+      <span class="md:w-4/5 leading-tight md:leading-tight m-auto block mt-3"
+        >tout ce qu'il faut savoir</span
+      >
     </h1>
     <p class="z-20 md:w-3/4 text-center font-open text-lg">
-      Découvrez tous les incontournables de la vente immobilière dans notre guide complet.
+      Découvrez tous les incontournables de la vente immobilière dans notre
+      guide complet.
     </p>
   </div>
 </section>
 
 <!-- Search section -->
- <div class="bg-zinc-100 w-full min-h-screen  pb-20">
-<section class="px-5 py-10 md:p-20  max-w-screen-2xl m-auto flex flex-col gap-10 items-center justify-center text-myzinc">
-  <div class="relative w-[300px] md:w-[400px]">
-    <input
-      [ngModel]="search()"
-      (keyup)="search.set($any($event.target).value)"
-      type="text"
-      placeholder="Rechercher un article, une catégorie..."
-      class="w-full p-3 pl-5 pr-12 truncate rounded-full border border-zinc-400 focus:outline-none focus:ring-1 focus:ring-myzinc focus:border-none select-none"
-    />
-    <div class="absolute inset-y-0 right-1 flex items-center">
-      <div
-        class="h-10 w-10 p-2 flex items-center justify-center bg-myorange rounded-full"
-      >
-      <i class="fa-solid fa-magnifying-glass text-white"></i>      </div>
+<div class="bg-zinc-100 w-full min-h-screen pb-20">
+  <section
+    class="px-5 py-10 md:p-20 max-w-screen-2xl m-auto flex flex-col gap-10 items-center justify-center text-myzinc"
+  >
+    <div class="relative w-[300px] md:w-[400px]">
+      <input
+        [ngModel]="search()"
+        (keyup)="search.set($any($event.target).value)"
+        type="text"
+        placeholder="Rechercher un article, une catégorie..."
+        class="w-full p-3 pl-5 pr-12 truncate rounded-full border border-zinc-400 focus:outline-none focus:ring-1 focus:ring-myzinc focus:border-none select-none"
+      />
+      <div class="absolute inset-y-0 right-1 flex items-center">
+        <div
+          class="h-10 w-10 p-2 flex items-center justify-center bg-myorange rounded-full"
+        >
+          <i class="fa-solid fa-magnifying-glass text-white"></i>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="md:w-3/4 text-center h-auto">
-    <a
-      (click)="selectType(type.id)"
-      *ngFor="let type of types"
-      class="m-2 inline-block px-5 py-2 whitespace-nowrap border border-zinc-400 rounded-full cursor-pointer hover:border-myorange transition duration-300"
-      [ngClass]="getSelectedTypeId(type.id) ? 'bg-myorange text-white border-none' : 'bg-none text-myzinc'"
-      >{{ type.type }}</a
-    >
-  </div>
+    <div class="md:w-3/4 text-center h-auto">
+      <a
+        (click)="selectType(type.id)"
+        *ngFor="let type of types"
+        class="m-2 inline-block px-5 py-2 whitespace-nowrap border border-zinc-400 rounded-full cursor-pointer hover:border-myorange transition duration-300"
+        [ngClass]="
+          getSelectedTypeId(type.id)
+            ? 'bg-myorange text-white border-none'
+            : 'bg-none text-myzinc'
+        "
+        >{{ type.type }}</a
+      >
+    </div>
 
-  @if( isSearching$ | async){
+    @if( isSearching$ | async){
 
     <div *ngIf="(search$ | async)?.length; else noResults">
       <div class="flex flex-row flex-wrap gap-10 mb-24">
@@ -68,18 +80,16 @@
         ></app-article-card>
       </div>
     </div>
-  
+
     <ng-template #noResults>
-      <div class="mb-24">
-        Aucun article ne correspond à votre recherche.
-      </div>
+      <div class="mb-24">Aucun article ne correspond à votre recherche.</div>
     </ng-template>
-  
+
     }@else{
-  
+
     <!-- Type section -->
     <div
-      class=" text-myzinc w-full flex flex-col items-center gap-10 justify-center max-w-screen-lg m-auto"
+      class="text-myzinc w-full flex flex-col items-center gap-10 justify-center max-w-screen-lg m-auto"
     >
       <div
         *ngFor="let type of selectedType"
@@ -90,11 +100,11 @@
           class="flex-1 flex flex-col md:flex-row items-center justify-between gap-5 mb-10"
         >
           <div class="flex-1">
-            <h2 
-            class="font-bold text-2xl md:text-4xl font-jakarta mb-4"
-            style="line-height: 1.25;"
+            <h2
+              class="font-bold text-2xl md:text-4xl font-jakarta mb-4"
+              style="line-height: 1.25"
             >
-            {{ type.type }}
+              {{ type.type }}
             </h2>
             <p class="font-mygrey font-open" *ngIf="type.id === 1">
               Les dernières tendances, conseils et analyses du marché
@@ -102,25 +112,22 @@
             <p class="font-mygrey font-open" *ngIf="type.id === 2">
               Les plateformes et professionnels qui façonnent le marché
             </p>
-            <p class="font-mygrey font-open" *ngIf="type.id === 3">Les dernières actualités sur l'immobilier</p>
+            <p class="font-mygrey font-open" *ngIf="type.id === 3">
+              Les dernières actualités sur l'immobilier
+            </p>
           </div>
-          <div class="flex-1 flex h-full mt-auto  items-end justify-end">
+          <div class="flex-1 flex h-full mt-auto items-end justify-end">
             <div
-            class="w-[200px] flex items-center justify-center gap-2 bg-myzinc hover:bg-myzinc/80 transition duration-300 text-white py-2.5 rounded-full self-end"
-          >
-            <a
-              [routerLink]="['/blog/categorie', getSlugCategory(type.id)]"
-              class="whitespace-nowrap"
-              >Tous les articles</a
+              class="w-[200px] flex items-center justify-center gap-2 bg-myzinc hover:bg-myzinc/80 transition duration-300 text-white py-2.5 rounded-full self-end"
             >
-            <img
-              src="assets/img/icon/arrow-white.png"
-              class="w-4"
-              alt=""
-            />
+              <a
+                [routerLink]="['/guide/categorie', getSlugCategory(type.id)]"
+                class="whitespace-nowrap"
+                >Tous les articles</a
+              >
+              <img src="assets/img/icon/arrow-white.png" class="w-4" alt="" />
+            </div>
           </div>
-          </div>
-
         </div>
         <!--  Cards -->
         <div
@@ -133,6 +140,5 @@
       </div>
     </div>
     }
-</section>
-
+  </section>
 </div>

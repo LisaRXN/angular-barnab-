@@ -12,7 +12,7 @@ import { AnalyticsService } from './core/services/analytics.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'diffuze';
+  title = 'barnabe';
   constructor(
     private seoService: SeoService,
     private router: Router,

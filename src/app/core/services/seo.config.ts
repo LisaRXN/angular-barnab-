@@ -8,7 +8,7 @@ export const SEO_CONFIG: RouteSeoConfig = {
   '/': {
     title: 'Barnabé - La 1ère plateforme de coaching immobilier',
     description:
-    "Boostez la visibilité de votre bien immobilier avec Barnabé. Diffusez votre annonce sur plus de 50 plateformes et profitez d’un accompagnement personnalisé 5j/7 pour vendre plus vite, en toute autonomie.",
+      'Boostez la visibilité de votre bien immobilier avec Barnabé. Diffusez votre annonce sur plus de 50 plateformes et profitez d’un accompagnement personnalisé 5j/7 pour vendre plus vite, en toute autonomie.',
     keywords:
       'immobilier, annonces, coaching, vente interactive, diffusion, sans abonnement, vente, location, réussir sa vente',
     ogTitle: 'Barnabé - La 1ère plateforme de coaching en ligne"e​',
@@ -155,12 +155,12 @@ export const SEO_CONFIG: RouteSeoConfig = {
           '@type': 'AggregateRating',
           itemReviewed: {
             '@type': 'Organization',
-            name: 'DiffuZe. Immobilier',
+            name: 'Barnbé. Immobilier',
           },
           ratingValue: '4.9',
           bestRating: '5',
-          worstRating: '4',
-          ratingCount: '20',
+          worstRating: '1',
+          ratingCount: '200',
         },
       ],
     },
@@ -414,42 +414,42 @@ export const SEO_CONFIG: RouteSeoConfig = {
         mainEntity: [
           {
             '@type': 'Question',
-            name: "Quel est le prix de départ ? Comment est-il défini ?",
+            name: 'Quel est le prix de départ ? Comment est-il défini ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Le prix de départ est fixé en concertation avec notre équipe, à partir d’une évaluation précise de la valeur de marché de votre bien.\nCe prix est généralement positionné 15 à 20 % en dessous du prix du marché, afin de créer un effet d’appel et d’attirer un maximum d’acquéreurs.\n\n<span class=\"font-bold\">Attention</span> : si le prix de départ n’est pas suffisamment attractif, la dynamique d’enchères risque de ne pas se déclencher, ou d’être moins performante.\nC’est pourquoi il est essentiel de déterminer ensemble un prix marché réaliste, sur lequel appuyer cette stratégie de lancement."
+              text: 'Le prix de départ est fixé en concertation avec notre équipe, à partir d’une évaluation précise de la valeur de marché de votre bien.\nCe prix est généralement positionné 15 à 20 % en dessous du prix du marché, afin de créer un effet d’appel et d’attirer un maximum d’acquéreurs.\n\n<span class="font-bold">Attention</span> : si le prix de départ n’est pas suffisamment attractif, la dynamique d’enchères risque de ne pas se déclencher, ou d’être moins performante.\nC’est pourquoi il est essentiel de déterminer ensemble un prix marché réaliste, sur lequel appuyer cette stratégie de lancement.',
             },
           },
           {
             '@type': 'Question',
-            name: "Suis-je dans l’obligation d’accepter une offre d’achat ?",
+            name: 'Suis-je dans l’obligation d’accepter une offre d’achat ?',
             acceptedAnswer: {
               '@type': 'Answer',
-             text: "Non, vous n’êtes jamais obligé d’accepter une offre.\nÀ l’issue des enchères, vous restez entièrement libre d’accepter ou non l’offre la plus élevée.\nVous conservez ainsi le contrôle total de votre vente."
+              text: 'Non, vous n’êtes jamais obligé d’accepter une offre.\nÀ l’issue des enchères, vous restez entièrement libre d’accepter ou non l’offre la plus élevée.\nVous conservez ainsi le contrôle total de votre vente.',
             },
           },
           {
             '@type': 'Question',
-            name: "Quelle est la durée moyenne du processus de vente ?",
+            name: 'Quelle est la durée moyenne du processus de vente ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Le processus complet dure environ <span class=\"font-bold\">28 jours</span> entre le lancement de l’annonce et le jour des enchères.\nCette période permet de préparer, valoriser et promouvoir votre bien efficacement, en laissant aux acheteurs le temps de se positionner."
+              text: 'Le processus complet dure environ <span class="font-bold">28 jours</span> entre le lancement de l’annonce et le jour des enchères.\nCette période permet de préparer, valoriser et promouvoir votre bien efficacement, en laissant aux acheteurs le temps de se positionner.',
             },
           },
           {
             '@type': 'Question',
-            name: "Y a-t-il d’autres frais à prévoir ?",
+            name: 'Y a-t-il d’autres frais à prévoir ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Non, il n’y a rien à prévoir d’autre que le tarif affiché sur notre site, soit 399 € TTC pour la prestation complète.\nContrairement à une mise en vente via un intermédiaire classique, aucun honoraire supplémentaire ne vous est facturé pour bénéficier de ce service."
+              text: 'Non, il n’y a rien à prévoir d’autre que le tarif affiché sur notre site, soit 399 € TTC pour la prestation complète.\nContrairement à une mise en vente via un intermédiaire classique, aucun honoraire supplémentaire ne vous est facturé pour bénéficier de ce service.',
             },
           },
           {
             '@type': 'Question',
-            name: "Qu’est-ce qui est inclus dans ce service à 399 € ?",
+            name: 'Qu’est-ce qui est inclus dans ce service à 399 € ?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "Le service comprend : La définition du prix de départ avec l’un de nos experts immobiliers. La diffusion de votre annonce sur plus de 50 portails de référence, pour maximiser la visibilité de votre bien. La gestion de votre annonce en ligne via un espace personnel dédié. Un accompagnement personnalisé tout au long du processus de commercialisation. L’organisation de la vente aux enchères, grâce à la mise à disposition de notre outil d’enchères sécurisé en ligne.",
+              text: 'Le service comprend : La définition du prix de départ avec l’un de nos experts immobiliers. La diffusion de votre annonce sur plus de 50 portails de référence, pour maximiser la visibilité de votre bien. La gestion de votre annonce en ligne via un espace personnel dédié. Un accompagnement personnalisé tout au long du processus de commercialisation. L’organisation de la vente aux enchères, grâce à la mise à disposition de notre outil d’enchères sécurisé en ligne.',
             },
           },
         ],
@@ -586,22 +586,22 @@ export const SEO_CONFIG: RouteSeoConfig = {
     },
   },
 
-  '/blog': {
-    title: 'Blog Barnabé - Conseils et actualités pour vendre votre bien',
+  '/guide': {
+    title: 'Guide Barnabé - Conseils et actualités pour vendre votre bien',
     description:
-      'Consultez notre blog pour découvrir des conseils concrets, des actualités et des astuces pour réussir la vente de votre bien immobilier en toute autonomie.',
+      'Consultez notre guide pour découvrir des conseils concrets, des actualités et des astuces pour réussir la vente de votre bien immobilier en toute autonomie.',
     keywords:
-      'blog immobilier, vente immobilière, conseils vente, actualités immobilier',
-    ogTitle: 'Blog Immobilier - Barnabé',
+      'blog immobilier, guide immobilier, vente immobilière, conseils vente, actualités immobilier',
+    ogTitle: 'Guide Barnabé',
     ogDescription: 'Découvrez nos articles pour vendre votre bien sereinement',
     structuredData: {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'WebPage',
-          '@id': 'https://www.barnabe-immo.fr/blog/',
-          url: 'https://www.barnabe-immo.fr/blog/',
-          name: 'Blog Immobilier - Barnabé',
+          '@id': 'https://www.barnabe-immo.fr/guide/',
+          url: 'https://www.barnabe-immo.fr/guide/',
+          name: 'Guide Barnabé',
           isPartOf: {
             '@id': 'https://www.barnabe-immo.fr/',
           },
@@ -612,12 +612,12 @@ export const SEO_CONFIG: RouteSeoConfig = {
           description:
             'Conseils, guides pratiques et actualités pour vendre votre bien immobilier efficacement',
           breadcrumb: {
-            '@id': 'https://www.barnabe-immo.fr/blog/',
+            '@id': 'https://www.barnabe-immo.fr/guide/',
           },
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://www.barnabe-immo.fr/blog/',
+          '@id': 'https://www.barnabe-immo.fr/guide/',
           itemListElement: [
             {
               '@type': 'ListItem',
@@ -628,20 +628,20 @@ export const SEO_CONFIG: RouteSeoConfig = {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Blog',
-              item: 'https://www.barnabe-immo.fr/blog/',
+              name: 'Guide',
+              item: 'https://www.barnabe-immo.fr/guide/',
             },
           ],
         },
         {
           '@type': 'CollectionPage',
-          '@id': 'https://www.barnabe-immo.fr/blog/',
-          url: 'https://www.barnabe-immo.fr/blog/',
-          name: 'Blog Immobilier - Barnabé',
+          '@id': 'https://www.barnabe-immo.fr/guide/',
+          url: 'https://www.barnabe-immo.fr/guide/',
+          name: 'Guide Barnabé',
           description:
             'Explorez nos articles classés par thèmes pour mieux vendre votre bien',
           isPartOf: {
-            '@id': 'https://www.barnabe-immo.fr/blog/',
+            '@id': 'https://www.barnabe-immo.fr/guide/',
           },
           about: {
             '@type': 'Thing',
@@ -655,7 +655,7 @@ export const SEO_CONFIG: RouteSeoConfig = {
               '@type': 'ListItem',
               position: 1,
               name: 'Conseils pour les vendeurs',
-              url: 'https://www.barnabe-immo.fr/blog/type/1',
+              url: 'https://www.barnabe-immo.fr/guide/type/1',
               description:
                 'Astuces et bonnes pratiques pour bien vendre son bien immobilier',
             },
@@ -663,7 +663,7 @@ export const SEO_CONFIG: RouteSeoConfig = {
               '@type': 'ListItem',
               position: 2,
               name: 'Plateformes immobilières',
-              url: 'https://www.barnabe-immo.fr/blog/type/2',
+              url: 'https://www.barnabe-immo.fr/guide/type/2',
               description:
                 'Zoom sur les portails de diffusion et leurs spécificités',
             },
@@ -671,18 +671,18 @@ export const SEO_CONFIG: RouteSeoConfig = {
               '@type': 'ListItem',
               position: 3,
               name: 'Actualités immobilières',
-              url: 'https://www.barnabe-immo.fr/blog/type/3',
+              url: 'https://www.barnabe-immo.fr/guide/type/3',
               description: 'Tendances et évolutions du marché immobilier',
             },
           ],
         },
         {
           '@type': 'Blog',
-          headline: 'Blog Immobilier Barnabé',
-          name: 'Blog Barnabé',
+          headline: 'Guide Barnabé',
+          name: 'Guide Barnabé',
           description:
             'Conseils, actualités et outils pour vous accompagner dans votre vente immobilière',
-          url: 'https://www.barnabe-immo.fr/blog/',
+          url: 'https://www.barnabe-immo.fr/guide/',
           sameAs: [
             'https://www.linkedin.com/company/barnabeimmo/',
             'https://www.instagram.com/barnabeimmo/?hl=fr',
@@ -806,14 +806,15 @@ export const SEO_CONFIG: RouteSeoConfig = {
 
   '/conditions-generales​': {
     title:
-      "Conditions Générales de Vente - Diffuze : Diffusion d'annonces immobilières​",
+      "Conditions Générales de Vente - Barnabé Immobilier : Diffusion d'annonces immobilières​",
     description:
-      "Prenez connaissance des conditions générales d'utilisation de Diffuze, votre service de diffusion d'annonces immobilières.​​",
+      "Prenez connaissance des conditions générales d'utilisation de Barnabé Immobilier, votre service de diffusion d'annonces immobilières.​​",
   },
   '/protection-des-donnees​': {
-    title: 'Protection des Données - Diffuze : Confidentialité et sécurité​',
+    title:
+      'Protection des Données - Barnabé Immobilier : Confidentialité et sécurité​',
     description:
-      'Découvrez comment Diffuze protège vos données personnelles conformément aux réglementations en vigueur.​',
+      'Découvrez comment Barnabé Immobilier protège vos données personnelles conformément aux réglementations en vigueur.​',
   },
 
   // Ajoutez d'autres routes selon vos besoins

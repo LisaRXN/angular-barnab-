@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "diffuze": {
+    "barnabe": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/diffuze",
+            "outputPath": "dist/barnabe",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "diffuze:build:production"
+              "buildTarget": "barnabe:build:production"
             },
             "development": {
-              "buildTarget": "diffuze:build:development"
+              "buildTarget": "barnabe:build:development"
             }
           },
           "defaultConfiguration": "development"

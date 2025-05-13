@@ -25,7 +25,7 @@ async function fetchUrls() {
         lastmod: new Date().toISOString(),
       },
       {
-        url: "/blog",
+        url: "/guide",
         changefreq: "weekly",
         priority: 0.9,
         lastmod: new Date().toISOString(),
@@ -52,7 +52,7 @@ async function fetchUrls() {
 
     // Récupérer les URLs dynamiques
     const dynamicResponse = await fetch(
-      "https://data.barnabe-immo.fr/api/seo/urls/pro"
+      "https://data.barnabe-immo.fr/api/seo/urls"
     );
     const dynamicUrls = await dynamicResponse.json();
 
@@ -74,7 +74,7 @@ async function generateSitemap() {
     console.log(`${urls.length} URLs récupérées`);
 
     const sitemapStream = new SitemapStream({
-      hostname: "https://www.diffuze.fr",
+      hostname: "https://www.barnabe-immo.fr",
     });
 
     // Écrire les URLs dans le stream

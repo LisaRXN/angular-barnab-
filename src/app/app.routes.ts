@@ -57,12 +57,16 @@ export const routes: Routes = [
       {
         path: 'estimation-immobiliere-gratuite',
         loadChildren: () =>
-          import('./public/views/outils/outil-estimation/estimation.routes').then((m) => m.ESTIMATION_ROUTES),
+          import(
+            './public/views/outils/outil-estimation/estimation.routes'
+          ).then((m) => m.ESTIMATION_ROUTES),
       },
       {
         path: 'redaction-annonce-immobiliere',
         loadChildren: () =>
-          import('./public/views/outils/outil-redaction/redaction.routes').then((m) => m.REDACTION_ROUTES),
+          import('./public/views/outils/outil-redaction/redaction.routes').then(
+            (m) => m.REDACTION_ROUTES
+          ),
       },
       {
         path: 'annonces',
@@ -77,14 +81,14 @@ export const routes: Routes = [
           {
             path: ':id',
             loadComponent: () =>
-              import('./public/views/annonce-detail/annonce-detail.component').then(
-                (m) => m.AnnonceDetailComponent
-              ),
+              import(
+                './public/views/annonce-detail/annonce-detail.component'
+              ).then((m) => m.AnnonceDetailComponent),
           },
         ],
       },
       {
-        path: 'blog',
+        path: 'guide',
         loadChildren: () =>
           import('./public/views/blog/blog.routes').then((m) => m.BLOG_ROUTES),
       },

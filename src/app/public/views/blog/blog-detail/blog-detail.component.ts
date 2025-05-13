@@ -24,12 +24,11 @@ export class BlogDetailComponent implements OnInit {
     private articleGateway: ArticleGateway
   ) {}
   env = environment;
-  article!: Article
-  similarArticles: Article[] = []
+  article!: Article;
+  similarArticles: Article[] = [];
   types: any[] = [];
   articleType: any;
   otherTypes: any[] = [];
-  
 
   ngOnInit() {
     combineLatest([
@@ -45,18 +44,22 @@ export class BlogDetailComponent implements OnInit {
         return;
       }
       this.types = types;
-      this.article = article
+      this.article = article;
       this.articleType = types.find((type) => type.id === article.type_article);
       this.otherTypes = types.filter(
         (type) => type.id !== this.articleType?.id
       );
 
-      this.articleGateway.getArticlesByType(article.type_article).subscribe((articles) => {
-        this.similarArticles =  articles.filter((a) => a.url !== article.url).slice(0, 3);
-      });
+      this.articleGateway
+        .getArticlesByType(article.type_article)
+        .subscribe((articles) => {
+          this.similarArticles = articles
+            .filter((a) => a.url !== article.url)
+            .slice(0, 3);
+        });
 
       this.seoService.updateDynamicSeoTags({
-        title: `${article.article_title} - DiffuZe Blog`,
+        title: `${article.article_title} - Barnabé Guide du vendeur`,
         description: this.stripHtml(article.article_description).substring(
           0,
           160
@@ -67,7 +70,7 @@ export class BlogDetailComponent implements OnInit {
           160
         ),
         ogImage: this.env.publicURL + article.article_preview,
-        canonicalUrl: `https://www.diffuze.fr/blog/${article.url}`,
+        canonicalUrl: `https://www.barnabe-immo.fr/guide/${article.url}`,
         structuredData: {
           '@type': 'BlogPosting',
           headline: article.page_title,
@@ -76,7 +79,7 @@ export class BlogDetailComponent implements OnInit {
             160
           ),
           image: this.env.publicURL + article.article_preview,
-          url: `https://www.diffuze.fr/blog/${article.url}`,
+          url: `https://www.barnabe-immo.fr/guide/${article.url}`,
           datePublished: article.creation_date || new Date().toISOString(),
           dateModified:
             article.update_date ||
@@ -87,11 +90,11 @@ export class BlogDetailComponent implements OnInit {
             name: article.author,
           },
           publisher: {
-            '@id': 'https://www.diffuze.fr/',
+            '@id': 'https://www.barnabe-immo.fr/',
           },
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://www.diffuze.fr/blog/${article.url}`,
+            '@id': `https://www.barnabe-immo.fr/guide/${article.url}`,
           },
           articleSection: this.articleType?.name || 'Blog',
         },

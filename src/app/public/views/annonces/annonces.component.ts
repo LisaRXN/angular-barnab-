@@ -36,6 +36,7 @@ import { RouterLink, Router } from '@angular/router';
 import { MapPricePipe } from '../../../pipes/mapPrice/map-price.pipe';
 import { WindowService } from '../../../core/services/window.service';
 import { alertDetails } from '../../../core/models/alert.models';
+import { FormErrorComponent } from "../../shared/components/form-error/form-error.component";
 
 @Component({
   selector: 'app-annonces',
@@ -48,7 +49,8 @@ import { alertDetails } from '../../../core/models/alert.models';
     RouterLink,
     MapPricePipe,
     NgOptimizedImage,
-  ],
+    FormErrorComponent
+],
   templateUrl: './annonces.component.html',
   styleUrl: './annonces.component.scss',
 })

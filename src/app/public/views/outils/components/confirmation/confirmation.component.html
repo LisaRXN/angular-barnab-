@@ -1,0 +1,80 @@
+<div class="bg-zinc-50 pb-20">
+  <app-progress-bar [step]="6" />
+
+  <section class="px-5 md:px-20 max-w-screen-lg m-auto">
+    <div
+      class="grid place-items-center items-center border rounded-3xl border-zinc-300 bg-white mb-10 md:mb-20"
+    >
+      <!-- Success & Estimation -->
+      <app-success-estimation
+        *ngIf="tools === 'estimation' && successRequest && !isLoading && !overlimit"
+        [lowPrice]="lowPrice"
+        [midPrice]="midPrice"
+        [highPrice]="highPrice"
+      ></app-success-estimation>
+
+      <!-- Success & Redaction -->
+       <app-success-redaction *ngIf="tools === 'redaction' && successRequest && !isLoading"/>
+
+      <!-- Overlimit -->
+       <app-overlimit 
+       *ngIf="overlimit && !isLoading"
+       [displayTool]="displayTool"/>
+
+      <!-- Error -->
+      <app-error 
+      *ngIf="!successRequest && !overlimit && !isLoading"
+      [errorMessage]="errorMessage
+      "/>
+
+      <!-- Loading -->
+       <app-loading
+       *ngIf="isLoading"
+       [displayTool]="displayTool"
+       />
+       
+    </div>
+
+    <div class="flex items-center justify-center gap-20">
+      <a
+        routerLink="/"
+        class="flex items-center justify-center border text-myzinc border-myzinc gap-5 rounded-full px-6 py-2.5 text-lg hover-bg-myzinc-100 duration-300 transition"
+      >
+        <img src="assets/img/icon/arrow.png" class="w-5 h-auto -rotate-180" />
+        <p class="">Retour à la page d'accueil</p>
+      </a>
+    </div>
+
+    <!-- Plus d'information -->
+    <hr class="w-3/4 m-auto my-16 md:my-24 no-print" />
+    <div
+      class="w-full px-5 md:px-10 rounded-2xl mb-16 font-open text-myzinc flex flex-col gap-14 items-center justify-center no-print"
+    >
+      <div class="flex items-center justify-center gap-4">
+        <h2 class="text-2xl font-bold font-jakarta text-center">
+          Besoin de plus d'information ?
+        </h2>
+        <img src="assets/img/icon/color-coach.png" class="w-8" alt="" />
+      </div>
+
+      <p
+        class="text-lg leading-relaxed text-justify lg:w-3/4 m-auto lg:text-center"
+      >
+        Besoin de conseils personnalisés ? Réservez un rendez-vous avec un
+        conseiller : il répondra à toutes vos questions !
+      </p>
+
+      <div
+        class="flex items-center justify-center gap-4 rounded-full px-6 py-3 bg-myblue hover:bg-blue-950 transition-all transition-300"
+      >
+        <i class="fa-solid fa-phone text-white"></i>
+        <a
+          href="https://calendly.com/barnabe-immo/15min"
+          target="_blank"
+          class="text-white"
+          >Prendre rendez-vous</a
+        >
+      </div>
+    </div>
+  </section>
+</div>

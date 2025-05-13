@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OutilRedactionComponent } from './outil-redaction.component';
+import { ToolsNavigationComponent } from './tools-navigation.component';
 
-describe('OutilRedactionComponent', () => {
-  let component: OutilRedactionComponent;
-  let fixture: ComponentFixture<OutilRedactionComponent>;
+describe('ToolsNavigationComponent', () => {
+  let component: ToolsNavigationComponent;
+  let fixture: ComponentFixture<ToolsNavigationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutilRedactionComponent]
+      imports: [ToolsNavigationComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OutilRedactionComponent);
+    fixture = TestBed.createComponent(ToolsNavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

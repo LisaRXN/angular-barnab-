@@ -1,10 +1,16 @@
 <div
   [ngClass]="{
-    'h-auto rounded-3xl overflow-hidden bg-white cursor-pointer m-auto mb-10 shadow-md transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-lg':true,
+    'relative rounded-3xl h-[435px] overflow-hidden bg-white cursor-pointer m-auto mb-10 shadow-md transform transition ease-in-out hover:translate-y-[-4px] hover:shadow-lg': true,
     'w-[350px] max-w-[400px]': !smallCard,
-    'transform scale-[70%]' : smallCard
-    }"
+    'h-[385px] transform scale-[70%]': smallCard
+  }"
 >
+  <a
+    [routerLink]="['/annonces/', property.id]"
+    class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center"
+  >
+    <img src="assets/img/icon/arrow.png" class="w-5 -rotate-45" />
+  </a>
   <div #carousel class="carousel rounded-t w-full">
     <div
       *ngFor="let photo of property.media?.images"
@@ -13,14 +19,15 @@
       <img
         [id]="'photo' + property.id"
         [src]="baseUrl + photo.photo_path"
-        class="w-full object-cover"
-        [ngClass]="smallCard ? 'h-[180px]' : 'h-[230px] '"
-
-        alt=""
+        class="h-[435px] w-full object-cover"
+        [ngClass]="{'h-[385px]': smallCard}"
+        alt="Barnabé. Annonces immobilières"
       />
       <div
-        class="absolute h-[240px] inset-0 top-0 flex justify-between items-center pointer-events-none"
+        class="absolute inset-0 top-0 flex justify-between items-center pointer-events-none"
+        [ngClass]="smallCard ? 'h-[385px]': 'h-[435px]'"
       >
+      
         <button
           [ngClass]="{
             'pointer-events-auto border-none': true,
@@ -29,7 +36,7 @@
           (click)="prevSlide()"
         >
           <svg
-          class="transition-all duration-300 stroke-white"
+            class="transition-all duration-300 stroke-white"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -50,7 +57,7 @@
           (click)="nextSlide()"
         >
           <svg
-            class="transition-all stroke-white duration-300 "
+            class="transition-all stroke-white duration-300"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -60,53 +67,46 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-          <path d="M9 18l6-6-6-6" />
-        </svg>
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </button>
       </div>
     </div>
   </div>
 
-  <div class="p-5 flex flex-col items-start gap-2">
-    <p class="text-zinc-400 font-light">
-      {{ property.property_type | titlecase }}
-      <span *ngIf="property.transaction_type === 'selling'">en vente</span>
-      <span *ngIf="property.transaction_type === 'renting'">en location</span>
-    </p>
-    <p class="font-jakarta text-lg font-extrabold text-myzinc">{{ property.addressForm.city }}</p>
-    <p class="">{{ property.addressForm.zip_code }}</p>
-    <div class="flex items-center justify-start gap-2">
-      <p>{{ property.living_space }} m²</p>
-      <p>{{ property.room }} pièces</p>
-      <p *ngIf="property.floor && property.floor !== 0 ">
-        {{
-          property.floor + "e étage" 
-        }}
-      </p>
-      <p *ngIf="property.property_type !== 'maison' && property.floor == 0 ">
-        {{
-          "Rez-de-chaussée" 
-        }}
-      </p>
+  <div
+    [routerLink]="['/annonces/', property.id]"
+    class="absolute bottom-0 left-0 z-10 w-full h-[200px]"
+  >
+    <div
+      class="z-10 absolute bottom-0 w-full bg-white/70 backdrop-blur-sm h-auto text-black font-open p-5"
+    >
+      <div class="flex items-center justify-between mb-2">
+        <p class="text-zinc-600">
+          {{ property.property_type | titlecase }}
+          <!-- <span *ngIf="property.transaction_type === 'selling'">en vente</span> -->
+          <!-- <span *ngIf="property.transaction_type === 'renting'">en location</span> -->
+        </p>
+        <p
+          *ngIf="property.transaction_type === 'selling'"
+          class="text-xl font-bold"
+        >
+          {{ selling_price_number | currency : "EUR" : "symbol" : "1.0-0" }}
+        </p>
+        <p
+          *ngIf="property.transaction_type === 'renting'"
+          class="whitespace-nowrap text-xl font-bold"
+        >
+          {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }}
+          <span class="text-sm font-light text-mygrey">/ mois</span>
+        </p>
+      </div>
+      <p class="font-bold text-lg">{{ property.addressForm.city }}</p>
+      <p class="text-zinc-700">{{ property.addressForm.zip_code }}</p>
+      <div class="flex items-center justify-start gap-5 text-zinc-700">
+        <p>{{ property.living_space }} m²</p>
+        <p>{{ property.room }} pièce(s)</p>
+      </div>
     </div>
-  </div>
-  <div
-    *ngIf="property.transaction_type === 'selling'"
-    class="px-5 py-2 flex flex-col items-center justify-center bg-gradient-to-b from-blue-900 to-myblue rounded-b-xl"
-  >
-    <p class="text-lg font-bold text-white">
-      {{ sellingPrice | currency : "EUR" : "symbol" : "1.0-0" }}
-    </p>
-    <p  class="text-sm font-light text-myorange">
-      {{ surface_price | currency : "EUR" : "symbol" : "1.0-0" }} / m²
-    </p>
-  </div>
-  <div
-    *ngIf="property.transaction_type === 'renting'"
-    class="p-5 flex items-center justify-center bg-gradient-to-b from-blue-900 to-myblue rounded-b-xl"
-  >
-    <p class="text-lg font-bold text-white">
-      {{ rentingPrice | currency : "EUR" : "symbol" : "1.0-0" }} <span class="text-sm font-light text-white">/ mois</span> 
-    </p>
   </div>
 </div>

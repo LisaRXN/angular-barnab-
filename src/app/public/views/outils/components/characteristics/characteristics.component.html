@@ -1,0 +1,184 @@
+<div class="bg-zinc-50 pb-20">
+  <app-progress-bar [step]="3" />
+
+  <section class="px-5 md:px-20 max-w-screen-lg m-auto">
+    <div class="grid place-items-center items-start">
+      <form
+        [formGroup]="characteristicsForm"
+        class="w-full p-10 md:p-14 flex-1 border rounded-3xl border-zinc-300 bg-white flex flex-col gap-5 items-start justify-center font-open text-myzinc"
+      >
+        <h1 class="self-center font-jakarta text-xl font-bold mb-4">
+          Quelles sont les caractéristiques du bien ?
+        </h1>
+
+        <div
+          class="flex flex-col items-start justify-start gap-5 m-auto w-full md:w-3/4"
+        >
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Surface du bien*</p>
+            <div class="relative flex w-full">
+              <input
+                formControlName="living_space"
+                type="number"
+                min="0"
+                class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+                placeholder="70"
+              />
+              <span
+                class="z-10 absolute text-zinc-600 right-6 top-3 font-semibold text-sm"
+                >m²</span
+              >
+            </div>
+            <app-form-error
+              [control]="characteristicsForm.get('living_space')"
+            />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Surface du terrain*</p>
+            <div class="relative flex w-full">
+              <input
+                formControlName="land_area"
+                type="number"
+                min="0"
+                class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+                placeholder="70"
+              />
+              <span
+                class="z-10 absolute text-zinc-600 right-6 top-3 font-semibold text-sm"
+                >m²</span
+              >
+            </div>
+            <app-form-error [control]="characteristicsForm.get('land_area')" />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Nombre d'étages du bien</p>
+            <select
+              formControlName="total_floor"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+              placeholder="1"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+            <app-form-error
+              [control]="characteristicsForm.get('total_floor')"
+            />
+          </div>
+          <div
+            *ngIf="estateTypeForm.get('property_type')?.value === 'apartment'"
+            class="flex flex-col gap-2 items-start justify-center w-full"
+          >
+            <p>À quel étage se situe l'appartement ?</p>
+            <select
+              formControlName="floor"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            >
+              <option value="0">Plein pied</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+            <app-form-error [control]="characteristicsForm.get('floor')" />
+          </div>
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Nombre de pièces</p>
+            <select
+              formControlName="room"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="8">9</option>
+              <option value="8">10</option>
+              <option value="8">11</option>
+            </select>
+            <app-form-error [control]="characteristicsForm.get('room')" />
+          </div>
+
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Nombre de chambres</p>
+            <select
+              formControlName="bedroom"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="8">9</option>
+              <option value="8">10</option>
+              <option value="8">11</option>
+            </select>
+            <app-form-error [control]="characteristicsForm.get('bedroom')" />
+          </div>
+
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Période de construction</p>
+            <select
+              formControlName="construction_period"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            >
+              <option value="-1850">avant 1850</option>
+              <option value="1850-1913">de 1850 à 1913</option>
+              <option value="1914-1947">de 1914 à 1947</option>
+              <option value="1948-1969">de 1948 à 1969</option>
+              <option value="1970-1980">de 1970 à 1980</option>
+              <option value="1981-1991">de 1981 à 1991</option>
+              <option value="1992-2000">de 1992 à 2000</option>
+              <option value="2000-2010">de 2000 à 2010</option>
+              <option value="+2010">après 2010</option>
+              <option value="neuf">neuf</option>
+            </select>
+            <app-form-error
+              [control]="characteristicsForm.get('construction_period')"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2 items-start justify-center w-full">
+            <p>Etat général du bien</p>
+            <select
+              formControlName="general_condition"
+              type="select"
+              class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            >
+              <option value="new_or_recently_renovated">neuf ou rénové</option>
+              <option value="well_maintained">bon état</option>
+              <option value="renovation_needed">à rénover</option>
+            </select>
+            <app-form-error
+              [control]="characteristicsForm.get('general_condition')"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <app-tools-navigation [form]="characteristicsForm" [step]="3" />
+  </section>
+</div>

@@ -8,7 +8,6 @@ import {
 import {
   provideRouter,
   withViewTransitions,
-  withRouterConfig,
   withInMemoryScrolling,
 } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
@@ -25,16 +24,15 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { PropertyGateway } from './core/ports/property.gateway';
-import { InMemoryPropertyGateway } from './core/adapters/in-memory/in-memory-property.gateway';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpPropertyGateway } from './core/adapters/http/http-property.gateway';
 import { ArticleGateway } from './core/ports/article.gateway';
 import { HttpArticleGateway } from './core/adapters/http/http-article.gateway';
-import { environment } from '../environments/environment';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { AlertGateway } from './core/ports/alert.gateway';
 import { HttpAlertGateway } from './core/adapters/http/http-alert.gateway';
-import { InMemoryAlertGateway } from './core/adapters/in-memory/in-memory-alert.gateway';
+import { ToolsGateway } from './core/ports/tools.gateaway';
+import { InMemoryToolsGateway } from './core/adapters/in-memory/in-memory-tools.gateway';
+import { HttpToolsGateway } from './core/adapters/http/http-tools.gateway';
 
 
 registerLocaleData(localeFr, 'fr-FR');
@@ -66,6 +64,7 @@ export const appConfig: ApplicationConfig = {
     { provide: PropertyGateway, useFactory: () => new HttpPropertyGateway() },
     { provide: ArticleGateway, useFactory: () => new HttpArticleGateway() },
     { provide: AlertGateway, useFactory: () => new HttpAlertGateway() },
+    { provide: ToolsGateway, useFactory: () => new HttpToolsGateway() },
     provideAnimationsAsync(),
   ],
 };

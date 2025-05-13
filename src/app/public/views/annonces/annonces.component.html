@@ -1,6 +1,6 @@
 <!-- Hero -->
 <section
-  class="relative h-[calc(100vh-50px)] md:max-h-[700px] w-full flex items-center justify-center text-white"
+  class="px-5 relative h-[calc(100vh-50px)] md:max-h-[700px] w-full flex items-center justify-center text-white"
 >
   <img
     ngSrc="assets/img/photo/annonces.jpg"
@@ -13,10 +13,14 @@
 
   <div class="flex flex-col items-center justify-center gap-14 w-full">
     <div class="z-10 flex flex-col items-center">
-      <h1 class="z-10 text-4xl md:text-5xl tracking-wide font-paytone text-center max-w-[600px] mb-6">
+      <h1
+        class="z-10 text-4xl leading-tight md:text-5xl md:leading-tight tracking-wide font-paytone text-center max-w-[600px] mb-6"
+      >
         Votre futur bien, en toute simplicité
       </h1>
-      <p class="z-10 text-lg md:text-xl leading-relaxed font-open md:w-3/4 text-center">
+      <p
+        class="z-10 text-lg md:text-xl leading-relaxed font-open md:w-3/4 text-center"
+      >
         Découvrez les annonces exclusives de nos clients
       </p>
     </div>
@@ -137,7 +141,7 @@
   <!-- Filters section -->
   <div
     id="filters-section"
-    class="relative mb-5 px-8 py-5 md:py-0 text-myzinc w-full flex flex-col md:flex-row items-center gap-5 justify-between md:max-w-screen-xl m-auto"
+    class="relative mb-5 px-5 md:px-10 py-5 md:py-0 text-myzinc w-full flex flex-col md:flex-row items-center gap-5 justify-between md:max-w-screen-2xl m-auto"
   >
     <p class="flex-1">
       Découvrez
@@ -145,7 +149,7 @@
       correspondant à vos critères
     </p>
     <div
-      class="flex flex-1 flex-col w-full lg:flex-row items-center justify-center gap-2 lg:gap-6"
+      class="flex flex-1 flex-col w-full lg:flex-row items-center justify-end gap-2 lg:gap-6"
     >
       <div
         class="flex-1 lg:flex-none w-full lg:w-auto order-3 lg:order-1 border border-zinc-200 hover:bg-transparent hover:border-myzinc transition duration-300 rounded-xl flex items-center justify-center gap-4 p-3"
@@ -217,7 +221,6 @@
         <app-ad-card
           #propertyCard
           [id]="property.id"
-          [routerLink]="['/annonces/', property.id]"
           routerLinkActive="active"
           class="transform md:scale-90 lg:scale-100"
           [property]="property"
@@ -1142,6 +1145,7 @@
                 "
                 placeholder="Votre nom"
               />
+              <app-form-error [control]="alertForm.get('lastName')" />
             </div>
             <div class="w-full">
               <label class="whitespace-nowrap block mb-2">Prénom : </label>
@@ -1157,6 +1161,7 @@
                 "
                 placeholder="Votre prénom"
               />
+              <app-form-error [control]="alertForm.get('firstName')" />
             </div>
             <div class="w-full">
               <label class="whitespace-nowrap block mb-2">Téléphone : </label>
@@ -1172,6 +1177,7 @@
                 "
                 placeholder="Votre numéro de téléphone"
               />
+              <app-form-error [control]="alertForm.get('phone')" />
             </div>
             <div class="w-full">
               <label class="whitespace-nowrap block mb-2">Email : </label>
@@ -1187,12 +1193,7 @@
                 "
                 placeholder="Votre email"
               />
-              <p
-                class="error"
-                *ngIf="submitted && alertForm.get('email')?.hasError('email')"
-              >
-                L'email n'est pas valide.
-              </p>
+              <app-form-error [control]="alertForm.get('email')" />
             </div>
           </div>
         </section>

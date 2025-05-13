@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, inject, Input, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { environment } from '../../../../../../environments/environment';
 import { Property } from '../../../../../core/models/property.model';
 import { Ad } from '../../../../../core/models/ad.models';
 
 @Component({
   selector: 'app-ad-card',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './ad-card.component.html',
   styleUrl: './ad-card.component.scss'
 })
@@ -67,11 +67,6 @@ export class AdCardComponent implements AfterViewInit  {
   get rentingPrice(): number {
     return Number(this.property.rent_by_month.replace(/\s/g, ""));
   }
-
-  navigateTo() {
-    this.router.navigate([`property/${this.property.id}`]);
-  }
-
 
 }
 

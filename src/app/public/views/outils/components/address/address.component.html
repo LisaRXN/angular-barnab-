@@ -1,0 +1,95 @@
+<div class="bg-zinc-50 pb-20">
+  <app-progress-bar [step]="1" />
+
+  <section class="px-5 md:px-20 max-w-screen-2xl m-auto">
+    <div class="grid lg:grid-cols-2 gap-10 place-items-center items-start">
+      <form
+        [formGroup]="addressForm"
+        class="w-full p-10 md:p-14 flex-1 border rounded-3xl border-zinc-300 bg-white flex flex-col gap-5 items-start justify-center font-open text-myzinc"
+      >
+        <h1 class="self-center font-jakarta text-xl font-bold mb-4">
+          Quelle est l'adresse du bien ?
+        </h1>
+        <div class="flex flex-col gap-2 items-start justify-center w-full">
+          <p>Adresse du bien</p>
+          <input
+            #addresstext
+            type="location"
+            class="z-10 bg-zinc-100 rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            placeholder="2 rue du Paradis, Paris"
+          />
+        </div>
+        <div class="flex items-center justify-center gap-5 w-full">
+          <hr class="w-full border-t-1 border-mygrey3" />
+          <p>ou</p>
+          <hr class="w-full border-t-1 border-mygrey3" />
+        </div>
+        <div class="flex flex-col gap-2 items-start justify-center w-full">
+          <p>Code postal*</p>
+          <input
+            formControlName="zip_code"
+            type="location"
+            name="zip_code"
+            class="z-10 bg-zinc-100 rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            placeholder="75000"
+          />
+          <app-form-error [control]="addressForm.get('zip_code')" />
+        </div>
+        <div class="flex flex-col gap-2 items-start justify-center w-full">
+          <p>Ville*</p>
+          <input
+            formControlName="city"
+            type="text"
+            class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+            placeholder="Paris"
+          />
+          <app-form-error [control]="addressForm.get('city')" />
+        </div>
+        <div class="flex flex-col gap-2">
+          <div
+            class="grid grid-cols-[2fr_1fr] gap-x-5 place-items-center w-full"
+          >
+            <div class="flex flex-col gap-2 items-start justify-center w-full">
+              <p>Rue*</p>
+              <input
+                formControlName="street_address"
+                type="text"
+                class="z-10 bg-zinc-100 border-none rounded-md w-full p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+                placeholder="du Paradis"
+              />
+            </div>
+            <div class="flex flex-col gap-2 items-start justify-center">
+              <p>N°</p>
+              <input
+                type="number"
+                min="0"
+                class="z-10 w-full bg-zinc-100 border-none rounded-md p-2.5 focus:ring-1 focus:ring-myzinc focus:outline-none placeholder:text-zinc-400"
+                placeholder="2"
+              />
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-[2fr_1fr] gap-x-5 place-items-start w-full"
+          >
+            <app-form-error [control]="addressForm.get('street_address')" />
+            <app-form-error [control]="addressForm.get('street_number')" />
+          </div>
+        </div>
+      </form>
+      <div class="w-full h-[500px] print:h-[300px] rounded-xl overflow-hidden">
+        <google-map
+          mapId="34ea4efc38af24ec"
+          width="100%"
+          height="100%"
+          [options]="this.mapOptions"
+          [center]="mapCenter()"
+          [zoom]="zoom()"
+        >
+          <map-marker [position]="mapCenter()" />
+        </google-map>
+      </div>
+    </div>
+
+    <app-tools-navigation [form]="addressForm" [step]="1" />
+  </section>
+</div>

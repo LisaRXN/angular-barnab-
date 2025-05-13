@@ -13,7 +13,8 @@
           Vos informations personnelles
         </h1>
         <p class="text-lg self-center font-medium mb-4">
-          Plus qu’une étape pour obtenir votre estimation !
+          Plus qu’une étape pour obtenir votre
+          {{ tools === "redaction" ? "rédaction" : "estimation" }} !
         </p>
 
         <div
@@ -63,8 +64,13 @@
             <app-form-error [control]="identityForm.get('mail')" />
           </div>
           <div class="flex flex-col gap-2 items-start justify-center w-full">
-            <p *ngIf="tools==='estimation'">Pour quelle raison souhaitez - vous estimer ce bien ?</p>
-            <p *ngIf="tools==='redaction'">Pour quelle raison souhaitez - vous obtenir une rédaction automatique de ce bien ?</p>
+            <p *ngIf="tools === 'estimation'">
+              Pour quelle raison souhaitez - vous estimer ce bien ?
+            </p>
+            <p *ngIf="tools === 'redaction'">
+              Pour quelle raison souhaitez - vous obtenir une rédaction
+              automatique de ce bien ?
+            </p>
             <select
               formControlName="reason"
               type="select"
@@ -74,9 +80,15 @@
                 Choisissez la raison
               </option>
               <option value="sell">Je souhaite le vendre</option>
-              <option *ngIf="tools==='estimation'" value="buy">Je souhaite l'acheter</option>
-              <option *ngIf="tools==='estimation'" value="info">Je m'informe</option>
-              <option *ngIf="tools==='redaction'" value="info">Par curiosité</option>
+              <option *ngIf="tools === 'estimation'" value="buy">
+                Je souhaite l'acheter
+              </option>
+              <option *ngIf="tools === 'estimation'" value="info">
+                Je m'informe
+              </option>
+              <option *ngIf="tools === 'redaction'" value="info">
+                Par curiosité
+              </option>
             </select>
           </div>
           <div class="flex items-center justify-center gap-6 mt-3">
@@ -88,7 +100,10 @@
             />
             <label for="has_calm"
               >En confirmant, vous acceptez notre
-              <a href="/protection-des-donnees" target="_blank" class="underline"
+              <a
+                href="/protection-des-donnees"
+                target="_blank"
+                class="underline"
                 >politique d'utilisation des données personnelles</a
               ></label
             >
@@ -97,7 +112,6 @@
             {{ errorMessage }}
           </p>
         </div>
-
       </form>
     </div>
 

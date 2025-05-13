@@ -19,7 +19,6 @@ import { ToolsNavigationComponent } from '../tools-navigation/tools-navigation.c
   templateUrl: './characteristics.component.html',
 })
 export class CharacteristicsComponent {
-  private router = inject(Router);
   private propertyToolsService = inject(PropertyToolsService);
 
   get estateTypeForm() {
@@ -30,16 +29,5 @@ export class CharacteristicsComponent {
     return this.propertyToolsService.form.get(
       'characteristicsForm'
     ) as FormGroup;
-  }
-
-  nextStep() {
-    if (this.characteristicsForm.invalid) {
-      this.characteristicsForm.markAllAsTouched();
-      return;
-    } else {
-      this.router.navigate([
-        '/estimation-immobiliere-gratuite-en-ligne/advantages',
-      ]);
-    }
   }
 }
